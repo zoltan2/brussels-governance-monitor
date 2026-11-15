@@ -11,6 +11,8 @@ import { listUnsubscribeHeaders } from '@/lib/list-unsubscribe';
 import { collectDigestUpdates } from '@/lib/digest-updates';
 import DigestEmail, { generateDigestPlainText } from '@/emails/digest';
 import { encartSondageDigest } from '@/lib/sondage/encart-digest';
+import { getDigestEntries } from '@/lib/content';
+import { magazineUrlForSubscriber } from '@/lib/magazine/email-link';
 
 function formatWeekRange(date: Date, locale: string): string {
   const localeMap: Record<string, string> = {
@@ -94,9 +96,9 @@ export const POST = auth(async function POST(req) {
   const unsubToken = generateUnsubscribeToken(adminEmail);
   const unsubscribeUrl = `${siteUrl}/${locale}/subscribe/preferences?token=${encodeURIComponent(unsubToken)}`;
 
-  const magazineUrl = digest.magazine
-    ? `https://magazine.governance.brussels/s${weekNum}/`
-    : undefined;
+  const magazineUrl = magazineUrlForSubscriber(digest.week, locale, (lang) =>
+    Boolean(getDigestEntries(lang).find((e) => e.week === digest.week)?.magazine),
+  );
 
   const emailProps = {
     locale,

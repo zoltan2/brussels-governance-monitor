@@ -10,6 +10,8 @@ import { collectDigestUpdates, filterUpdatesForSubscriber } from '@/lib/digest-u
 import DigestEmail, { generateDigestPlainText } from '@/emails/digest';
 import { encartSondageDigest } from '@/lib/sondage/encart-digest';
 import type { Locale } from '@/i18n/routing';
+import { getDigestEntries } from '@/lib/content';
+import { magazineUrlForSubscriber } from '@/lib/magazine/email-link';
 import { isValidCronAuth } from '@/lib/cron-auth';
 
 const SUPPORTED_DIGEST_LOCALES: Locale[] = ['fr', 'nl', 'en', 'de'];
@@ -132,6 +134,10 @@ export async function GET(request: Request) {
   const emailPayloads: any[] = [];
   const createdAt = new Date(digest.created_at);
 
+  // Éditions du magazine parues cette semaine : lues dans les digests publiés.
+  const hasMagazineBlock = (lang: string) =>
+    Boolean(getDigestEntries(lang).find((e) => e.week === digest.week)?.magazine);
+
   for (const contact of contacts) {
     const locale = SUPPORTED_DIGEST_LOCALES.includes(contact.locale as Locale)
       ? (contact.locale as Locale)
@@ -156,10 +162,7 @@ export async function GET(request: Request) {
       de: `Wöchentliche Zusammenfassung — ${weekOf}`,
     };
 
-    const weekNumStr = digest.week.split('-w')[1];
-    const magazineUrl = digest.magazine
-      ? `https://magazine.governance.brussels/s${weekNumStr}/`
-      : undefined;
+    const magazineUrl = magazineUrlForSubscriber(digest.week, locale, hasMagazineBlock);
 
     const emailProps = {
       locale,

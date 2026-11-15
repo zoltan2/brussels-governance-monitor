@@ -51,6 +51,8 @@ a{color:inherit}
 .toc-rank{font-family:var(--mono);color:var(--muted)}
 .toc-short{font-family:var(--sans);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block}
 .toc-stat{font-family:var(--display);font-size:1.5rem;white-space:nowrap}
+.toc-stat small{display:none}
+.site-nav li,.brand{white-space:nowrap}
 .story .inner{display:grid;grid-template-columns:minmax(0,1fr);gap:2rem}
 @media(min-width:900px){.story .inner{grid-template-columns:minmax(0,1.4fr) minmax(16rem,.8fr);gap:3rem}}
 .story h2{font-family:var(--display);font-size:clamp(1.75rem,3.6vw,2.75rem);line-height:1.12;margin:0 0 .75rem;max-width:22ch}
@@ -113,7 +115,7 @@ a{color:inherit}
 .cover-issue .dot{width:.55rem;height:.55rem;border-radius:50%;background:var(--accent);display:inline-block;box-shadow:0 0 0 .35rem rgba(180,83,9,.25)}
 .cover .cover-meta{margin:0 0 1.5rem}
 .cover-side .cover-numbers{grid-template-columns:1fr;gap:1rem;margin:0}
-.cover-side .cover-number{border-top:0;border-left:3px solid var(--accent);padding:.9rem 0 .9rem 1.1rem;background:rgba(255,255,255,.05);border-radius:0 .5rem .5rem 0}
+.cover-side .cover-number{border-top:0;border-left:3px solid var(--accent);padding:.9rem 1.1rem .9rem 1.1rem;background:rgba(255,255,255,.05);border-radius:0 .5rem .5rem 0}
 .cover-side .cover-number .n{font-size:clamp(2rem,3.4vw,2.75rem)}
 .cover-watermark{position:absolute;right:-1rem;bottom:-3rem;font-family:var(--display);font-weight:700;font-size:clamp(14rem,34vw,30rem);line-height:1;color:rgba(255,255,255,.04);pointer-events:none;user-select:none}
 /* Feuilles : blanc, teinte ardoise, bleu foncé, en alternance ; numéro en filigrane. */
@@ -138,6 +140,7 @@ a{color:inherit}
 .card-contact a:hover,.card-contact a:focus-visible{text-decoration:underline}
 .a-lundi{font-family:var(--display);font-style:italic;font-size:1.5rem;margin:.5rem 0 1.25rem}
 .closing .footerline{color:var(--muted);border-color:var(--line)}
-@media(max-width:760px){.toc-link{grid-template-columns:2.25rem 1fr}.toc-stat{grid-column:2;font-size:1.25rem}.site-nav ul{gap:.75rem}}
+@media(max-width:760px){.toc-link{grid-template-columns:2.25rem 1fr}.toc-stat{grid-column:2;font-size:1.25rem;white-space:normal}.toc-stat small{display:block;font-family:var(--sans);font-size:.8125rem;line-height:1.4;color:var(--muted)}.site-nav ul{gap:.75rem}}
+@media(max-width:520px){.brand-long{display:none}.site-nav{font-size:.8125rem;gap:.5rem}}
 @media print{.site-nav,.skip,.story-foot,.actions{display:none}.sheet{break-inside:avoid;border:0;padding:1.5rem 0}.sheet.dark{background:#fff;color:#000}.print-url::after{content:" (" attr(href) ")";font-size:.8em}}
 `;

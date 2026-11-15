@@ -88,6 +88,18 @@ describe('renderMagazineV2', () => {
     expect(cover).not.toContain('40 %');
   });
 
+  // Revue du s46 sur téléphone (15/11/2026) : en-tête sur deux lignes, libellé
+  // collé au bord de la tuile, chiffre du sommaire sans son libellé.
+  it('téléphone : en-tête raccourci, tuile avec marge droite, chiffre du sommaire libellé', () => {
+    expect(html).toContain('<span class="brand-long">Le magazine · </span>');
+    expect(html).toMatch(/@media\(max-width:520px\)\{\.brand-long\{display:none\}/);
+    expect(html).toContain('.site-nav li,.brand{white-space:nowrap}');
+    expect(html).toMatch(/\.cover-side \.cover-number\{[^}]*padding:\.9rem 1\.1rem \.9rem 1\.1rem/);
+    const toc = html.slice(html.indexOf('class="toc-list"'), html.indexOf('id="sujet-01-'));
+    expect(toc.match(/<span class="toc-stat">[^<]+<small> [^<]+<\/small><\/span>/g)).toHaveLength(draft().magazine!.items.length);
+    expect(html).toContain('.toc-stat small{display:none}');
+  });
+
   it('rend pour chaque sujet le chapeau, la nuance titrée et les repères', () => {
     expect(html).toContain('Chapeau du sujet 4');
     expect(html).toContain('<h3 class="nuance-title">La nuance du sujet 4</h3>');

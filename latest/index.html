@@ -61,6 +61,8 @@ a{color:inherit}
 .toc-rank{font-family:var(--mono);color:var(--muted)}
 .toc-short{font-family:var(--sans);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block}
 .toc-stat{font-family:var(--display);font-size:1.5rem;white-space:nowrap}
+.toc-stat small{display:none}
+.site-nav li,.brand{white-space:nowrap}
 .story .inner{display:grid;grid-template-columns:minmax(0,1fr);gap:2rem}
 @media(min-width:900px){.story .inner{grid-template-columns:minmax(0,1.4fr) minmax(16rem,.8fr);gap:3rem}}
 .story h2{font-family:var(--display);font-size:clamp(1.75rem,3.6vw,2.75rem);line-height:1.12;margin:0 0 .75rem;max-width:22ch}
@@ -123,7 +125,7 @@ a{color:inherit}
 .cover-issue .dot{width:.55rem;height:.55rem;border-radius:50%;background:var(--accent);display:inline-block;box-shadow:0 0 0 .35rem rgba(180,83,9,.25)}
 .cover .cover-meta{margin:0 0 1.5rem}
 .cover-side .cover-numbers{grid-template-columns:1fr;gap:1rem;margin:0}
-.cover-side .cover-number{border-top:0;border-left:3px solid var(--accent);padding:.9rem 0 .9rem 1.1rem;background:rgba(255,255,255,.05);border-radius:0 .5rem .5rem 0}
+.cover-side .cover-number{border-top:0;border-left:3px solid var(--accent);padding:.9rem 1.1rem .9rem 1.1rem;background:rgba(255,255,255,.05);border-radius:0 .5rem .5rem 0}
 .cover-side .cover-number .n{font-size:clamp(2rem,3.4vw,2.75rem)}
 .cover-watermark{position:absolute;right:-1rem;bottom:-3rem;font-family:var(--display);font-weight:700;font-size:clamp(14rem,34vw,30rem);line-height:1;color:rgba(255,255,255,.04);pointer-events:none;user-select:none}
 /* Feuilles : blanc, teinte ardoise, bleu foncé, en alternance ; numéro en filigrane. */
@@ -148,7 +150,8 @@ a{color:inherit}
 .card-contact a:hover,.card-contact a:focus-visible{text-decoration:underline}
 .a-lundi{font-family:var(--display);font-style:italic;font-size:1.5rem;margin:.5rem 0 1.25rem}
 .closing .footerline{color:var(--muted);border-color:var(--line)}
-@media(max-width:760px){.toc-link{grid-template-columns:2.25rem 1fr}.toc-stat{grid-column:2;font-size:1.25rem}.site-nav ul{gap:.75rem}}
+@media(max-width:760px){.toc-link{grid-template-columns:2.25rem 1fr}.toc-stat{grid-column:2;font-size:1.25rem;white-space:normal}.toc-stat small{display:block;font-family:var(--sans);font-size:.8125rem;line-height:1.4;color:var(--muted)}.site-nav ul{gap:.75rem}}
+@media(max-width:520px){.brand-long{display:none}.site-nav{font-size:.8125rem;gap:.5rem}}
 @media print{.site-nav,.skip,.story-foot,.actions{display:none}.sheet{break-inside:avoid;border:0;padding:1.5rem 0}.sheet.dark{background:#fff;color:#000}.print-url::after{content:" (" attr(href) ")";font-size:.8em}}
 </style>
 <link rel="preconnect" href="https://analytics.governance.brussels" />
@@ -157,7 +160,7 @@ a{color:inherit}
 <body>
 <a class="skip" href="#sommaire">Aller au sommaire</a>
 <header class="site-nav">
-<a class="brand" href="https://governance.brussels/fr"><strong>BGM</strong><span>Le magazine · S46</span></a>
+<a class="brand" href="https://governance.brussels/fr"><strong>BGM</strong><span><span class="brand-long">Le magazine · </span>S46</span></a>
 <nav aria-label="Navigation du magazine"><ul>
 <li><a href="#sommaire">Sommaire</a></li>
 <li><a href="#comment-lire">Comment lire</a></li>
@@ -191,12 +194,12 @@ a{color:inherit}
 <h2 id="sommaire-titre">Choisissez votre point d’entrée</h2>
 <p class="muted">Chaque sujet tient en une page et vous mène à sa fiche sur governance.brussels.</p>
 <ol class="toc-list">
-<li><a class="toc-link" href="#sujet-01-vegetation"><span class="toc-rank">01</span><span><span class="toc-short">Végétation</span><span class="toc-title">Moins de la moitié de Bruxelles est couverte de végétation.</span></span><span class="toc-stat">48,7 %</span></a></li>
-<li><a class="toc-link" href="#sujet-02-comptes-2025"><span class="toc-rank">02</span><span><span class="toc-short">Comptes 2025</span><span class="toc-title">La Cour des comptes rejette le compte de la Région, pour la deuxième année.</span></span><span class="toc-stat">17,7</span></a></li>
-<li><a class="toc-link" href="#sujet-03-survol"><span class="toc-rank">03</span><span><span class="toc-short">Survol</span><span class="toc-title">Route aérienne RNP 07L : sept communes vont au Conseil d&#39;État.</span></span><span class="toc-stat">7</span></a></li>
-<li><a class="toc-link" href="#sujet-04-velos-partages"><span class="toc-rank">04</span><span><span class="toc-short">Vélos partagés</span><span class="toc-title">Vélos partagés : 2 500 par opérateur jusqu&#39;en mai 2028.</span></span><span class="toc-stat">2 500</span></a></li>
-<li><a class="toc-link" href="#sujet-05-accueil-d-urgence"><span class="toc-rank">05</span><span><span class="toc-short">Accueil d&#39;urgence</span><span class="toc-title">Brussels Deal : 1 000 personnes de plus à la rue, selon le ministre.</span></span><span class="toc-stat">1 000</span></a></li>
-<li><a class="toc-link" href="#sujet-06-one"><span class="toc-rank">06</span><span><span class="toc-short">ONE</span><span class="toc-title">ONE : un membre écarté, une procédure forensique lancée.</span></span><span class="toc-stat">3</span></a></li>
+<li><a class="toc-link" href="#sujet-01-vegetation"><span class="toc-rank">01</span><span><span class="toc-short">Végétation</span><span class="toc-title">Moins de la moitié de Bruxelles est couverte de végétation.</span></span><span class="toc-stat">48,7 %<small> du territoire régional couvert par la végétation en 2023</small></span></a></li>
+<li><a class="toc-link" href="#sujet-02-comptes-2025"><span class="toc-rank">02</span><span><span class="toc-short">Comptes 2025</span><span class="toc-title">La Cour des comptes rejette le compte de la Région, pour la deuxième année.</span></span><span class="toc-stat">17,7<small> milliards d&#39;euros de dette brute consolidée fin 2025</small></span></a></li>
+<li><a class="toc-link" href="#sujet-03-survol"><span class="toc-rank">03</span><span><span class="toc-short">Survol</span><span class="toc-title">Route aérienne RNP 07L : sept communes vont au Conseil d&#39;État.</span></span><span class="toc-stat">7<small> communes engagées dans un recours contre la route RNP 07L</small></span></a></li>
+<li><a class="toc-link" href="#sujet-04-velos-partages"><span class="toc-rank">04</span><span><span class="toc-short">Vélos partagés</span><span class="toc-title">Vélos partagés : 2 500 par opérateur jusqu&#39;en mai 2028.</span></span><span class="toc-stat">2 500<small> vélos partagés au plus par opérateur jusqu&#39;au 1er mai 2028</small></span></a></li>
+<li><a class="toc-link" href="#sujet-05-accueil-d-urgence"><span class="toc-rank">05</span><span><span class="toc-short">Accueil d&#39;urgence</span><span class="toc-title">Brussels Deal : 1 000 personnes de plus à la rue, selon le ministre.</span></span><span class="toc-stat">1 000<small> personnes de plus à la rue selon le ministre bruxellois de la Santé</small></span></a></li>
+<li><a class="toc-link" href="#sujet-06-one"><span class="toc-rank">06</span><span><span class="toc-short">ONE</span><span class="toc-title">ONE : un membre écarté, une procédure forensique lancée.</span></span><span class="toc-stat">3<small> mesures prises à l&#39;ONE par la Fédération Wallonie-Bruxelles</small></span></a></li>
 </ol>
 </div>
 </section>

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-15T11:20:20.678Z",
+  "generatedAt": "2026-11-16T11:10:08.893Z",
   "locale": "en",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -54,21 +54,21 @@
       "id": "domain-cleanliness-0",
       "source": "domain",
       "domain": "Cleanliness",
-      "question": "According to BRUZZ, La DH and L'Avenir (29 October 2026), at what price is the municipality of Saint-Josse-ten-Noode selling its container park on rue de la Cible to the Bruxelles-Propreté agency?",
+      "question": "How many sorting spaces in public space does the regional reform of waste collection plan, according to the answer given by the Secretary of State for Public Cleanliness in the plenary session of 13 November 2026 (BruxellesToday, 15 November 2026)?",
       "options": [
-        "700,000 euros",
-        "682,000 euros",
-        "500,000 euros",
-        "950,000 euros"
+        "60 sorting spaces",
+        "120 sorting spaces",
+        "16 sorting spaces",
+        "19 sorting spaces"
       ],
       "correct": 0,
-      "explanation": "The price of 700,000 euros exceeds the estimated market value of 682,000 euros. Closed in 2025, the site would become a regional Recypark open to all Brussels residents.",
+      "explanation": "The Secretary of State cited 60 sorting spaces in public space, and 16 of the 19 municipalities have submitted a first proposal. The September 2026 presentation mentioned 120 sorting spaces, without specifying the scope.",
       "sourceSlug": "/en/domains/cleanliness",
       "sourceTitle": "Cleanliness: regional brigades and immediate fine collection",
       "provenance": {
-        "sourceLastModified": "2026-10-29",
-        "sourceContentHash": "sha256:f94a35783d6404569d177cb4ef6d3cc7",
-        "generatedAt": "2026-10-29T21:15:28.721Z",
+        "sourceLastModified": "2026-11-16",
+        "sourceContentHash": "sha256:7ff68df978ddcaced7b4fe45e6558d7d",
+        "generatedAt": "2026-11-16T11:10:08.893Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -77,21 +77,21 @@
       "id": "domain-cleanliness-1",
       "source": "domain",
       "domain": "Cleanliness",
-      "question": "According to La DH (27 October 2026), what does the “fini-fini” system applied to Bruxelles-Propreté's door-to-door collection teams allow?",
+      "question": "How is access to the sorting spaces of the Brussels waste collection reform planned, according to BruxellesToday (15 November 2026)?",
       "options": [
-        "Finishing the day's collection without returning to the depot between two loads",
-        "Taking as leave the catch-up rounds carried out after a strike",
-        "Ending the round only after a cleanliness check of the streets served",
-        "Ending the working day once two thirds of the sector's lorries are back at the depot"
+        "Free access at first, with a badge added if problems arise",
+        "Paid badge access for every household from the start",
+        "Free access, but waste is weighed and charged per kilo",
+        "Access only for shopkeepers holding a municipal exemption"
       ],
-      "correct": 3,
-      "explanation": "The system is under evaluation, with no deadline set. Two options are being studied, including scrapping it in exchange for a reduction in working time.",
+      "correct": 0,
+      "explanation": "The specifications allow a badge to be added if management becomes difficult; use remains free and waste is not weighed. Place Jourdan in Etterbeek is already testing badge access.",
       "sourceSlug": "/en/domains/cleanliness",
       "sourceTitle": "Cleanliness: regional brigades and immediate fine collection",
       "provenance": {
-        "sourceLastModified": "2026-10-29",
-        "sourceContentHash": "sha256:f94a35783d6404569d177cb4ef6d3cc7",
-        "generatedAt": "2026-10-29T21:15:28.721Z",
+        "sourceLastModified": "2026-11-16",
+        "sourceContentHash": "sha256:7ff68df978ddcaced7b4fe45e6558d7d",
+        "generatedAt": "2026-11-16T11:10:08.893Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -192,21 +192,21 @@
       "id": "domain-economy-0",
       "source": "domain",
       "domain": "Economy",
-      "question": "From 19 November 2026, which Innoviris scheme can Brussels businesses apply to again, according to La DH of 14 November 2026?",
+      "question": "Which body will the Brussels government consult on the preliminary draft ordinance on regulatory sandboxes, according to a Belga dispatch in La DH (16 November 2026)?",
       "options": [
-        "The “Oxygen Brussels” plan",
-        "The “R&D Booster” funding desk",
-        "The Brucefo expertise centre",
-        "The regional hub.info portal"
+        "Brupartners",
+        "Innoviris",
+        "hub.brussels",
+        "perspective.brussels"
       ],
-      "correct": 1,
-      "explanation": "According to La DH, Innoviris is reopening its “R&D Booster” desk, closed in March 2026, with an announced budget of 16 million euros for 2027. No Innoviris statement confirmed this at that date.",
+      "correct": 0,
+      "explanation": "The preliminary draft will go to Brupartners, the Region's economic and social council, then back to the government before being tabled in Parliament by autumn 2027 at the latest.",
       "sourceSlug": "/en/domains/economy",
       "sourceTitle": "Economy: Urban Free Zone (Port + Audi Forest), AI capital",
       "provenance": {
-        "sourceLastModified": "2026-11-14",
-        "sourceContentHash": "sha256:048a3b34217b41a9d765507a82109331",
-        "generatedAt": "2026-11-15T11:20:20.678Z",
+        "sourceLastModified": "2026-11-16",
+        "sourceContentHash": "sha256:da7abacf7dc466e3c323eb0c3d0c21bb",
+        "generatedAt": "2026-11-16T11:10:08.893Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -215,21 +215,21 @@
       "id": "domain-economy-1",
       "source": "domain",
       "domain": "Economy",
-      "question": "According to Statbel (19 October 2026), what do business relocations between Brussels and Flanders show for 2025?",
+      "question": "What does the Brussels ordinance being prepared on regulatory sandboxes provide for someone with an innovative project, according to La DH (16 November 2026)?",
       "options": [
-        "1,263 departures from Brussels against 1,687 arrivals",
-        "1,139 departures from Brussels against 804 arrivals",
-        "1,687 departures from Brussels against 1,263 arrivals",
-        "804 departures from Brussels against 1,139 arrivals"
+        "A single contact point that brings the administrations concerned together",
+        "An automatic exemption from permits for the first three years",
+        "An Innoviris grant paid to every project accepted for testing",
+        "A separate desk in each of the 19 Brussels municipalities"
       ],
-      "correct": 2,
-      "explanation": "In 2025, 1,687 Brussels businesses moved to Flanders and 1,263 Flemish businesses moved the other way. With Wallonia too, Brussels counts more departures than arrivals.",
+      "correct": 0,
+      "explanation": "The contact point will receive the request, identify the rules that stand in the way and bring the administrations together, liaising where needed with the federal government or the other Regions.",
       "sourceSlug": "/en/domains/economy",
       "sourceTitle": "Economy: Urban Free Zone (Port + Audi Forest), AI capital",
       "provenance": {
-        "sourceLastModified": "2026-11-14",
-        "sourceContentHash": "sha256:048a3b34217b41a9d765507a82109331",
-        "generatedAt": "2026-11-15T11:20:20.678Z",
+        "sourceLastModified": "2026-11-16",
+        "sourceContentHash": "sha256:da7abacf7dc466e3c323eb0c3d0c21bb",
+        "generatedAt": "2026-11-16T11:10:08.893Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -330,21 +330,21 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Housing",
-      "question": "According to Beliris (4 November 2026), how many social homes are in the complex completed on Rue des Potiers, Rue de la Verdure and Rue de Soignies, near Place Anneessens in the City of Brussels?",
+      "question": "How many of the 1,115 reminders sent by the regional housing inspectorate to landlords of homes under a rental ban issued between 2020 and 2024 went unanswered, according to BRUZZ (15 November 2026)?",
       "options": [
-        "66",
-        "48",
-        "84",
-        "120"
+        "598",
+        "517",
+        "170",
+        "49"
       ],
       "correct": 0,
-      "explanation": "The 66 homes replace a 1955 tower that had 62, including 24 studios without their own bathroom. The SLRB and Le Logement bruxellois are preparing the letting, with the first tenants expected in early 2027.",
+      "explanation": "598 reminders went unanswered: it is unclear whether these homes are being let. Of the 517 replies, most owners said they now live in the home themselves.",
       "sourceSlug": "/en/domains/housing",
       "sourceTitle": "Housing: 62,234 households waiting, the SLRB awaits its 131 million",
       "provenance": {
-        "sourceLastModified": "2026-11-05",
-        "sourceContentHash": "sha256:79ea7b3a44c1eea8668cf3fca9f84252",
-        "generatedAt": "2026-11-05T15:32:08.132Z",
+        "sourceLastModified": "2026-11-16",
+        "sourceContentHash": "sha256:8a951b1bd14671aee37f337c876d7ae4",
+        "generatedAt": "2026-11-16T11:10:08.893Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -353,21 +353,21 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Housing",
-      "question": "Since the Brussels ordinance of 22 June 2023, between which dates may no rental eviction in principle be carried out in the 19 municipalities?",
+      "question": "Under the Brussels Housing Code, what must the landlord of a home under a rental ban obtain before letting it again?",
       "options": [
-        "From 1 November to 15 March",
-        "From 1 December to 28 February",
-        "From 15 October to 31 March",
-        "From 1 November to 31 January"
+        "A certificate of conformity",
+        "An EPB certificate of class C or better",
+        "A letting permit issued by the municipality",
+        "A favourable opinion from the municipal CPAS"
       ],
       "correct": 0,
-      "explanation": "The ordinance of 22 June 2023 extended the winter moratorium to all housing, and the Constitutional Court upheld it in 2025. For winter 2026-2027, it runs from 1 November 2026 to 15 March 2027.",
+      "explanation": "A rental ban applies to a home that does not meet the safety and health requirements; it may only be let again with a certificate of conformity.",
       "sourceSlug": "/en/domains/housing",
       "sourceTitle": "Housing: 62,234 households waiting, the SLRB awaits its 131 million",
       "provenance": {
-        "sourceLastModified": "2026-11-05",
-        "sourceContentHash": "sha256:79ea7b3a44c1eea8668cf3fca9f84252",
-        "generatedAt": "2026-11-05T15:32:08.132Z",
+        "sourceLastModified": "2026-11-16",
+        "sourceContentHash": "sha256:8a951b1bd14671aee37f337c876d7ae4",
+        "generatedAt": "2026-11-16T11:10:08.893Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1614,6 +1614,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 70
+  ]
 }

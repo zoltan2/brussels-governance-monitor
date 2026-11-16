@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-15T11:20:21.308Z",
+  "generatedAt": "2026-11-16T11:10:09.201Z",
   "locale": "de",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -54,21 +54,21 @@
       "id": "domain-cleanliness-0",
       "source": "domain",
       "domain": "Sauberkeit",
-      "question": "Zu welchem Preis tritt die Gemeinde Saint-Josse-ten-Noode laut BRUZZ, La DH und L'Avenir (29. Oktober 2026) ihren Containerpark in der Rue de la Cible an die Agentur Bruxelles-Propreté ab?",
+      "question": "Wie viele Sortierräume im öffentlichen Raum sieht die regionale Reform der Müllabfuhr vor, laut der Antwort der Staatssekretärin für öffentliche Sauberkeit in der Plenarsitzung vom 13.11.2026 (BruxellesToday, 15.11.2026)?",
       "options": [
-        "700.000 Euro",
-        "682.000 Euro",
-        "500.000 Euro",
-        "950.000 Euro"
+        "60 Sortierräume",
+        "120 Sortierräume",
+        "16 Sortierräume",
+        "19 Sortierräume"
       ],
       "correct": 0,
-      "explanation": "Der Preis von 700.000 Euro liegt über dem auf 682.000 Euro geschätzten Verkehrswert. Der 2025 geschlossene Standort soll ein regionaler Recypark werden, der allen Brüsselern offensteht.",
+      "explanation": "Die Staatssekretärin nannte 60 Sortierräume im öffentlichen Raum, und 16 der 19 Gemeinden haben einen ersten Vorschlag eingereicht. Bei der Vorstellung im September 2026 war von 120 Sortierräumen die Rede, ohne Angabe des Umfangs.",
       "sourceSlug": "/de/bereiche/cleanliness",
       "sourceTitle": "Sauberkeit: Regionalbrigaden und sofortige Bußgelderhebung",
       "provenance": {
-        "sourceLastModified": "2026-10-29",
-        "sourceContentHash": "sha256:f9a511216c2937e50f4c4270bf22257b",
-        "generatedAt": "2026-10-29T21:16:53.503Z",
+        "sourceLastModified": "2026-11-16",
+        "sourceContentHash": "sha256:b95006fc94b5c7bd9b708dc140feae0b",
+        "generatedAt": "2026-11-16T11:10:09.201Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -77,21 +77,21 @@
       "id": "domain-cleanliness-1",
       "source": "domain",
       "domain": "Sauberkeit",
-      "question": "Was ermöglicht laut La DH (27. Oktober 2026) das « fini-fini »-System, das für die Teams der Haus-zu-Haus-Sammlung von Bruxelles-Propreté gilt?",
+      "question": "Wie ist der Zugang zu den Sortierräumen der Brüsseler Reform der Müllabfuhr laut BruxellesToday (15.11.2026) vorgesehen?",
       "options": [
-        "Die Tagessammlung beenden, ohne zwischen zwei Ladungen ins Depot zurückzukehren",
-        "Nach einem Streik geleistete Nachholtouren als Urlaubstage zurückerhalten",
-        "Die Tour erst nach einer Sauberkeitskontrolle der bedienten Straßen beenden",
-        "Den Arbeitstag beenden, sobald zwei Drittel der Lastwagen des Sektors im Depot sind"
+        "Zunächst frei, ein Badge kann bei Problemen hinzukommen",
+        "Mit kostenpflichtigem Badge für jeden Haushalt ab dem Start",
+        "Frei, aber die Abfälle werden gewogen und pro Kilo berechnet",
+        "Nur für Geschäftsleute mit kommunaler Ausnahmegenehmigung"
       ],
-      "correct": 3,
-      "explanation": "Das System wird bewertet, ohne feste Frist. Zwei Wege werden geprüft, darunter seine Abschaffung im Gegenzug für eine Verkürzung der Arbeitszeit.",
+      "correct": 0,
+      "explanation": "Das Lastenheft erlaubt einen Badge, wenn die Verwaltung schwierig wird; die Nutzung bleibt kostenlos, die Abfälle werden nicht gewogen. Der Place Jourdan in Etterbeek testet bereits einen Zugang per Badge.",
       "sourceSlug": "/de/bereiche/cleanliness",
       "sourceTitle": "Sauberkeit: Regionalbrigaden und sofortige Bußgelderhebung",
       "provenance": {
-        "sourceLastModified": "2026-10-29",
-        "sourceContentHash": "sha256:f9a511216c2937e50f4c4270bf22257b",
-        "generatedAt": "2026-10-29T21:16:53.503Z",
+        "sourceLastModified": "2026-11-16",
+        "sourceContentHash": "sha256:b95006fc94b5c7bd9b708dc140feae0b",
+        "generatedAt": "2026-11-16T11:10:09.201Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -192,21 +192,21 @@
       "id": "domain-economy-0",
       "source": "domain",
       "domain": "Wirtschaft",
-      "question": "Welche Regelung von Innoviris können Brüsseler Unternehmen ab dem 19.11.2026 wieder beantragen, laut La DH vom 14.11.2026?",
+      "question": "Welches Gremium wird die Brüsseler Regierung zum Vorentwurf der Ordonnanz über regulatorische Experimentierräume konsultieren, laut einer Belga-Meldung in La DH (16.11.2026)?",
       "options": [
-        "Den Plan „Oxygen Brussels“",
-        "Den Förderschalter „R&D Booster“",
-        "Das Kompetenzzentrum Brucefo",
-        "Das regionale Portal hub.info"
+        "Brupartners",
+        "Innoviris",
+        "hub.brussels",
+        "perspective.brussels"
       ],
-      "correct": 1,
-      "explanation": "Laut La DH öffnet Innoviris seinen im März 2026 geschlossenen Förderschalter „R&D Booster“ wieder, mit einem angekündigten Budget von 16 Millionen Euro für 2027. Eine Mitteilung von Innoviris bestätigte dies zu diesem Zeitpunkt nicht.",
+      "correct": 0,
+      "explanation": "Der Vorentwurf geht an Brupartners, den Wirtschafts- und Sozialrat der Region, kehrt dann zur Regierung zurück und wird spätestens im Herbst 2027 im Parlament eingereicht.",
       "sourceSlug": "/de/bereiche/economy",
       "sourceTitle": "Wirtschaft: Städtische Freizone (Hafen + Audi Forest), KI-Hauptstadt",
       "provenance": {
-        "sourceLastModified": "2026-11-14",
-        "sourceContentHash": "sha256:d0e7869198db125972a7698ebf200071",
-        "generatedAt": "2026-11-15T11:20:21.308Z",
+        "sourceLastModified": "2026-11-16",
+        "sourceContentHash": "sha256:cf4b9063260ca9458d72d51fe39e7682",
+        "generatedAt": "2026-11-16T11:10:09.201Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -215,21 +215,21 @@
       "id": "domain-economy-1",
       "source": "domain",
       "domain": "Wirtschaft",
-      "question": "Was zeigen laut Statbel (19.10.2026) die Umzüge von Unternehmen zwischen Brüssel und Flandern im Jahr 2025?",
+      "question": "Was sieht die geplante Brüsseler Ordonnanz über regulatorische Experimentierräume für den Träger eines innovativen Projekts vor, laut La DH (16.11.2026)?",
       "options": [
-        "1.263 Wegzüge aus Brüssel gegenüber 1.687 Zuzügen",
-        "1.139 Wegzüge aus Brüssel gegenüber 804 Zuzügen",
-        "1.687 Wegzüge aus Brüssel gegenüber 1.263 Zuzügen",
-        "804 Wegzüge aus Brüssel gegenüber 1.139 Zuzügen"
+        "Eine zentrale Anlaufstelle, die die betroffenen Verwaltungen zusammenbringt",
+        "Eine automatische Befreiung von Genehmigungen in den ersten drei Jahren",
+        "Einen Zuschuss von Innoviris für jedes zum Test zugelassene Projekt",
+        "Einen eigenen Schalter in jeder der 19 Brüsseler Gemeinden"
       ],
-      "correct": 2,
-      "explanation": "2025 zogen 1.687 Brüsseler Unternehmen nach Flandern und 1.263 flämische Unternehmen in die Gegenrichtung. Auch gegenüber Wallonien zählt Brüssel mehr Wegzüge als Zuzüge.",
+      "correct": 0,
+      "explanation": "Die Anlaufstelle nimmt den Antrag entgegen, ermittelt die hinderlichen Regeln und bringt die Verwaltungen zusammen, bei Bedarf mit dem Föderalstaat oder den anderen Regionen.",
       "sourceSlug": "/de/bereiche/economy",
       "sourceTitle": "Wirtschaft: Städtische Freizone (Hafen + Audi Forest), KI-Hauptstadt",
       "provenance": {
-        "sourceLastModified": "2026-11-14",
-        "sourceContentHash": "sha256:d0e7869198db125972a7698ebf200071",
-        "generatedAt": "2026-11-15T11:20:21.308Z",
+        "sourceLastModified": "2026-11-16",
+        "sourceContentHash": "sha256:cf4b9063260ca9458d72d51fe39e7682",
+        "generatedAt": "2026-11-16T11:10:09.201Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -330,21 +330,21 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Wohnen",
-      "question": "Wie viele Sozialwohnungen umfasst laut Beliris (4.11.2026) der fertiggestellte Komplex in der Rue des Potiers, der Rue de la Verdure und der Rue de Soignies am Anneessens-Platz in Brüssel-Stadt?",
+      "question": "Wie viele der 1.115 Erinnerungen der regionalen Wohnungsinspektion an Vermieter von Wohnungen mit einem zwischen 2020 und 2024 verhängten Vermietungsverbot blieben laut BRUZZ (15.11.2026) unbeantwortet?",
       "options": [
-        "66",
-        "48",
-        "84",
-        "120"
+        "598",
+        "517",
+        "170",
+        "49"
       ],
       "correct": 0,
-      "explanation": "Die 66 Wohnungen ersetzen einen Turm von 1955 mit 62 Wohnungen, darunter 24 Studios ohne eigenes Bad. Die SLRB und Le Logement bruxellois bereiten die Vermietung vor; die ersten Mieter werden Anfang 2027 erwartet.",
+      "explanation": "598 Erinnerungen blieben unbeantwortet: Ob diese Wohnungen vermietet werden, ist unklar. Von den 517 Antworten gaben die meisten Eigentümer an, die Wohnung selbst zu bewohnen.",
       "sourceSlug": "/de/bereiche/housing",
       "sourceTitle": "Wohnungswesen: 62.234 Haushalte auf der Warteliste, die SLRB erwartet ihre 131 Millionen",
       "provenance": {
-        "sourceLastModified": "2026-11-05",
-        "sourceContentHash": "sha256:be65c0d104cd0bd4f675c8cf83cc34eb",
-        "generatedAt": "2026-11-05T15:32:08.392Z",
+        "sourceLastModified": "2026-11-16",
+        "sourceContentHash": "sha256:9bac40f7865cd5fab091e9c256b3ad41",
+        "generatedAt": "2026-11-16T11:10:09.201Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -353,21 +353,21 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Wohnen",
-      "question": "Zwischen welchen Daten darf seit der Brüsseler Ordonnanz vom 22. Juni 2023 in den 19 Gemeinden grundsätzlich keine Räumung einer Mietwohnung vollstreckt werden?",
+      "question": "Was muss der Vermieter einer Wohnung mit Vermietungsverbot nach dem Brüsseler Wohnungsgesetzbuch erhalten, um sie wieder vermieten zu dürfen?",
       "options": [
-        "Vom 1. November bis 15. März",
-        "Vom 1. Dezember bis 28. Februar",
-        "Vom 15. Oktober bis 31. März",
-        "Vom 1. November bis 31. Januar"
+        "Eine Konformitätsbescheinigung",
+        "Ein EPB-Label mindestens der Klasse C",
+        "Eine Vermietungsgenehmigung der Gemeinde",
+        "Eine positive Stellungnahme des ÖSHZ der Gemeinde"
       ],
       "correct": 0,
-      "explanation": "Die Ordonnanz vom 22. Juni 2023 hat das Wintermoratorium auf alle Wohnungen ausgeweitet, und der Verfassungsgerichtshof hat es 2025 bestätigt. Für den Winter 2026-2027 gilt es vom 1. November 2026 bis 15. März 2027.",
+      "explanation": "Ein Vermietungsverbot betrifft eine Wohnung, die die Sicherheits- und Gesundheitsanforderungen nicht erfüllt; sie darf erst mit einer Konformitätsbescheinigung wieder vermietet werden.",
       "sourceSlug": "/de/bereiche/housing",
       "sourceTitle": "Wohnungswesen: 62.234 Haushalte auf der Warteliste, die SLRB erwartet ihre 131 Millionen",
       "provenance": {
-        "sourceLastModified": "2026-11-05",
-        "sourceContentHash": "sha256:be65c0d104cd0bd4f675c8cf83cc34eb",
-        "generatedAt": "2026-11-05T15:32:08.392Z",
+        "sourceLastModified": "2026-11-16",
+        "sourceContentHash": "sha256:9bac40f7865cd5fab091e9c256b3ad41",
+        "generatedAt": "2026-11-16T11:10:09.201Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1614,6 +1614,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 70
+  ]
 }

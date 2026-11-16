@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-15T11:18:53.913Z",
+  "generatedAt": "2026-11-16T11:09:08.975Z",
   "locale": "fr",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -54,21 +54,21 @@
       "id": "domain-cleanliness-0",
       "source": "domain",
       "domain": "Propreté",
-      "question": "Selon BRUZZ, La DH et L'Avenir (29 octobre 2026), à quel prix la commune de Saint-Josse-ten-Noode cède-t-elle son parc à conteneurs de la rue de la Cible à l'agence Bruxelles-Propreté ?",
+      "question": "Selon BruxellesToday (15 novembre 2026), combien d'espaces de tri dans l'espace public la réforme régionale de la collecte des déchets prévoit-elle, d'après la réponse de la secrétaire d'État à la Propreté publique en plénière du 13 novembre 2026 ?",
       "options": [
-        "700 000 euros",
-        "682 000 euros",
-        "500 000 euros",
-        "950 000 euros"
+        "60 espaces de tri",
+        "120 espaces de tri",
+        "16 espaces de tri",
+        "19 espaces de tri"
       ],
       "correct": 0,
-      "explanation": "Le prix de 700 000 euros dépasse la valeur vénale estimée à 682 000 euros. Fermé en 2025, le site deviendrait un recypark régional ouvert à tous les Bruxellois.",
+      "explanation": "La secrétaire d'État a cité 60 espaces de tri dans l'espace public, et 16 communes sur 19 ont déposé une première proposition. La présentation de septembre 2026 parlait de 120 espaces-tri, sans que le périmètre soit précisé.",
       "sourceSlug": "/fr/domaines/cleanliness",
       "sourceTitle": "Propreté : brigades régionales et perception immédiate des amendes",
       "provenance": {
-        "sourceLastModified": "2026-10-29",
-        "sourceContentHash": "sha256:1193a0669218223de901ee23673ca791",
-        "generatedAt": "2026-10-29T21:11:41.405Z",
+        "sourceLastModified": "2026-11-16",
+        "sourceContentHash": "sha256:94c38fa6c9aef52e9d6d4deb463fb735",
+        "generatedAt": "2026-11-16T11:09:08.975Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -77,21 +77,21 @@
       "id": "domain-cleanliness-1",
       "source": "domain",
       "domain": "Propreté",
-      "question": "Selon La DH (27 octobre 2026), que permet le système « fini-fini » appliqué aux équipes de collecte en porte-à-porte de Bruxelles-Propreté ?",
+      "question": "Selon BruxellesToday (15 novembre 2026), comment l'accès aux espaces de tri de la réforme bruxelloise de la collecte des déchets est-il prévu ?",
       "options": [
-        "Achever la collecte du jour sans repasser par le dépôt entre deux chargements",
-        "Récupérer en congés les tournées de rattrapage effectuées après une grève",
-        "Terminer la tournée seulement après un contrôle de propreté des rues desservies",
-        "Terminer la journée dès que deux tiers des camions du secteur sont rentrés au dépôt"
+        "Accès libre d'abord, un badge pouvant être ajouté en cas de difficulté",
+        "Accès par badge payant pour chaque ménage dès la mise en service",
+        "Accès libre, mais avec des déchets pesés et facturés au kilo",
+        "Accès réservé aux commerçants munis d'une dérogation communale"
       ],
-      "correct": 3,
-      "explanation": "Ce système est en évaluation, sans échéance fixée. Deux pistes sont étudiées, dont sa suppression en échange d'une réduction du temps de travail.",
+      "correct": 0,
+      "explanation": "Le cahier des charges permet d'ajouter un badge si la gestion pose problème ; l'usage reste gratuit et les déchets ne sont pas pesés. La place Jourdan, à Etterbeek, teste déjà un accès par badge.",
       "sourceSlug": "/fr/domaines/cleanliness",
       "sourceTitle": "Propreté : brigades régionales et perception immédiate des amendes",
       "provenance": {
-        "sourceLastModified": "2026-10-29",
-        "sourceContentHash": "sha256:1193a0669218223de901ee23673ca791",
-        "generatedAt": "2026-10-29T21:11:41.405Z",
+        "sourceLastModified": "2026-11-16",
+        "sourceContentHash": "sha256:94c38fa6c9aef52e9d6d4deb463fb735",
+        "generatedAt": "2026-11-16T11:09:08.975Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -192,21 +192,21 @@
       "id": "domain-economy-0",
       "source": "domain",
       "domain": "Économie",
-      "question": "À partir du 19 novembre 2026, quel dispositif d'Innoviris les entreprises bruxelloises peuvent-elles de nouveau solliciter, selon La DH du 14 novembre 2026 ?",
+      "question": "Selon une dépêche Belga reprise par La DH (16 novembre 2026), quel organe le gouvernement bruxellois consultera-t-il sur l'avant-projet d'ordonnance relatif aux espaces d'expérimentation réglementaire ?",
       "options": [
-        "Le plan « Oxygen Brussels »",
-        "Le guichet « R&D Booster »",
-        "Le centre d'expertise Brucefo",
-        "Le portail régional hub.info"
+        "Brupartners",
+        "Innoviris",
+        "hub.brussels",
+        "perspective.brussels"
       ],
-      "correct": 1,
-      "explanation": "Selon La DH, Innoviris rouvre son guichet « R&D Booster », fermé en mars 2026, avec une enveloppe annoncée de 16 millions d'euros pour 2027. Aucun communiqué d'Innoviris ne le confirmait à cette date.",
+      "correct": 0,
+      "explanation": "L'avant-projet passera par Brupartners, le conseil économique et social de la Région, avant de revenir au gouvernement puis d'être déposé au Parlement au plus tard à l'automne 2027.",
       "sourceSlug": "/fr/domaines/economy",
       "sourceTitle": "Économie : Zone Franche Urbaine (Port + Audi Forest), capitale de l'IA",
       "provenance": {
-        "sourceLastModified": "2026-11-14",
-        "sourceContentHash": "sha256:70f34b909fcb2d407c5584a982537b6f",
-        "generatedAt": "2026-11-15T11:18:53.913Z",
+        "sourceLastModified": "2026-11-16",
+        "sourceContentHash": "sha256:ebee31bfa2780c5290171c11841f0e9f",
+        "generatedAt": "2026-11-16T11:09:08.975Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -215,21 +215,21 @@
       "id": "domain-economy-1",
       "source": "domain",
       "domain": "Économie",
-      "question": "Selon Statbel (19 octobre 2026), que montrent les déménagements d'entreprises entre Bruxelles et la Flandre en 2025 ?",
+      "question": "Selon La DH (16 novembre 2026), que prévoit l'ordonnance bruxelloise en préparation sur les espaces d'expérimentation réglementaire pour le porteur d'un projet innovant ?",
       "options": [
-        "1 263 départs de Bruxelles pour 1 687 arrivées",
-        "1 139 départs de Bruxelles pour 804 arrivées",
-        "1 687 départs de Bruxelles pour 1 263 arrivées",
-        "804 départs de Bruxelles pour 1 139 arrivées"
+        "Un point de contact unique qui réunit les administrations concernées",
+        "Une dispense automatique de permis pendant les trois premières années",
+        "Un subside d'Innoviris versé à chaque projet accepté au test",
+        "Un guichet distinct dans chacune des 19 communes bruxelloises"
       ],
-      "correct": 2,
-      "explanation": "En 2025, 1 687 entreprises bruxelloises ont déménagé en Flandre et 1 263 entreprises flamandes ont fait le chemin inverse. Avec la Wallonie aussi, Bruxelles compte plus de départs que d'arrivées.",
+      "correct": 0,
+      "explanation": "Le point de contact recevra la demande, identifiera les règles qui bloquent et réunira les administrations, en lien si nécessaire avec le fédéral ou les autres Régions.",
       "sourceSlug": "/fr/domaines/economy",
       "sourceTitle": "Économie : Zone Franche Urbaine (Port + Audi Forest), capitale de l'IA",
       "provenance": {
-        "sourceLastModified": "2026-11-14",
-        "sourceContentHash": "sha256:70f34b909fcb2d407c5584a982537b6f",
-        "generatedAt": "2026-11-15T11:18:53.913Z",
+        "sourceLastModified": "2026-11-16",
+        "sourceContentHash": "sha256:ebee31bfa2780c5290171c11841f0e9f",
+        "generatedAt": "2026-11-16T11:09:08.975Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -330,21 +330,21 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Logement",
-      "question": "Selon Beliris (4 novembre 2026), combien de logements sociaux compte l'ensemble achevé rues des Potiers, de la Verdure et de Soignies, près de la place Anneessens à Bruxelles-Ville ?",
+      "question": "Selon BRUZZ (15 novembre 2026), combien des 1 115 rappels envoyés par l'inspection régionale du logement aux bailleurs de logements interdits à la location entre 2020 et 2024 sont restés sans réponse ?",
       "options": [
-        "66",
-        "48",
-        "84",
-        "120"
+        "598",
+        "517",
+        "170",
+        "49"
       ],
       "correct": 0,
-      "explanation": "Les 66 logements remplacent une tour de 1955 qui en comptait 62, dont 24 studios sans salle de bain individuelle. La SLRB et le Logement bruxellois préparent la mise en location, avec de premiers locataires attendus début 2027.",
+      "explanation": "598 rappels sont restés sans réponse : on ignore si ces logements sont loués. Parmi les 517 réponses, la plupart des propriétaires disent occuper eux-mêmes le logement.",
       "sourceSlug": "/fr/domaines/housing",
       "sourceTitle": "Logement : 62 234 ménages en attente, la SLRB attend ses 131 millions",
       "provenance": {
-        "sourceLastModified": "2026-11-05",
-        "sourceContentHash": "sha256:a8cb107287f92fb94d099c42c78d0413",
-        "generatedAt": "2026-11-05T15:31:08.041Z",
+        "sourceLastModified": "2026-11-16",
+        "sourceContentHash": "sha256:d68d70eb077b4746fa929917b978b083",
+        "generatedAt": "2026-11-16T11:09:08.975Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -353,21 +353,21 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Logement",
-      "question": "Depuis l'ordonnance bruxelloise du 22 juin 2023, entre quelles dates aucune expulsion locative ne peut en principe être exécutée dans les 19 communes ?",
+      "question": "Selon le Code bruxellois du Logement, que doit obtenir le bailleur d'un logement frappé d'une interdiction de location pour pouvoir le relouer ?",
       "options": [
-        "Du 1er novembre au 15 mars",
-        "Du 1er décembre au 28 février",
-        "Du 15 octobre au 31 mars",
-        "Du 1er novembre au 31 janvier"
+        "Une attestation de contrôle de conformité",
+        "Un certificat PEB de classe C au minimum",
+        "Un permis de location délivré par la commune",
+        "Un avis favorable du CPAS de la commune"
       ],
       "correct": 0,
-      "explanation": "L'ordonnance du 22 juin 2023 a étendu le moratoire hivernal à tous les logements, et la Cour constitutionnelle l'a validé en 2025. Pour l'hiver 2026-2027, il court du 1er novembre 2026 au 15 mars 2027.",
+      "explanation": "Une interdiction de location frappe un logement qui ne respecte pas les exigences de sécurité et de salubrité ; il ne peut être reloué qu'avec une attestation de contrôle de conformité.",
       "sourceSlug": "/fr/domaines/housing",
       "sourceTitle": "Logement : 62 234 ménages en attente, la SLRB attend ses 131 millions",
       "provenance": {
-        "sourceLastModified": "2026-11-05",
-        "sourceContentHash": "sha256:a8cb107287f92fb94d099c42c78d0413",
-        "generatedAt": "2026-11-05T15:31:08.041Z",
+        "sourceLastModified": "2026-11-16",
+        "sourceContentHash": "sha256:d68d70eb077b4746fa929917b978b083",
+        "generatedAt": "2026-11-16T11:09:08.975Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 70
+  "reviewedCount": 64
 }

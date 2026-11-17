@@ -110,8 +110,6 @@ export async function generateMetadata({
   });
 }
 
-
-
 type LinkHref = ComponentProps<typeof Link>['href'];
 
 const linkClass =
@@ -132,11 +130,7 @@ const cardClass =
  */
 const MOBILE_CARDS = 3;
 
-export default async function HomePage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
   const loc = locale as Locale;
@@ -167,9 +161,9 @@ export default async function HomePage({
   // inventaires comparent section ET slug : un même slug existe dans deux familles
   // (« education » est à la fois un domaine et un secteur), le comparer nu masquerait
   // une carte à tort.
-  const shown = [
-    { section: latestUpdate.section, slug: latestUpdate.targetSlug },
-  ].filter((e): e is { section: string; slug: string } => Boolean(e.slug));
+  const shown = [{ section: latestUpdate.section, slug: latestUpdate.targetSlug }].filter(
+    (e): e is { section: string; slug: string } => Boolean(e.slug),
+  );
   const shownSlugs = new Set(shown.map((e) => e.slug));
   const shownKeys = new Set(shown.map((e) => `${e.section}:${e.slug}`));
   // Signaux actifs les plus récents, hors fiche déjà citée par la barre : logique et
@@ -194,7 +188,9 @@ export default async function HomePage({
   const { langs, latestCompleteWeek } = getRecentDigestLangs(2);
   const weekNum = latestCompleteWeek?.split('-w')[1] ?? null;
   const digestLang =
-    latestCompleteWeek && getDigestEntry(latestCompleteWeek, locale)?.isFallback === false ? locale : 'fr';
+    latestCompleteWeek && getDigestEntry(latestCompleteWeek, locale)?.isFallback === false
+      ? locale
+      : 'fr';
   // Règle du 29/06/2026 : toute langue réellement traduite doit être CLIQUABLE depuis
   // la page d'accueil. Une langue n'est cliquable que si elle a un digest RÉEL pour la
   // semaine visée : getDigestEntry retombe sur le français, donc on garde sur
@@ -211,12 +207,17 @@ export default async function HomePage({
   // (digest de la langue, non replié sur le français, avec un bloc `magazine:`),
   // sinon l'édition française. Jusqu'au 15/11/2026, la carte menait toujours au
   // français, même quand l'édition nl ou en existait.
-  const frMag = latestCompleteWeek ? getDigestEntry(latestCompleteWeek, 'fr')?.entry?.magazine : null;
+  const frMag = latestCompleteWeek
+    ? getDigestEntry(latestCompleteWeek, 'fr')?.entry?.magazine
+    : null;
   const localeEntry =
-    latestCompleteWeek && isMagazineLocale(locale) && locale !== 'fr' ? getDigestEntry(latestCompleteWeek, locale) : null;
+    latestCompleteWeek && isMagazineLocale(locale) && locale !== 'fr'
+      ? getDigestEntry(latestCompleteWeek, locale)
+      : null;
   const localeMag = localeEntry && !localeEntry.isFallback ? localeEntry.entry?.magazine : null;
   const magLang: MagazineLocale = frMag && localeMag && isMagazineLocale(locale) ? locale : 'fr';
-  const magTagline = magLang === 'fr' ? (locale === 'fr' ? frMag?.tagline : undefined) : localeMag?.tagline;
+  const magTagline =
+    magLang === 'fr' ? (locale === 'fr' ? frMag?.tagline : undefined) : localeMag?.tagline;
   const magazine = weekNum
     ? { tagline: magTagline ?? null, href: editionUrl(magLang, `s${weekNum}`), lang: magLang }
     : null;
@@ -241,7 +242,11 @@ export default async function HomePage({
             150 caractères ; en 2fr son texte tombait à 224 px et se brisait en cinq
             lignes de trois mots. */}
         <div className="mx-auto grid max-w-5xl gap-y-8 px-4 lg:grid-cols-[3fr_2fr] lg:gap-x-8">
-          <WhatWeWatch signals={radarSignals} locale={locale} sourceCount={siteStats.sourcesSuivies} />
+          <WhatWeWatch
+            signals={radarSignals}
+            locale={locale}
+            sourceCount={siteStats.sourcesSuivies}
+          />
           <UnderstandColumn locale={locale} />
         </div>
       </section>
@@ -258,23 +263,11 @@ export default async function HomePage({
         weekNum={weekNum}
       />
 
-      <DossiersPreview
-        cards={homeDossiers}
-        locale={locale}
-        totalCount={dossierCards.length}
-      />
+      <DossiersPreview cards={homeDossiers} locale={locale} totalCount={dossierCards.length} />
 
-      <DomainsPreview
-        cards={homeDomains}
-        locale={locale}
-        totalCount={domainCards.length}
-      />
+      <DomainsPreview cards={homeDomains} locale={locale} totalCount={domainCards.length} />
 
-      <SectorsPreview
-        cards={homeSectors}
-        locale={locale}
-        totalCount={sectorCards.length}
-      />
+      <SectorsPreview cards={homeSectors} locale={locale} totalCount={sectorCards.length} />
 
       {/* Dans cet ordre : le quiz, puis les chiffres et l'appel au soutien, juste
           avant « Restez informé ». */}
@@ -285,7 +278,10 @@ export default async function HomePage({
       <section id="subscribe" className="bg-neutral-50 py-8 md:py-12">
         <div className="mx-auto max-w-5xl px-4">
           <SubscribeForm
-            dossierOptions={getAllDossierTopicOptions(loc).map((d) => ({ id: d.topicId, label: d.label }))}
+            dossierOptions={getAllDossierTopicOptions(loc).map((d) => ({
+              id: d.topicId,
+              label: d.label,
+            }))}
             // Les thèmes des quatorze cartes de la page, proposés en tête du formulaire.
             sujetsDeLaPage={[
               ...homeDossiers.map((card) => cleDeTheme('dossier', card.slug)),
@@ -314,12 +310,8 @@ function QuizPromo() {
       <div className="mx-auto max-w-5xl px-4">
         <div className="flex flex-col items-center gap-4 rounded-lg border border-neutral-200 bg-neutral-50 px-6 py-8 text-center sm:flex-row sm:text-left">
           <div className="flex-1">
-            <h2 className="text-base font-semibold text-neutral-900">
-              {t('quizTitle')}
-            </h2>
-            <p className="mt-1 text-sm text-neutral-500">
-              {t('quizSubtitle')}
-            </p>
+            <h2 className="text-base font-semibold text-neutral-900">{t('quizTitle')}</h2>
+            <p className="mt-1 text-sm text-neutral-500">{t('quizSubtitle')}</p>
           </div>
           <TrackedLink
             href="/quiz"
@@ -376,7 +368,8 @@ function MoreLink({ href, children }: { href: LinkHref; children: ReactNode }) {
   return (
     <TrackedLink
       href={href}
-      event="accueil-inventaire" eventData={{ cible: String(href) }}
+      event="accueil-inventaire"
+      eventData={{ cible: String(href) }}
       className={`${linkClass} min-h-[24px]`}
     >
       {children}
@@ -396,48 +389,48 @@ function Hero({ cta, locale }: { cta: HomepageCta; locale: string }) {
     <section className="bg-gradient-to-b from-slate-800 to-slate-700 text-white">
       <div className="mx-auto grid max-w-5xl gap-6 px-4 py-8 sm:gap-8 sm:py-14 lg:grid-cols-[1fr_20rem] lg:items-center">
         <div>
-        <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-white/80">
-          <Shield size={14} className="shrink-0" aria-hidden={true} />
-          <span>
-            {t('identity')} {t('identityDetail')}
-          </span>
-          <TrackedLink
-            href="/about"
-            event="accueil-a-propos"
-            className="font-medium text-white underline underline-offset-2 hover:text-white/90"
-          >
-            {t('identityLink')}
-          </TrackedLink>
-        </p>
+          <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-white/80">
+            <Shield size={14} className="shrink-0" aria-hidden={true} />
+            <span>
+              {t('identity')} {t('identityDetail')}
+            </span>
+            <TrackedLink
+              href="/about"
+              event="accueil-a-propos"
+              className="font-medium text-white underline underline-offset-2 hover:text-white/90"
+            >
+              {t('identityLink')}
+            </TrackedLink>
+          </p>
 
-        {/* Accroche éditoriale. Le verdict chiffré vit dans le panneau, à droite. */}
-        <h1 className="mt-4 max-w-3xl text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl">
-          {t('protoHeroTitle')}
-        </h1>
+          {/* Accroche éditoriale. Le verdict chiffré vit dans le panneau, à droite. */}
+          <h1 className="mt-4 max-w-3xl text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl">
+            {t('protoHeroTitle')}
+          </h1>
 
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/85">
-          {t('protoHeroSubtitle')}
-        </p>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/85">
+            {t('protoHeroSubtitle')}
+          </p>
 
-        <div className="mt-6 flex flex-wrap gap-3">
-          <TrackedLink
-            href="/dossiers"
-            event="accueil-cta-dossiers"
-            className="inline-flex items-center gap-1.5 rounded-lg bg-white px-5 py-2.5 text-sm font-bold text-slate-900 transition-colors hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-800"
-          >
-            {t('protoCtaDossiers')}
-            <ArrowRight size={14} aria-hidden={true} />
-          </TrackedLink>
-          {/* Second bouton : libellé et destination viennent de data/homepage-cta.json. */}
-          <TrackedAnchor
-            href={cta.href}
-            event="accueil-cta-secondaire" eventData={{ cible: cta.href }}
-            className="inline-flex items-center rounded-lg border border-white/70 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-800"
-          >
-            {cta.label}
-          </TrackedAnchor>
-        </div>
-
+          <div className="mt-6 flex flex-wrap gap-3">
+            <TrackedLink
+              href="/dossiers"
+              event="accueil-cta-dossiers"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-white px-5 py-2.5 text-sm font-bold text-slate-900 transition-colors hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-800"
+            >
+              {t('protoCtaDossiers')}
+              <ArrowRight size={14} aria-hidden={true} />
+            </TrackedLink>
+            {/* Second bouton : libellé et destination viennent de data/homepage-cta.json. */}
+            <TrackedAnchor
+              href={cta.href}
+              event="accueil-cta-secondaire"
+              eventData={{ cible: cta.href }}
+              className="inline-flex items-center rounded-lg border border-white/70 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-800"
+            >
+              {cta.label}
+            </TrackedAnchor>
+          </div>
         </div>
 
         <div className="rounded-lg border border-white/15 bg-white/5 p-5">
@@ -528,17 +521,21 @@ function WhatWeWatch({
 
         <div className="border-t border-neutral-100" />
 
-        <h3 className="px-4 pb-2 pt-3 text-sm font-medium text-neutral-500">
-          {t('signalsTitle')}
-        </h3>
+        <h3 className="px-4 pb-2 pt-3 text-sm font-medium text-neutral-500">{t('signalsTitle')}</h3>
 
         {signals.length === 0 ? (
           <p className="px-4 pb-4 text-sm text-neutral-500">{tr('noActiveSignals')}</p>
         ) : (
           <div className="space-y-3 px-4">
             {signals.map((signal) => (
-              <div key={signal.id} className="flex flex-col gap-1 sm:flex-row sm:items-start sm:gap-3">
-                <time dateTime={signal.date} className="shrink-0 text-xs tabular-nums text-neutral-500">
+              <div
+                key={signal.id}
+                className="flex flex-col gap-1 sm:flex-row sm:items-start sm:gap-3"
+              >
+                <time
+                  dateTime={signal.date}
+                  className="shrink-0 text-xs tabular-nums text-neutral-500"
+                >
                   {formatDate(signal.date, locale)}
                 </time>
                 <p className="flex-1 text-sm leading-snug text-neutral-700">
@@ -589,7 +586,11 @@ function UnderstandColumn({ locale }: { locale: string }) {
 
   const explainers = [
     { href: '/how-to-read' as const, label: t('explainerMap'), Icon: Map },
-    { href: '/explainers/brussels-overview' as const, label: t('explainerBuilding'), Icon: Building },
+    {
+      href: '/explainers/brussels-overview' as const,
+      label: t('explainerBuilding'),
+      Icon: Building,
+    },
     { href: '/explainers/levels-of-power' as const, label: t('explainerUsers'), Icon: Users },
     { href: '/explainers/brussels-paradox' as const, label: t('explainerScale'), Icon: Scale },
   ];
@@ -613,7 +614,8 @@ function UnderstandColumn({ locale }: { locale: string }) {
             <TrackedLink
               key={exp.href}
               href={exp.href}
-              event="accueil-explicateur" eventData={{ fiche: exp.href }}
+              event="accueil-explicateur"
+              eventData={{ fiche: exp.href }}
               className="flex items-center gap-2.5 rounded-md px-2 py-2 text-sm text-neutral-800 transition-colors hover:bg-neutral-100 hover:text-neutral-900"
             >
               <exp.Icon size={16} className="shrink-0 text-neutral-500" aria-hidden={true} />
@@ -670,9 +672,13 @@ function KeyFigure({
     <div className="mt-3">
       <p className={valueClass}>
         {value}
-        {inlineUnit && <span className="ml-1 text-sm font-medium text-neutral-700">{inlineUnit}</span>}
+        {inlineUnit && (
+          <span className="ml-1 text-sm font-medium text-neutral-700">{inlineUnit}</span>
+        )}
       </p>
-      {detail && <p className="mt-1 line-clamp-2 text-xs leading-snug text-neutral-600">{detail}</p>}
+      {detail && (
+        <p className="mt-1 line-clamp-2 text-xs leading-snug text-neutral-600">{detail}</p>
+      )}
       {/* Sous 768 px, la source n'est plus affichée mais reste lue par les lecteurs
           d'écran (sr-only), et la fiche la donne en entier : 20 px de moins par
           carte. */}
@@ -689,7 +695,11 @@ function CardFooter({ children }: { children: ReactNode }) {
   return (
     <div className="mt-auto flex items-center justify-between gap-2 pt-3 text-xs text-neutral-600">
       <span>{children}</span>
-      <ChevronRight size={16} className="shrink-0 text-neutral-500 group-hover:text-neutral-900" aria-hidden={true} />
+      <ChevronRight
+        size={16}
+        className="shrink-0 text-neutral-500 group-hover:text-neutral-900"
+        aria-hidden={true}
+      />
     </div>
   );
 }
@@ -722,21 +732,25 @@ function DossiersPreview({
             return (
               <TrackedLink
                 key={card.slug}
-                href={{ pathname: '/dossiers/[slug]', params: { slug: getLocalizedSlug(card, locale as Locale) } }}
+                href={{
+                  pathname: '/dossiers/[slug]',
+                  params: { slug: getLocalizedSlug(card, locale as Locale) },
+                }}
                 // Un seul nom pour les treize cartes, le type et le slug en propriétés.
-                event="accueil-fiche" eventData={{ type: "dossier", slug: card.slug }}
+                event="accueil-fiche"
+                eventData={{ type: 'dossier', slug: card.slug }}
                 className={cn(cardClass, i >= MOBILE_CARDS && 'max-md:hidden')}
               >
                 <div className="flex items-start justify-between gap-3">
-                  <h3 className="text-base font-semibold leading-snug text-neutral-900">{card.title}</h3>
-                  <span
-                    className={dossierBadgeClass(card.phase)}
-                  >
-                    {td(`phase.${card.phase}`)}
-                  </span>
+                  <h3 className="text-base font-semibold leading-snug text-neutral-900">
+                    {card.title}
+                  </h3>
+                  <span className={dossierBadgeClass(card.phase)}>{td(`phase.${card.phase}`)}</span>
                 </div>
                 {m && <KeyFigure value={m.value} unit={m.unit} label={m.label} source={m.source} />}
-                <CardFooter>{td('lastModified', { date: formatDate(card.lastModified, locale) })}</CardFooter>
+                <CardFooter>
+                  {td('lastModified', { date: formatDate(card.lastModified, locale) })}
+                </CardFooter>
               </TrackedLink>
             );
           })}
@@ -779,14 +793,15 @@ function DomainsPreview({
               <TrackedLink
                 key={card.slug}
                 href={{ pathname: '/domains/[slug]', params: { slug: card.slug } }}
-                event="accueil-fiche" eventData={{ type: "domaine", slug: card.slug }}
+                event="accueil-fiche"
+                eventData={{ type: 'domaine', slug: card.slug }}
                 className={cn(cardClass, i >= MOBILE_CARDS && 'max-md:hidden')}
               >
                 <div className="flex items-start justify-between gap-3">
-                  <h3 className="text-base font-semibold leading-snug text-neutral-900">{card.title}</h3>
-                  <span
-                    className={domainBadgeClass(card.status)}
-                  >
+                  <h3 className="text-base font-semibold leading-snug text-neutral-900">
+                    {card.title}
+                  </h3>
+                  <span className={domainBadgeClass(card.status)}>
                     {tdo(`status.${card.status}`)}
                   </span>
                 </div>
@@ -802,7 +817,9 @@ function DomainsPreview({
                   {card.summary}
                 </p>
                 {m && <KeyFigure value={m.value} unit={m.unit} label={m.label} source={m.source} />}
-                <CardFooter>{tdo('lastModified', { date: formatDate(card.lastModified, locale) })}</CardFooter>
+                <CardFooter>
+                  {tdo('lastModified', { date: formatDate(card.lastModified, locale) })}
+                </CardFooter>
               </TrackedLink>
             );
           })}
@@ -837,7 +854,9 @@ function SectorsPreview({
           icon={Building2}
           title={t('sectorsHomeTitle')}
           subtitle={t('sectorsHomeSubtitle')}
-          link={<MoreLink href="/sectors">{t('viewAllSectorsCount', { count: totalCount })}</MoreLink>}
+          link={
+            <MoreLink href="/sectors">{t('viewAllSectorsCount', { count: totalCount })}</MoreLink>
+          }
         />
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {cards.map((card, i) => {
@@ -846,14 +865,25 @@ function SectorsPreview({
               <TrackedLink
                 key={card.slug}
                 href={{ pathname: '/sectors/[slug]', params: { slug: card.slug } }}
-                event="accueil-fiche" eventData={{ type: "secteur", slug: card.slug }}
+                event="accueil-fiche"
+                eventData={{ type: 'secteur', slug: card.slug }}
                 // Grille à une colonne sous sm seulement : les six cartes restent de
                 // 640 à 767 px, en deux colonnes. Voir MOBILE_CARDS.
                 className={cn(cardClass, i >= MOBILE_CARDS && 'max-sm:hidden')}
               >
-                <h3 className="text-base font-semibold leading-snug text-neutral-900">{card.title}</h3>
-                {indicator && <KeyFigure value={indicator.value} label={indicator.label} source={indicator.source} />}
-                <CardFooter>{tdo('lastModified', { date: formatDate(card.lastModified, locale) })}</CardFooter>
+                <h3 className="text-base font-semibold leading-snug text-neutral-900">
+                  {card.title}
+                </h3>
+                {indicator && (
+                  <KeyFigure
+                    value={indicator.value}
+                    label={indicator.label}
+                    source={indicator.source}
+                  />
+                )}
+                <CardFooter>
+                  {tdo('lastModified', { date: formatDate(card.lastModified, locale) })}
+                </CardFooter>
               </TrackedLink>
             );
           })}
@@ -875,7 +905,9 @@ const digestEmailLink = `${linkClass} relative z-10 min-h-6`;
 
 function RowLabel({ children }: { children: ReactNode }) {
   return (
-    <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-neutral-600">{children}</h3>
+    <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-neutral-600">
+      {children}
+    </h3>
   );
 }
 
@@ -1018,7 +1050,8 @@ function FormatsSection({
                       aria-label={t('protoDigestLangAria', { lang: nativeName(lang) })}
                       // Un seul nom d'événement pour onze pastilles, la langue en
                       // propriété : onze noms distincts seraient illisibles dans Umami.
-                      event="accueil-digest-langue" eventData={{ lang: lang }}
+                      event="accueil-digest-langue"
+                      eventData={{ lang: lang }}
                       className={`${pastille} relative z-10 border-brand-700 text-brand-700 transition-colors hover:bg-brand-700 hover:text-neutral-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700`}
                     >
                       {lang}
@@ -1041,12 +1074,20 @@ function FormatsSection({
               // lien n'était rendu que s'il n'existait aucun digest, donc jamais.
               <span className="flex flex-col items-start gap-0.5">
                 {digest && (
-                  <TrackedAnchor href={digest.href} event="accueil-digest" className={stretchedLink}>
+                  <TrackedAnchor
+                    href={digest.href}
+                    event="accueil-digest"
+                    className={stretchedLink}
+                  >
                     {t('protoDigestRead', { week: digest.weekNum })}
                     <ArrowRight size={14} aria-hidden={true} />
                   </TrackedAnchor>
                 )}
-                <TrackedAnchor href="#subscribe" event="accueil-digest-abonnement" className={digestEmailLink}>
+                <TrackedAnchor
+                  href="#subscribe"
+                  event="accueil-digest-abonnement"
+                  className={digestEmailLink}
+                >
                   {digest ? t('protoDigestByEmail') : t('protoDigestSubscribe')}
                 </TrackedAnchor>
               </span>
@@ -1064,7 +1105,9 @@ function FormatsSection({
             visualClassName={FORMAT_VISUAL_TALL}
             visual={
               <div className="flex h-full flex-col justify-center bg-neutral-100 px-3 py-2">
-                <p className={`${dmSerif.className} text-xl leading-none text-neutral-900`}>Magazine</p>
+                <p className={`${dmSerif.className} text-xl leading-none text-neutral-900`}>
+                  Magazine
+                </p>
                 {weekNum && (
                   <p className="mt-1 text-[11px] font-semibold uppercase tracking-widest text-neutral-600 lining-nums">
                     {t('protoMagazineWeek', { week: weekNum })}

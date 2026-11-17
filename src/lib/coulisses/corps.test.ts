@@ -2,7 +2,7 @@
 // Copyright (c) 2024-2026 Advice That SRL. All rights reserved.
 
 import { describe, it, expect } from 'vitest';
-import { marquerLiens, corpsVide, estHtml, htmlPourMail, nettoyerCorps, texteSeul, texteVersHtml } from './corps';
+import { assemblerBienvenue, contientRepereSondage, marquerLiens, corpsVide, estHtml, htmlPourMail, nettoyerCorps, texteSeul, texteVersHtml } from './corps';
 
 describe('corps des coulisses', () => {
   it('texte brut ancien : paragraphes, retours simples en <br>, caractères échappés', () => {
@@ -77,5 +77,31 @@ describe('marquerLiens', () => {
     const html = marquerLiens('<p>Bonjour <strong>vous</strong>, <a href="https://governance.brussels/fr">ici</a>.</p>', SITE, U);
     expect(html).toContain('<strong>vous</strong>');
     expect(html).toContain('>ici</a>.');
+  });
+});
+
+// Essai du 17/11/2026 : le repère avait été mis en titre dans l'éditeur
+// (<h2>[sondage]</h2>) et partait tel quel, sans le bloc sondage.
+describe('repère [sondage] de la bienvenue', () => {
+  const BLOC = '<p>Un <a href="https://governance.brussels/fr/sondage">sondage</a> est en cours.</p>';
+
+  it('remplace le repère, en paragraphe comme en titre', () => {
+    for (const balise of ['p', 'h2', 'h3']) {
+      const corps = `<p>Avant.</p><${balise}> [sondage] </${balise}><h2>Après</h2>`;
+      expect(contientRepereSondage(corps)).toBe(true);
+      const html = assemblerBienvenue(corps, BLOC, true);
+      expect(html).not.toContain('[sondage]');
+      expect(html).toContain('/fr/sondage');
+    }
+  });
+
+  it('retire le repère sans bloc quand le sondage est clos', () => {
+    const html = assemblerBienvenue('<p>a</p><h2>[sondage]</h2><p>b</p>', BLOC, false);
+    expect(html).not.toContain('[sondage]');
+    expect(html).not.toContain('/fr/sondage');
+  });
+
+  it('ne prend pas pour repère un [sondage] cité dans une phrase', () => {
+    expect(contientRepereSondage('<p>Le repère [sondage] sert à ça.</p>')).toBe(false);
   });
 });

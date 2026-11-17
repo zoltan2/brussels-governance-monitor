@@ -965,6 +965,7 @@ function FormatsSection({
 }) {
   const t = useTranslations('home');
   const locale = useLocale();
+  const showSignal = locale === 'fr';
 
   return (
     <section aria-labelledby="formats-title" className="py-6 md:py-8">
@@ -974,8 +975,10 @@ function FormatsSection({
         <RowLabel>
           <span className="mt-4 block">{t('protoWeekly')}</span>
         </RowLabel>
-        {/* Deux colonnes dès 390 px : trois cartes empilées coûtaient 630 px sur mobile. */}
-        <div className="grid grid-cols-2 gap-3 lg:grid-cols-3">
+        {/* Deux colonnes dès 390 px : trois cartes empilées coûtaient 630 px sur mobile.
+            Le Signal ne paraît qu'en français : sa carte n'est montrée que sur l'accueil
+            français (17/11/2026) ; la grille garde alors deux colonnes partout. */}
+        <div className={`grid grid-cols-2 gap-3 ${showSignal ? 'lg:grid-cols-3' : ''}`}>
           <FormatCard
             title={t('protoDigestName')}
             visualInteractive
@@ -1096,27 +1099,29 @@ function FormatsSection({
           {/* Trois cartes dans une grille à deux colonnes laissaient une cellule vide,
               mesurée à 362 x 179 px à 768 px et 173 x 215 px à 390 px. La troisième
               prend donc la rangée entière tant que la grille n'a pas trois colonnes. */}
-          <FormatCard
-            className="max-lg:col-span-2"
-            title="Le Signal"
-            visual={
-              <Image
-                src="/merci-cafe/signal-bgm.webp"
-                alt=""
-                width={800}
-                height={450}
-                className="h-full w-full object-cover"
-              />
-            }
-            link={
-              <TrackedLink href="/signal" event="accueil-signal" className={stretchedLink}>
-                {t('protoSignalCta')}
-                <ArrowRight size={14} aria-hidden={true} />
-              </TrackedLink>
-            }
-          >
-            {t('protoSignalTeaser')}
-          </FormatCard>
+          {showSignal && (
+            <FormatCard
+              className="max-lg:col-span-2"
+              title="Le Signal"
+              visual={
+                <Image
+                  src="/merci-cafe/signal-bgm.webp"
+                  alt=""
+                  width={800}
+                  height={450}
+                  className="h-full w-full object-cover"
+                />
+              }
+              link={
+                <TrackedLink href="/signal" event="accueil-signal" className={stretchedLink}>
+                  {t('protoSignalCta')}
+                  <ArrowRight size={14} aria-hidden={true} />
+                </TrackedLink>
+              }
+            >
+              {t('protoSignalTeaser')}
+            </FormatCard>
+          )}
         </div>
       </div>
     </section>

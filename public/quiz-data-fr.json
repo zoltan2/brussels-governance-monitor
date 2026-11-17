@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16T11:09:08.975Z",
+  "generatedAt": "2026-11-17T09:35:46.877Z",
   "locale": "fr",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -330,21 +330,21 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Logement",
-      "question": "Selon BRUZZ (15 novembre 2026), combien des 1 115 rappels envoyés par l'inspection régionale du logement aux bailleurs de logements interdits à la location entre 2020 et 2024 sont restés sans réponse ?",
+      "question": "Selon BRUZZ du 16 novembre 2026, vers quel système le cabinet bruxellois du Logement veut-il faire évoluer les loyers socialisés des logements de communes et de CPAS ?",
       "options": [
-        "598",
-        "517",
-        "170",
-        "49"
+        "Celui des agences immobilières sociales (AIS)",
+        "Celui du logement social de la SLRB",
+        "Celui de la grille indicative des loyers du marché privé",
+        "Celui des logements moyens de citydev.brussels"
       ],
       "correct": 0,
-      "explanation": "598 rappels sont restés sans réponse : on ignore si ces logements sont loués. Parmi les 517 réponses, la plupart des propriétaires disent occuper eux-mêmes le logement.",
+      "explanation": "Dans le système des AIS, le loyer dépend notamment de la taille et de l'état du logement : il reste sous le prix du marché, mais au-dessus du loyer social.",
       "sourceSlug": "/fr/domaines/housing",
       "sourceTitle": "Logement : 62 234 ménages en attente, la SLRB attend ses 131 millions",
       "provenance": {
-        "sourceLastModified": "2026-11-16",
-        "sourceContentHash": "sha256:d68d70eb077b4746fa929917b978b083",
-        "generatedAt": "2026-11-16T11:09:08.975Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:eaab2c14d745d5c627d7a56ce7de19da",
+        "generatedAt": "2026-11-17T09:35:46.877Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -353,21 +353,21 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Logement",
-      "question": "Selon le Code bruxellois du Logement, que doit obtenir le bailleur d'un logement frappé d'une interdiction de location pour pouvoir le relouer ?",
+      "question": "Selon la réponse à une question écrite publiée le 10 novembre 2026, combien des 1 115 rappels envoyés par l'inspection régionale du logement aux bailleurs de logements interdits à la location sont restés sans réponse ?",
       "options": [
-        "Une attestation de contrôle de conformité",
-        "Un certificat PEB de classe C au minimum",
-        "Un permis de location délivré par la commune",
-        "Un avis favorable du CPAS de la commune"
+        "598",
+        "170",
+        "517",
+        "49"
       ],
       "correct": 0,
-      "explanation": "Une interdiction de location frappe un logement qui ne respecte pas les exigences de sécurité et de salubrité ; il ne peut être reloué qu'avec une attestation de contrôle de conformité.",
+      "explanation": "598 rappels sont restés sans réponse ; la réponse précise qu'« il ne peut être exclu que les logements concernés aient encore été loués ».",
       "sourceSlug": "/fr/domaines/housing",
       "sourceTitle": "Logement : 62 234 ménages en attente, la SLRB attend ses 131 millions",
       "provenance": {
-        "sourceLastModified": "2026-11-16",
-        "sourceContentHash": "sha256:d68d70eb077b4746fa929917b978b083",
-        "generatedAt": "2026-11-16T11:09:08.975Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:eaab2c14d745d5c627d7a56ce7de19da",
+        "generatedAt": "2026-11-17T09:35:46.877Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Que demande la résolution sur le masculinisme adoptée à l'unanimité par le Parlement bruxellois le 13 novembre 2026, selon La DH ?",
+      "question": "Selon l'arrêté de police du 19 octobre 2026, quelles trottinettes électriques sont interdites de circulation et de stationnement dans les 19 zones sensibles liées au trafic de stupéfiants à Bruxelles ?",
       "options": [
-        "De charger safe.brussels d'en mesurer l'ampleur à Bruxelles",
-        "De créer un parquet régional spécialisé dans le sexisme",
-        "D'interdire les contenus masculinistes par ordonnance",
-        "De confier cette compétence aux dix-neuf communes"
+        "Toutes, partagées ou privées",
+        "Seulement les trottinettes partagées",
+        "Seulement les trottinettes privées qui dépassent 20 km/h",
+        "Seulement entre 22 heures et 6 heures"
       ],
       "correct": 0,
-      "explanation": "Le texte demande d'intégrer le masculinisme aux stratégies régionales de sécurité et de charger safe.brussels d'en mesurer l'ampleur. Une résolution adresse des demandes au gouvernement, elle n'a pas la force d'une ordonnance.",
+      "explanation": "L'article 6 de l'arrêté vise toutes les trottinettes électriques, partagées ou privées, et charge les opérateurs d'empêcher leurs engins d'y circuler.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, Plan Gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-11-14",
-        "sourceContentHash": "sha256:a396407c40c548b2e2a6e2f343faa52c",
-        "generatedAt": "2026-11-15T11:18:53.913Z",
+        "sourceLastModified": "2026-11-16",
+        "sourceContentHash": "sha256:e0699eb51a4cbb4a1fdb289d901db854",
+        "generatedAt": "2026-11-17T09:35:46.877Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Pourquoi l'interdiction des trottinettes électriques dans les zones sensibles de Bruxelles restait-elle peu appliquée le 12 novembre 2026, selon BRUZZ ?",
+      "question": "Que demande à safe.brussels la résolution contre le masculinisme adoptée à l'unanimité par le Parlement bruxellois le 13 novembre 2026, selon La DH ?",
       "options": [
-        "Parce que le Conseil d'État avait suspendu l'arrêté",
-        "Parce que les opérateurs avaient obtenu un sursis",
-        "Parce que l'arrêté de police n'était pas encore pris",
-        "Faute de signalisation qui permette de verbaliser"
+        "D'en mesurer l'ampleur à Bruxelles",
+        "De fermer les comptes en ligne concernés",
+        "De créer une nouvelle zone de police",
+        "D'organiser un référendum régional"
       ],
-      "correct": 3,
-      "explanation": "Selon BRUZZ, aucun panneau ne marque les limites des 19 zones sensibles, ce qui empêche de verbaliser. Les opérateurs Bolt et Dott disent attendre de l'autorité régionale une carte précise des zones.",
+      "correct": 0,
+      "explanation": "La résolution demande aussi d'intégrer le masculinisme aux stratégies régionales de sécurité ; une résolution adresse des demandes au gouvernement, sans la force d'une ordonnance.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, Plan Gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-11-14",
-        "sourceContentHash": "sha256:a396407c40c548b2e2a6e2f343faa52c",
-        "generatedAt": "2026-11-15T11:18:53.913Z",
+        "sourceLastModified": "2026-11-16",
+        "sourceContentHash": "sha256:e0699eb51a4cbb4a1fdb289d901db854",
+        "generatedAt": "2026-11-17T09:35:46.877Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Urbanisme",
-      "question": "Selon la secrétaire d'État à l'Urbanisme, en commission du Parlement bruxellois le 9 novembre 2026, de quoi dépend la rétrocession aux communes des charges d'urbanisme payées en argent ?",
+      "question": "Selon La DH du 16 novembre 2026, qu'ont décidé les députés de la commission du Parlement bruxellois au sujet de la proposition d'ordonnance sur la déclaration libératoire unique urbanistique (DLUU) ?",
       "options": [
-        "D'un arrêté du gouvernement et des crédits budgétaires disponibles",
-        "D'un vote du conseil communal et d'un avis de la tutelle régionale",
-        "D'une convention signée avec chaque promoteur immobilier concerné",
-        "D'un avis préalable de la Cour des comptes sur chaque dossier"
+        "La renvoyer, avec ses amendements, au Conseil d'État pour avis",
+        "L'adopter définitivement en commission",
+        "La retirer de l'ordre du jour de la législature",
+        "La soumettre à une enquête publique régionale"
       ],
       "correct": 0,
-      "explanation": "Les charges perçues passent par le Fonds d'aménagement urbain et foncier puis sont reversées comme subventions ; la secrétaire d'État reconnaît que ce mécanisme freine la résorption du retard.",
+      "explanation": "La majorité voulait la faire adopter à la séance plénière suivante ; elle a accepté de revoir son calendrier.",
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
       "provenance": {
-        "sourceLastModified": "2026-11-13",
-        "sourceContentHash": "sha256:cc2575743b3fdade5d47754fab2fedc6",
-        "generatedAt": "2026-11-13T10:41:28.788Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:87aee953dc39ed0c0686826119b15d4d",
+        "generatedAt": "2026-11-17T09:35:46.877Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Urbanisme",
-      "question": "Selon la réponse donnée en commission du Parlement bruxellois le 9 novembre 2026, pour quand le premier rapport de suivi des incidences environnementales du PRAS était-il attendu ?",
+      "question": "Selon La DH du 16 novembre 2026, pendant combien de temps la procédure de régularisation prévue par la déclaration libératoire unique urbanistique (DLUU) serait-elle ouverte ?",
       "options": [
-        "Le 1er septembre 2022, et il n'a pas été réalisé",
-        "Le 1er septembre 2017, et il a été publié en 2018",
-        "Le 1er janvier 2024, et il a été remis au Parlement",
-        "Le 1er septembre 2025, et il a été publié en ligne"
+        "Trois ans",
+        "Un an",
+        "Cinq ans",
+        "Sans limite de durée"
       ],
       "correct": 0,
-      "explanation": "L'article 30 du CoBAT, inséré en 2017, impose ce rapport tous les cinq ans ; perspective.brussels doit désormais assurer ce suivi, avec une situation de référence fixée à l'entrée en vigueur du nouveau PRAS.",
+      "explanation": "Les dossiers seraient instruits par la Région, par urban.brussels, avec 30 jours pour statuer une fois le dossier complet ; à défaut, la demande serait refusée.",
       "sourceSlug": "/fr/domaines/urban-planning",
       "sourceTitle": "Urbanisme : accélération des permis et amnistie urbanistique",
       "provenance": {
-        "sourceLastModified": "2026-11-13",
-        "sourceContentHash": "sha256:cc2575743b3fdade5d47754fab2fedc6",
-        "generatedAt": "2026-11-13T10:41:28.788Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:87aee953dc39ed0c0686826119b15d4d",
+        "generatedAt": "2026-11-17T09:35:46.877Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1227,21 +1227,21 @@
       "id": "dossier-petite-enfance-0",
       "source": "dossier",
       "domain": "Enseignement",
-      "question": "Quelle mission le gouvernement de la Fédération Wallonie-Bruxelles a-t-il confiée à son commissaire auprès de l'ONE en novembre 2026, selon la RTBF ?",
+      "question": "Selon La Libre du 16 novembre 2026, quelle fonction occupe le membre de l'Office de la naissance et de l'enfance (ONE) dispensé de service ?",
       "options": [
-        "Fermer les crèches visées par une enquête",
-        "Assurer la continuité de la gestion de l'Office",
-        "Réviser les tarifs des crèches subventionnées",
-        "Reprendre l'inspection des crèches bruxelloises"
+        "Directeur général adjoint",
+        "Administrateur général",
+        "Président du conseil d'administration",
+        "Commissaire du gouvernement"
       ],
-      "correct": 1,
-      "explanation": "Selon le communiqué de la ministre de l'Enfance cité par la RTBF le 14 novembre 2026, un membre de l'ONE est dispensé de service et le commissaire du gouvernement assure temporairement la continuité de la gestion.",
+      "correct": 0,
+      "explanation": "L'administratrice générale étant en congé de maladie, l'Office n'a plus de direction ; le commissaire du gouvernement de la Fédération Wallonie-Bruxelles assure la continuité.",
       "sourceSlug": "/fr/dossiers/petite-enfance",
       "sourceTitle": "Petite enfance",
       "provenance": {
-        "sourceLastModified": "2026-11-15",
-        "sourceContentHash": "sha256:3828b602be53305a9516f08914395269",
-        "generatedAt": "2026-11-15T11:18:53.913Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:d6f1cc8b9e101153bb6785d0b8abb900",
+        "generatedAt": "2026-11-17T09:35:46.877Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1250,21 +1250,21 @@
       "id": "dossier-petite-enfance-1",
       "source": "dossier",
       "domain": "Enseignement",
-      "question": "En octobre 2026, jusqu'à quel tarif mensuel à temps plein une crèche non subventionnée peut-elle recevoir l'aide exceptionnelle de l'ONE de 620 euros par place ?",
+      "question": "En octobre 2026, quelle aide exceptionnelle par place l'ONE accorde-t-elle aux crèches non subventionnées dont le tarif ne dépasse pas 1 060 euros par mois à temps plein ?",
       "options": [
-        "1 060 euros par mois",
-        "620 euros par mois",
-        "1 500 euros par mois",
-        "850 euros par mois"
+        "620 euros",
+        "310 euros",
+        "1 060 euros",
+        "150 euros"
       ],
       "correct": 0,
-      "explanation": "L'ONE accorde 620 euros par place aux crèches non subventionnées, sur demande, si leur tarif ne dépasse pas 1 060 euros par mois à temps plein. Les accueillantes indépendantes reçoivent 310 euros par place.",
+      "explanation": "Les accueillantes indépendantes reçoivent 310 euros par place, aux mêmes conditions de tarif.",
       "sourceSlug": "/fr/dossiers/petite-enfance",
       "sourceTitle": "Petite enfance",
       "provenance": {
-        "sourceLastModified": "2026-11-15",
-        "sourceContentHash": "sha256:3828b602be53305a9516f08914395269",
-        "generatedAt": "2026-11-15T11:18:53.913Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:d6f1cc8b9e101153bb6785d0b8abb900",
+        "generatedAt": "2026-11-17T09:35:46.877Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1480,21 +1480,21 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Climat",
-      "question": "Pourquoi la Commission communautaire flamande (VGC) ne peut-elle pas attaquer la route aérienne RNP 07L au Conseil d'État, selon BRUZZ en novembre 2026 ?",
+      "question": "Qu'a décidé le Comité de concertation du 16 novembre 2026 au sujet des routes aériennes de Brussels Airport, selon la dépêche Belga ?",
       "options": [
-        "Elle a laissé passer le délai de soixante jours",
-        "Elle n'a aucune compétence en Région bruxelloise",
-        "Elle est une autorité décentralisée sans pouvoir de décret",
-        "Elle avait approuvé le maintien de cette route"
+        "Poursuivre la concertation, faute d'accord",
+        "Relever la norme de vent arrière pour les pistes 25 et 07",
+        "Supprimer la route d'atterrissage RNP 07L",
+        "Saisir la Cour constitutionnelle"
       ],
-      "correct": 2,
-      "explanation": "Selon BRUZZ, la VGC est une autorité décentralisée de la Communauté flamande, sans pouvoir de décret. La COCOF et la COCOM, elles, ont annoncé des requêtes.",
+      "correct": 0,
+      "explanation": "Le Comité a pris acte des points de vue divergents ; le conflit d'intérêts invoqué par la Flandre suspend les mesures fédérales pendant soixante jours.",
       "sourceSlug": "/fr/dossiers/survol-bruxelles",
       "sourceTitle": "Survol aérien",
       "provenance": {
-        "sourceLastModified": "2026-11-14",
-        "sourceContentHash": "sha256:4572e7a085e4d6f3cb4203888777a64a",
-        "generatedAt": "2026-11-15T11:18:53.913Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:c01fdaef30bd96ea4ad1278d6e3424f4",
+        "generatedAt": "2026-11-17T09:35:46.877Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1614,6 +1614,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 64
+  ]
 }

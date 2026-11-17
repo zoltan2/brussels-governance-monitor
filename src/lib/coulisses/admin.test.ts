@@ -56,4 +56,18 @@ describe('admin des coulisses', () => {
     expect(e.orphelins).toEqual([7]);
     expect(manques(e).join(' ')).toContain('Lien vers le sondage');
   });
+
+  // 17/11/2026 : le contrôle ne cherchait que « /sondage », alors que le
+  // sondage néerlandais est servi sous /nl/enquete (table de routage).
+  it('signale aussi un lien en dur vers le sondage néerlandais (/nl/enquete)', () => {
+    const db = getDb()!;
+    db.exec('DELETE FROM coulisses_numeros; DELETE FROM coulisses_bienvenue;');
+    J.enregistrerBienvenue(db, {
+      fr: L('a', '<p>[sondage]</p>', { sondage: '<p><a href="https://governance.brussels/fr/sondage">x</a></p>' }),
+      nl: L('b', '<p><a href="https://governance.brussels/nl/enquete">enquête</a></p>'),
+      en: L('c', '<p>Une <a href="https://governance.brussels/en/enquetes-publiques">enquête publique</a></p>'),
+    });
+    const e = etatAdmin(db, '2026-12', Date.parse('2026-12-01T08:00:00Z'));
+    expect(e.sondageEnDur).toEqual(['nl']);
+  });
 });

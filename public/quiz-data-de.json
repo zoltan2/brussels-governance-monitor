@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16T11:10:09.201Z",
+  "generatedAt": "2026-11-17T09:37:17.423Z",
   "locale": "de",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -330,21 +330,21 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Wohnen",
-      "question": "Wie viele der 1.115 Erinnerungen der regionalen Wohnungsinspektion an Vermieter von Wohnungen mit einem zwischen 2020 und 2024 verhängten Vermietungsverbot blieben laut BRUZZ (15.11.2026) unbeantwortet?",
+      "question": "In welches System will das Brüsseler Wohnungskabinett laut BRUZZ vom 16.11.2026 die sozialisierten Mieten von Wohnungen der Gemeinden und ÖSHZ überführen?",
       "options": [
-        "598",
-        "517",
-        "170",
-        "49"
+        "Das der sozialen Immobilienagenturen (AIS)",
+        "Das des Sozialwohnungsbaus der SLRB",
+        "Das des Richtmietspiegels des privaten Marktes",
+        "Das der Mittelstandswohnungen von citydev.brussels"
       ],
       "correct": 0,
-      "explanation": "598 Erinnerungen blieben unbeantwortet: Ob diese Wohnungen vermietet werden, ist unklar. Von den 517 Antworten gaben die meisten Eigentümer an, die Wohnung selbst zu bewohnen.",
+      "explanation": "Im System der AIS hängt die Miete unter anderem von Größe und Zustand der Wohnung ab: Sie bleibt unter dem Marktpreis, liegt aber über der Sozialmiete.",
       "sourceSlug": "/de/bereiche/housing",
       "sourceTitle": "Wohnungswesen: 62.234 Haushalte auf der Warteliste, die SLRB erwartet ihre 131 Millionen",
       "provenance": {
-        "sourceLastModified": "2026-11-16",
-        "sourceContentHash": "sha256:9bac40f7865cd5fab091e9c256b3ad41",
-        "generatedAt": "2026-11-16T11:10:09.201Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:a1d5bf070fe3c9155ff12301fee18d49",
+        "generatedAt": "2026-11-17T09:37:17.423Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -353,21 +353,21 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Wohnen",
-      "question": "Was muss der Vermieter einer Wohnung mit Vermietungsverbot nach dem Brüsseler Wohnungsgesetzbuch erhalten, um sie wieder vermieten zu dürfen?",
+      "question": "Wie viele der 1.115 Erinnerungen der Regionalen Wohnungsinspektionsdirektion (DIRL) an Vermieter von Wohnungen mit Vermietungsverbot blieben laut der am 10.11.2026 veröffentlichten Antwort auf eine schriftliche Frage unbeantwortet?",
       "options": [
-        "Eine Konformitätsbescheinigung",
-        "Ein EPB-Label mindestens der Klasse C",
-        "Eine Vermietungsgenehmigung der Gemeinde",
-        "Eine positive Stellungnahme des ÖSHZ der Gemeinde"
+        "598",
+        "170",
+        "517",
+        "49"
       ],
       "correct": 0,
-      "explanation": "Ein Vermietungsverbot betrifft eine Wohnung, die die Sicherheits- und Gesundheitsanforderungen nicht erfüllt; sie darf erst mit einer Konformitätsbescheinigung wieder vermietet werden.",
+      "explanation": "598 Erinnerungen blieben unbeantwortet; laut der Antwort « kann nicht ausgeschlossen werden », dass die betroffenen Wohnungen dennoch vermietet wurden.",
       "sourceSlug": "/de/bereiche/housing",
       "sourceTitle": "Wohnungswesen: 62.234 Haushalte auf der Warteliste, die SLRB erwartet ihre 131 Millionen",
       "provenance": {
-        "sourceLastModified": "2026-11-16",
-        "sourceContentHash": "sha256:9bac40f7865cd5fab091e9c256b3ad41",
-        "generatedAt": "2026-11-16T11:10:09.201Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:a1d5bf070fe3c9155ff12301fee18d49",
+        "generatedAt": "2026-11-17T09:37:17.423Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sicherheit",
-      "question": "Was fordert die Resolution zum Maskulinismus, die das Brüsseler Parlament am 13.11.2026 einstimmig verabschiedete, laut La DH?",
+      "question": "Welche E-Scooter dürfen laut dem Polizeierlass vom 19.10.2026 in den 19 Brüsseler Hotspots des Drogenhandels weder fahren noch abgestellt werden?",
       "options": [
-        "Dass safe.brussels dessen Ausmaß in Brüssel misst",
-        "Dass eine regionale Staatsanwaltschaft gegen Sexismus entsteht",
-        "Dass maskulinistische Inhalte per Ordonnanz verboten werden",
-        "Dass die neunzehn Gemeinden diese Zuständigkeit übernehmen"
+        "Alle, geteilt oder privat",
+        "Nur Leih-E-Scooter",
+        "Nur private E-Scooter, die schneller als 20 km/h fahren",
+        "Nur zwischen 22 und 6 Uhr"
       ],
       "correct": 0,
-      "explanation": "Der Text fordert, den Maskulinismus in die regionalen Sicherheitsstrategien aufzunehmen und safe.brussels mit der Messung seines Ausmaßes zu beauftragen. Eine Resolution richtet Forderungen an die Regierung, sie hat nicht die Kraft einer Ordonnanz.",
+      "explanation": "Artikel 6 des Erlasses gilt für alle E-Scooter, geteilt oder privat, und verpflichtet die Betreiber, die Nutzung ihrer Scooter dort zu verhindern.",
       "sourceSlug": "/de/bereiche/security",
       "sourceTitle": "Sicherheit: Drogenkommissar, Bahnhofsplan, stabile Kriminalitätsrate",
       "provenance": {
-        "sourceLastModified": "2026-11-14",
-        "sourceContentHash": "sha256:8fadf7a4aef1360f2d97d4fa9b5f0379",
-        "generatedAt": "2026-11-15T11:20:21.308Z",
+        "sourceLastModified": "2026-11-16",
+        "sourceContentHash": "sha256:857f425dd289c538c1bf0714629e2c54",
+        "generatedAt": "2026-11-17T09:37:17.423Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sicherheit",
-      "question": "Warum wurde das Verbot von E-Scootern in den sensiblen Zonen Brüssels am 12.11.2026 kaum angewandt, laut BRUZZ?",
+      "question": "Worum bittet die am 13.11.2026 vom Brüsseler Parlament einstimmig angenommene Entschließung gegen Maskulinismus safe.brussels laut La DH?",
       "options": [
-        "Weil der Staatsrat den Erlass ausgesetzt hatte",
-        "Weil die Anbieter einen Aufschub erhalten hatten",
-        "Weil der Polizeierlass noch nicht ergangen war",
-        "Mangels Beschilderung, die Bußgelder ermöglicht"
+        "Sein Ausmaß in Brüssel zu messen",
+        "Die betreffenden Online-Konten zu schließen",
+        "Eine neue Polizeizone zu schaffen",
+        "Ein regionales Referendum zu organisieren"
       ],
-      "correct": 3,
-      "explanation": "Laut BRUZZ markiert kein Schild die Grenzen der 19 sensiblen Zonen, was Bußgelder verhindert. Die Anbieter Bolt und Dott erklären, auf eine genaue Karte der Zonen von der regionalen Behörde zu warten.",
+      "correct": 0,
+      "explanation": "Die Entschließung fordert auch, Maskulinismus in die regionalen Sicherheitsstrategien aufzunehmen; eine Entschließung richtet Forderungen an die Regierung, ohne die Kraft einer Ordonnanz.",
       "sourceSlug": "/de/bereiche/security",
       "sourceTitle": "Sicherheit: Drogenkommissar, Bahnhofsplan, stabile Kriminalitätsrate",
       "provenance": {
-        "sourceLastModified": "2026-11-14",
-        "sourceContentHash": "sha256:8fadf7a4aef1360f2d97d4fa9b5f0379",
-        "generatedAt": "2026-11-15T11:20:21.308Z",
+        "sourceLastModified": "2026-11-16",
+        "sourceContentHash": "sha256:857f425dd289c538c1bf0714629e2c54",
+        "generatedAt": "2026-11-17T09:37:17.423Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Stadtplanung",
-      "question": "Wovon hängt laut der Staatssekretärin für Städtebau, im Ausschuss des Brüsseler Parlaments am 9. November 2026, die Weiterleitung der städtebaulichen Geldlasten an die Gemeinden ab?",
+      "question": "Was beschlossen die Mitglieder des Ausschusses des Brüsseler Parlaments laut La DH vom 16.11.2026 zum Ordonnanzvorschlag über die einmalige befreiende städtebauliche Erklärung (DLUU)?",
       "options": [
-        "Von einem Regierungserlass und den verfügbaren Haushaltsmitteln",
-        "Von einer Abstimmung im Gemeinderat und einer Stellungnahme der Aufsicht",
-        "Von einer Vereinbarung mit jedem betroffenen Immobilienentwickler",
-        "Von einer vorherigen Stellungnahme des Rechnungshofs zu jeder Akte"
+        "Ihn mit seinen Änderungsanträgen dem Staatsrat zur Stellungnahme vorzulegen",
+        "Ihn im Ausschuss endgültig anzunehmen",
+        "Ihn für den Rest der Legislaturperiode von der Tagesordnung zu nehmen",
+        "Ihn einer regionalen öffentlichen Untersuchung zu unterziehen"
       ],
       "correct": 0,
-      "explanation": "Die erhobenen Lasten laufen über den Fonds für Stadt- und Bodenentwicklung und werden als Zuschüsse ausgezahlt; die Staatssekretärin räumt ein, dass dieser Mechanismus den Abbau des Rückstands bremst.",
+      "explanation": "Die Mehrheit wollte ihn in der nächsten Plenarsitzung verabschieden lassen; sie erklärte sich bereit, ihren Zeitplan zu überarbeiten.",
       "sourceSlug": "/de/bereiche/urban-planning",
       "sourceTitle": "Städtebau: schnellere Genehmigungen und städtebauliche Amnestie",
       "provenance": {
-        "sourceLastModified": "2026-11-13",
-        "sourceContentHash": "sha256:6fea909c44d0a0c81a6345da9d3cc125",
-        "generatedAt": "2026-11-13T10:43:17.016Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:b965f239bcdf9614f18f1b52bd35ae2a",
+        "generatedAt": "2026-11-17T09:37:17.423Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Stadtplanung",
-      "question": "Bis wann war laut der Antwort im Ausschuss des Brüsseler Parlaments am 9. November 2026 der erste Bericht über die Begleitung der Umweltauswirkungen des PRAS fällig?",
+      "question": "Wie lange wäre das Regularisierungsverfahren der einmaligen befreienden städtebaulichen Erklärung (DLUU) laut La DH vom 16.11.2026 geöffnet?",
       "options": [
-        "Bis zum 01.09.2022, und er wurde nicht erstellt",
-        "Bis zum 01.09.2017, und er erschien 2018",
-        "Bis zum 01.01.2024, und er ging an das Parlament",
-        "Bis zum 01.09.2025, und er wurde online veröffentlicht"
+        "Drei Jahre",
+        "Ein Jahr",
+        "Fünf Jahre",
+        "Unbefristet"
       ],
       "correct": 0,
-      "explanation": "Artikel 30 des CoBAT, 2017 eingefügt, schreibt diesen Bericht alle fünf Jahre vor; perspective.brussels soll diese Begleitung künftig übernehmen, mit einer Ausgangslage beim Inkrafttreten des neuen PRAS.",
+      "explanation": "Die Anträge würden von der Region über urban.brussels bearbeitet, mit 30 Tagen für die Entscheidung, sobald die Akte vollständig ist; andernfalls gälte der Antrag als abgelehnt.",
       "sourceSlug": "/de/bereiche/urban-planning",
       "sourceTitle": "Städtebau: schnellere Genehmigungen und städtebauliche Amnestie",
       "provenance": {
-        "sourceLastModified": "2026-11-13",
-        "sourceContentHash": "sha256:6fea909c44d0a0c81a6345da9d3cc125",
-        "generatedAt": "2026-11-13T10:43:17.016Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:b965f239bcdf9614f18f1b52bd35ae2a",
+        "generatedAt": "2026-11-17T09:37:17.423Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1227,21 +1227,21 @@
       "id": "dossier-petite-enfance-0",
       "source": "dossier",
       "domain": "Bildung",
-      "question": "Welchen Auftrag erteilte die Regierung der Föderation Wallonie-Brüssel im November 2026 ihrem Kommissar bei der ONE, laut RTBF?",
+      "question": "Welche Funktion hat laut La Libre vom 16.11.2026 das vom Dienst freigestellte Mitglied des Office de la naissance et de l'enfance (ONE)?",
       "options": [
-        "Die Kinderkrippen zu schließen, gegen die ermittelt wird",
-        "Die Fortführung der Verwaltung des Amtes zu sichern",
-        "Die Tarife der subventionierten Kinderkrippen zu überarbeiten",
-        "Die Inspektion der Brüsseler Kinderkrippen zu übernehmen"
+        "Stellvertretender Generaldirektor",
+        "Generalverwalter",
+        "Vorsitzender des Verwaltungsrats",
+        "Regierungskommissar"
       ],
-      "correct": 1,
-      "explanation": "Laut der Mitteilung der Ministerin für Kindheit, die die RTBF am 14.11.2026 zitiert, wurde ein Mitglied der ONE vom Dienst freigestellt, und der Regierungskommissar sichert vorübergehend die Fortführung der Verwaltung.",
+      "correct": 0,
+      "explanation": "Da die Generalverwalterin krankgeschrieben ist, hat das Office keine Leitung mehr; der Regierungskommissar der Föderation Wallonie-Brüssel sichert die Kontinuität.",
       "sourceSlug": "/de/dossiers/petite-enfance",
       "sourceTitle": "Kleinkindbetreuung",
       "provenance": {
-        "sourceLastModified": "2026-11-15",
-        "sourceContentHash": "sha256:577dbb047d61762faf1886fc713db626",
-        "generatedAt": "2026-11-15T11:20:21.308Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:1fa54501a91823f7f89e4687d6e9e70b",
+        "generatedAt": "2026-11-17T09:37:17.423Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1250,21 +1250,21 @@
       "id": "dossier-petite-enfance-1",
       "source": "dossier",
       "domain": "Bildung",
-      "question": "Bis zu welchem Monatstarif für Vollzeitbetreuung kann eine nicht subventionierte Kinderkrippe im Oktober 2026 die außerordentliche Hilfe der ONE von 620 Euro pro Platz erhalten?",
+      "question": "Welche außerordentliche Hilfe pro Platz gewährte das ONE im Oktober 2026 nicht subventionierten Krippen, deren Vollzeittarif 1.060 Euro im Monat nicht übersteigt?",
       "options": [
-        "1.060 Euro pro Monat",
-        "620 Euro pro Monat",
-        "1.500 Euro pro Monat",
-        "850 Euro pro Monat"
+        "620 Euro",
+        "310 Euro",
+        "1.060 Euro",
+        "150 Euro"
       ],
       "correct": 0,
-      "explanation": "Die ONE gewährt nicht subventionierten Kinderkrippen auf Antrag 620 Euro pro Platz, wenn ihr Tarif 1.060 Euro pro Monat in Vollzeit nicht übersteigt. Selbstständige Tagesmütter erhalten 310 Euro pro Platz.",
+      "explanation": "Selbstständige Tagesmütter erhalten 310 Euro pro Platz, unter derselben Tarifbedingung.",
       "sourceSlug": "/de/dossiers/petite-enfance",
       "sourceTitle": "Kleinkindbetreuung",
       "provenance": {
-        "sourceLastModified": "2026-11-15",
-        "sourceContentHash": "sha256:577dbb047d61762faf1886fc713db626",
-        "generatedAt": "2026-11-15T11:20:21.308Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:1fa54501a91823f7f89e4687d6e9e70b",
+        "generatedAt": "2026-11-17T09:37:17.423Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1480,21 +1480,21 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Klima",
-      "question": "Warum kann die Flämische Gemeinschaftskommission (VGC) die Flugroute RNP 07L nicht vor dem Staatsrat anfechten, laut BRUZZ im November 2026?",
+      "question": "Was beschloss der Konzertierungsausschuss vom 16.11.2026 zu den Flugrouten von Brussels Airport, laut der Belga-Meldung?",
       "options": [
-        "Sie ließ die Frist von sechzig Tagen verstreichen",
-        "Sie hat keinerlei Zuständigkeit in der Region Brüssel",
-        "Sie ist eine dezentrale Behörde ohne Dekretbefugnis",
-        "Sie hatte den Erhalt dieser Route selbst gebilligt"
+        "Die Konzertierung fortzusetzen, mangels Einigung",
+        "Die Rückenwindnorm für die Pisten 25 und 07 anzuheben",
+        "Die Landeroute RNP 07L abzuschaffen",
+        "Den Verfassungsgerichtshof anzurufen"
       ],
-      "correct": 2,
-      "explanation": "Laut BRUZZ ist die VGC eine dezentrale Behörde der Flämischen Gemeinschaft, ohne Dekretbefugnis. Die COCOF und die GGK kündigten dagegen Anträge an.",
+      "correct": 0,
+      "explanation": "Der Ausschuss nahm die unterschiedlichen Standpunkte zur Kenntnis; der von Flandern geltend gemachte Interessenkonflikt setzt die föderalen Maßnahmen für sechzig Tage aus.",
       "sourceSlug": "/de/dossiers/survol-bruxelles",
       "sourceTitle": "Fluglärm Brüssel",
       "provenance": {
-        "sourceLastModified": "2026-11-14",
-        "sourceContentHash": "sha256:ab58435e5c5c7cd820b720aaad564aec",
-        "generatedAt": "2026-11-15T11:20:21.308Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:d1ba0db862df5e89c5728624203de851",
+        "generatedAt": "2026-11-17T09:37:17.423Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1614,6 +1614,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 64
+  ]
 }

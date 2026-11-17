@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16T11:10:08.893Z",
+  "generatedAt": "2026-11-17T09:43:50.930Z",
   "locale": "en",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -330,21 +330,21 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Housing",
-      "question": "How many of the 1,115 reminders sent by the regional housing inspectorate to landlords of homes under a rental ban issued between 2020 and 2024 went unanswered, according to BRUZZ (15 November 2026)?",
+      "question": "According to BRUZZ of 16 November 2026, towards which system does the Brussels Housing cabinet want to move the socialised rents of homes owned by municipalities and CPAS?",
       "options": [
-        "598",
-        "517",
-        "170",
-        "49"
+        "That of the social rental agencies (AIS)",
+        "That of SLRB social housing",
+        "That of the indicative rent grid for the private market",
+        "That of citydev.brussels middle-income housing"
       ],
       "correct": 0,
-      "explanation": "598 reminders went unanswered: it is unclear whether these homes are being let. Of the 517 replies, most owners said they now live in the home themselves.",
+      "explanation": "In the AIS system, the rent depends in particular on the size and condition of the home: it stays below the market price but above the social rent.",
       "sourceSlug": "/en/domains/housing",
       "sourceTitle": "Housing: 62,234 households waiting, the SLRB awaits its 131 million",
       "provenance": {
-        "sourceLastModified": "2026-11-16",
-        "sourceContentHash": "sha256:8a951b1bd14671aee37f337c876d7ae4",
-        "generatedAt": "2026-11-16T11:10:08.893Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:c4442d20e44549a98bbaa76f8ea5440e",
+        "generatedAt": "2026-11-17T09:37:16.742Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -353,21 +353,21 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Housing",
-      "question": "Under the Brussels Housing Code, what must the landlord of a home under a rental ban obtain before letting it again?",
+      "question": "According to the answer to a written question published on 10 November 2026, how many of the 1,115 reminders sent by the Regional Housing Inspection Directorate (DIRL) to landlords of homes under a rental ban went unanswered?",
       "options": [
-        "A certificate of conformity",
-        "An EPB certificate of class C or better",
-        "A letting permit issued by the municipality",
-        "A favourable opinion from the municipal CPAS"
+        "598",
+        "170",
+        "517",
+        "49"
       ],
       "correct": 0,
-      "explanation": "A rental ban applies to a home that does not meet the safety and health requirements; it may only be let again with a certificate of conformity.",
+      "explanation": "598 reminders went unanswered; the answer states that \"it cannot be ruled out\" that the homes concerned were still rented out.",
       "sourceSlug": "/en/domains/housing",
       "sourceTitle": "Housing: 62,234 households waiting, the SLRB awaits its 131 million",
       "provenance": {
-        "sourceLastModified": "2026-11-16",
-        "sourceContentHash": "sha256:8a951b1bd14671aee37f337c876d7ae4",
-        "generatedAt": "2026-11-16T11:10:08.893Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:c4442d20e44549a98bbaa76f8ea5440e",
+        "generatedAt": "2026-11-17T09:37:16.742Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Security",
-      "question": "What does the resolution on masculinism, adopted unanimously by the Brussels Parliament on 13 November 2026, ask for, according to La DH?",
+      "question": "Under the police order of 19 October 2026, which electric e-scooters are banned from riding and parking in the 19 drug-trafficking hotspots in Brussels?",
       "options": [
-        "That safe.brussels measure its extent in Brussels",
-        "That a regional prosecutor for sexism be created",
-        "That masculinist content be banned by ordinance",
-        "That the nineteen municipalities take over the matter"
+        "All of them, shared or private",
+        "Only shared e-scooters",
+        "Only private e-scooters faster than 20 km/h",
+        "Only between 10 pm and 6 am"
       ],
       "correct": 0,
-      "explanation": "The text asks for masculinism to be included in the regional security strategies and for safe.brussels to measure its extent. A resolution addresses requests to the government; it does not have the force of an ordinance.",
+      "explanation": "Article 6 of the order covers all electric e-scooters, shared or private, and requires operators to ensure their e-scooters cannot be used there.",
       "sourceSlug": "/en/domains/security",
       "sourceTitle": "Security: anti-drug commissioner, Stations Plan, stable crime rate",
       "provenance": {
-        "sourceLastModified": "2026-11-14",
-        "sourceContentHash": "sha256:7ac221418c5c6662f81a42a935057755",
-        "generatedAt": "2026-11-15T11:20:20.678Z",
+        "sourceLastModified": "2026-11-16",
+        "sourceContentHash": "sha256:85932024aee77198824eaf84cde2e06d",
+        "generatedAt": "2026-11-17T09:37:16.742Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Security",
-      "question": "Why was the ban on electric scooters in the sensitive zones of Brussels barely enforced on 12 November 2026, according to BRUZZ?",
+      "question": "What does the resolution against masculinism, adopted unanimously by the Brussels Parliament on 13 November 2026, ask safe.brussels to do, according to La DH?",
       "options": [
-        "Because the Council of State had suspended the order",
-        "Because the operators had obtained a postponement",
-        "Because the police order had not yet been issued",
-        "For lack of signage that would allow fines to be issued"
+        "Measure its extent in Brussels",
+        "Close the online accounts concerned",
+        "Set up a new police zone",
+        "Organise a regional referendum"
       ],
-      "correct": 3,
-      "explanation": "According to BRUZZ, no sign marks the boundaries of the 19 sensitive zones, which prevents fines. The operators Bolt and Dott say they are waiting for a precise map of the zones from the regional authority.",
+      "correct": 0,
+      "explanation": "The resolution also asks for masculinism to be included in regional security strategies; a resolution makes requests to the government, without the force of an ordinance.",
       "sourceSlug": "/en/domains/security",
       "sourceTitle": "Security: anti-drug commissioner, Stations Plan, stable crime rate",
       "provenance": {
-        "sourceLastModified": "2026-11-14",
-        "sourceContentHash": "sha256:7ac221418c5c6662f81a42a935057755",
-        "generatedAt": "2026-11-15T11:20:20.678Z",
+        "sourceLastModified": "2026-11-16",
+        "sourceContentHash": "sha256:85932024aee77198824eaf84cde2e06d",
+        "generatedAt": "2026-11-17T09:37:16.742Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Urban Planning",
-      "question": "According to the State Secretary for Urban Planning, in a Brussels Parliament committee on 9 November 2026, what does passing cash planning charges on to the municipalities depend on?",
+      "question": "According to La DH of 16 November 2026, what did the members of the Brussels Parliament committee decide about the draft ordinance on the single urban planning release declaration (DLUU)?",
       "options": [
-        "A government decree and the available budget appropriations",
-        "A municipal council vote and an opinion from regional supervision",
-        "An agreement signed with each property developer concerned",
-        "A prior opinion from the Court of Audit on each file"
+        "To send it, with its amendments, to the Council of State for an opinion",
+        "To adopt it definitively in committee",
+        "To withdraw it from the agenda for the rest of the term",
+        "To submit it to a regional public inquiry"
       ],
       "correct": 0,
-      "explanation": "The charges collected go through the Urban and Land Development Fund and are paid out as subsidies; the State Secretary acknowledges that this mechanism slows down clearing the backlog.",
+      "explanation": "The majority wanted it adopted at the next plenary session; it agreed to revise its timetable.",
       "sourceSlug": "/en/domains/urban-planning",
       "sourceTitle": "Urban Planning: faster permits and planning amnesty",
       "provenance": {
-        "sourceLastModified": "2026-11-13",
-        "sourceContentHash": "sha256:f9e95d7b3ca958011a5d65afd38e30e8",
-        "generatedAt": "2026-11-13T10:43:16.665Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:5aa9c329b17ee3eee6e11fdb42bf0cbd",
+        "generatedAt": "2026-11-17T09:37:16.742Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Urban Planning",
-      "question": "According to the answer given in a Brussels Parliament committee on 9 November 2026, when was the first report on monitoring the environmental effects of the PRAS due?",
+      "question": "According to La DH of 16 November 2026, for how long would the regularisation procedure under the single urban planning release declaration (DLUU) be open?",
       "options": [
-        "1 September 2022, and it was not produced",
-        "1 September 2017, and it was published in 2018",
-        "1 January 2024, and it was sent to Parliament",
-        "1 September 2025, and it was published online"
+        "Three years",
+        "One year",
+        "Five years",
+        "With no time limit"
       ],
       "correct": 0,
-      "explanation": "Article 30 of the CoBAT, inserted in 2017, requires this report every five years; perspective.brussels is now to carry out this monitoring, with a baseline set when the new PRAS enters into force.",
+      "explanation": "Applications would be handled by the Region, through urban.brussels, with 30 days to decide once the file is complete; otherwise the application would be refused.",
       "sourceSlug": "/en/domains/urban-planning",
       "sourceTitle": "Urban Planning: faster permits and planning amnesty",
       "provenance": {
-        "sourceLastModified": "2026-11-13",
-        "sourceContentHash": "sha256:f9e95d7b3ca958011a5d65afd38e30e8",
-        "generatedAt": "2026-11-13T10:43:16.665Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:5aa9c329b17ee3eee6e11fdb42bf0cbd",
+        "generatedAt": "2026-11-17T09:37:16.742Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1170,9 +1170,9 @@
       "sourceSlug": "/en/dossiers/mobilite-partagee",
       "sourceTitle": "Shared Mobility",
       "provenance": {
-        "sourceLastModified": "2026-11-12",
-        "sourceContentHash": "sha256:db05ef9e29c45191273430305e122fbd",
-        "generatedAt": "2026-11-12T13:21:14.179Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:fb462993178a8e46cd359300e40aaab6",
+        "generatedAt": "2026-11-17T09:43:50.930Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1189,13 +1189,13 @@
         "From 1 July 2027"
       ],
       "correct": 0,
-      "explanation": "The government cites road safety and the use of these vehicles for criminal purposes. Private e-scooters remain allowed: they fall under federal rules.",
+      "explanation": "The government cites road safety and the use of these vehicles for criminal purposes. Private e-scooters remain allowed, except in the 19 drug-trafficking hotspots, where the police order of 19 October 2026 bans all electric e-scooters.",
       "sourceSlug": "/en/dossiers/mobilite-partagee",
       "sourceTitle": "Shared Mobility",
       "provenance": {
-        "sourceLastModified": "2026-11-12",
-        "sourceContentHash": "sha256:db05ef9e29c45191273430305e122fbd",
-        "generatedAt": "2026-11-12T13:21:14.179Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:fb462993178a8e46cd359300e40aaab6",
+        "generatedAt": "2026-11-17T09:43:50.930Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1227,21 +1227,21 @@
       "id": "dossier-petite-enfance-0",
       "source": "dossier",
       "domain": "Education",
-      "question": "What assignment did the government of the Wallonia-Brussels Federation give its commissioner at the ONE in November 2026, according to RTBF?",
+      "question": "According to La Libre of 16 November 2026, what position is held by the member of the Office de la naissance et de l'enfance (ONE) who has been relieved of duty?",
       "options": [
-        "To close the crèches under investigation",
-        "To ensure continuity of the agency's management",
-        "To revise the rates of subsidised crèches",
-        "To take over inspection of Brussels crèches"
+        "Deputy director general",
+        "Administrator general",
+        "Chair of the board of directors",
+        "Government commissioner"
       ],
-      "correct": 1,
-      "explanation": "According to the statement by the minister for childhood quoted by RTBF on 14 November 2026, a member of the ONE has been relieved of duty and the government commissioner temporarily ensures continuity of management.",
+      "correct": 0,
+      "explanation": "With the administrator general on sick leave, the Office has no management left; the government commissioner of the Wallonia-Brussels Federation ensures continuity.",
       "sourceSlug": "/en/dossiers/petite-enfance",
       "sourceTitle": "Early childhood",
       "provenance": {
-        "sourceLastModified": "2026-11-15",
-        "sourceContentHash": "sha256:fbb4ae4dd83207a6e0f45854f370b832",
-        "generatedAt": "2026-11-15T11:20:20.678Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:00f95c5ab3e4f3c18384731e20a2ee16",
+        "generatedAt": "2026-11-17T09:37:16.742Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1250,21 +1250,21 @@
       "id": "dossier-petite-enfance-1",
       "source": "dossier",
       "domain": "Education",
-      "question": "In October 2026, up to what full-time monthly rate can a non-subsidised crèche receive the ONE's exceptional aid of 620 euros per place?",
+      "question": "In October 2026, what exceptional support per place did the ONE grant to non-subsidised nurseries whose full-time fee does not exceed 1,060 euros a month?",
       "options": [
-        "1,060 euros per month",
-        "620 euros per month",
-        "1,500 euros per month",
-        "850 euros per month"
+        "620 euros",
+        "310 euros",
+        "1,060 euros",
+        "150 euros"
       ],
       "correct": 0,
-      "explanation": "The ONE grants 620 euros per place to non-subsidised crèches, on request, if their rate does not exceed 1,060 euros per month full-time. Independent childminders receive 310 euros per place.",
+      "explanation": "Independent childminders receive 310 euros per place, under the same fee condition.",
       "sourceSlug": "/en/dossiers/petite-enfance",
       "sourceTitle": "Early childhood",
       "provenance": {
-        "sourceLastModified": "2026-11-15",
-        "sourceContentHash": "sha256:fbb4ae4dd83207a6e0f45854f370b832",
-        "generatedAt": "2026-11-15T11:20:20.678Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:00f95c5ab3e4f3c18384731e20a2ee16",
+        "generatedAt": "2026-11-17T09:37:16.742Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1480,21 +1480,21 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Climate",
-      "question": "Why can the Flemish Community Commission (VGC) not challenge the RNP 07L flight route before the Council of State, according to BRUZZ in November 2026?",
+      "question": "What did the Concertation Committee of 16 November 2026 decide about the Brussels Airport flight routes, according to the Belga dispatch?",
       "options": [
-        "It let the sixty-day deadline expire",
-        "It has no powers in the Brussels Region",
-        "It is a decentralised authority with no decree-making power",
-        "It had approved keeping that route itself"
+        "To continue talks, as there was no agreement",
+        "To raise the tailwind standard for runways 25 and 07",
+        "To scrap the RNP 07L landing route",
+        "To refer the matter to the Constitutional Court"
       ],
-      "correct": 2,
-      "explanation": "According to BRUZZ, the VGC is a decentralised authority of the Flemish Community, with no decree-making power. The COCOF and the COCOM, by contrast, announced applications.",
+      "correct": 0,
+      "explanation": "The Committee took note of the diverging positions; the conflict of interests invoked by Flanders suspends the federal measures for sixty days.",
       "sourceSlug": "/en/dossiers/survol-bruxelles",
       "sourceTitle": "Aircraft overflight",
       "provenance": {
-        "sourceLastModified": "2026-11-14",
-        "sourceContentHash": "sha256:238e2531b5c96fd4f47f86ddda37afc5",
-        "generatedAt": "2026-11-15T11:20:20.678Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:7fefa1461e77cb98c7112b08b5ec5d90",
+        "generatedAt": "2026-11-17T09:37:16.742Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 64
+  "reviewedCount": 56
 }

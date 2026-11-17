@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16T11:10:08.581Z",
+  "generatedAt": "2026-11-17T09:43:50.238Z",
   "locale": "nl",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -330,21 +330,21 @@
       "id": "domain-housing-0",
       "source": "domain",
       "domain": "Huisvesting",
-      "question": "Op hoeveel van de 1.115 herinneringen die de gewestelijke huisvestingsinspectie stuurde naar verhuurders van woningen met een verhuurverbod uit 2020-2024 kwam geen antwoord, volgens BRUZZ (15 november 2026)?",
+      "question": "Volgens BRUZZ van 16 november 2026: naar welk systeem wil het Brusselse kabinet Huisvesting de gesocialiseerde huurprijzen van woningen van gemeenten en OCMW's laten evolueren?",
       "options": [
-        "598",
-        "517",
-        "170",
-        "49"
+        "Dat van de sociale verhuurkantoren (SVK's)",
+        "Dat van de sociale huisvesting van de BGHM",
+        "Dat van het indicatieve huurrooster van de private markt",
+        "Dat van de middenklassewoningen van citydev.brussels"
       ],
       "correct": 0,
-      "explanation": "Op 598 herinneringen kwam geen antwoord: het is onduidelijk of die woningen verhuurd worden. Van de 517 antwoorden meldden de meeste eigenaars dat ze de woning zelf bewonen.",
+      "explanation": "Bij de SVK's hangt de huurprijs onder meer af van de grootte en de staat van de woning: ze blijft onder de marktprijs, maar boven de sociale huurprijs.",
       "sourceSlug": "/nl/domeinen/housing",
       "sourceTitle": "Huisvesting: 62.234 gezinnen op de wachtlijst, de BGHM wacht op haar 131 miljoen",
       "provenance": {
-        "sourceLastModified": "2026-11-16",
-        "sourceContentHash": "sha256:87f4a935977ef4c64527abc6a48c4ed1",
-        "generatedAt": "2026-11-16T11:10:08.581Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:67f16c3d95ad16b315883e404da6aa82",
+        "generatedAt": "2026-11-17T09:37:16.042Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -353,21 +353,21 @@
       "id": "domain-housing-1",
       "source": "domain",
       "domain": "Huisvesting",
-      "question": "Wat moet de verhuurder van een woning met een verhuurverbod volgens de Brusselse Huisvestingscode verkrijgen om ze opnieuw te mogen verhuren?",
+      "question": "Volgens het antwoord op een schriftelijke vraag, gepubliceerd op 10 november 2026: hoeveel van de 1.115 herinneringen van de Directie Gewestelijke Huisvestingsinspectie (DGHI) aan verhuurders van woningen met een verhuurverbod bleven onbeantwoord?",
       "options": [
-        "Een conformiteitscontroleattest",
-        "Een EPB-label van minstens klasse C",
-        "Een verhuurvergunning van de gemeente",
-        "Een gunstig advies van het OCMW van de gemeente"
+        "598",
+        "170",
+        "517",
+        "49"
       ],
       "correct": 0,
-      "explanation": "Een verhuurverbod treft een woning die niet voldoet aan de vereisten inzake veiligheid en gezondheid; ze mag pas opnieuw verhuurd worden met een conformiteitscontroleattest.",
+      "explanation": "598 herinneringen bleven onbeantwoord; volgens het antwoord « kan niet worden uitgesloten » dat de betrokken woningen toch nog werden verhuurd.",
       "sourceSlug": "/nl/domeinen/housing",
       "sourceTitle": "Huisvesting: 62.234 gezinnen op de wachtlijst, de BGHM wacht op haar 131 miljoen",
       "provenance": {
-        "sourceLastModified": "2026-11-16",
-        "sourceContentHash": "sha256:87f4a935977ef4c64527abc6a48c4ed1",
-        "generatedAt": "2026-11-16T11:10:08.581Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:67f16c3d95ad16b315883e404da6aa82",
+        "generatedAt": "2026-11-17T09:37:16.042Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Veiligheid",
-      "question": "Wat vraagt de resolutie over masculinisme die het Brussels Parlement op 13 november 2026 unaniem goedkeurde, volgens La DH?",
+      "question": "Welke elektrische steps zijn volgens het politiebesluit van 19 oktober 2026 verboden om te rijden en te stallen in de 19 Brusselse hotspots van de drugshandel?",
       "options": [
-        "Dat safe.brussels de omvang ervan in Brussel meet",
-        "Dat er een gewestelijk parket tegen seksisme komt",
-        "Dat masculinistische inhoud bij ordonnantie wordt verboden",
-        "Dat de negentien gemeenten die bevoegdheid krijgen"
+        "Alle steps, deelsteps en privésteps",
+        "Alleen deelsteps",
+        "Alleen privésteps die sneller dan 20 km/u kunnen",
+        "Alleen tussen 22 uur en 6 uur"
       ],
       "correct": 0,
-      "explanation": "De tekst vraagt om masculinisme op te nemen in de gewestelijke veiligheidsstrategieën en safe.brussels de omvang ervan te laten meten. Een resolutie richt vragen aan de regering, ze heeft niet de kracht van een ordonnantie.",
+      "explanation": "Artikel 6 van het besluit geldt voor alle elektrische steps, gedeeld of privé, en verplicht de operatoren ervoor te zorgen dat hun steps er niet rijden.",
       "sourceSlug": "/nl/domeinen/security",
       "sourceTitle": "Veiligheid: drugscommissaris, Stationsplan, misdaadcijfers stabiel",
       "provenance": {
-        "sourceLastModified": "2026-11-14",
-        "sourceContentHash": "sha256:a33d40196aee997b276767cf3140ed20",
-        "generatedAt": "2026-11-15T11:20:20.077Z",
+        "sourceLastModified": "2026-11-16",
+        "sourceContentHash": "sha256:a686cc5750365ab1e57a6301d7d0b656",
+        "generatedAt": "2026-11-17T09:37:16.042Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Veiligheid",
-      "question": "Waarom werd het verbod op elektrische steps in de Brusselse hotspots op 12 november 2026 nauwelijks toegepast, volgens BRUZZ?",
+      "question": "Wat vraagt de resolutie tegen masculinisme, op 13 november 2026 unaniem aangenomen door het Brussels Parlement, aan safe.brussels, volgens La DH?",
       "options": [
-        "Omdat de Raad van State het besluit had geschorst",
-        "Omdat de operatoren uitstel hadden gekregen",
-        "Omdat het politiebesluit nog niet was genomen",
-        "Bij gebrek aan signalisatie om te kunnen beboeten"
+        "De omvang ervan in Brussel te meten",
+        "De betrokken onlineaccounts te sluiten",
+        "Een nieuwe politiezone op te richten",
+        "Een gewestelijk referendum te organiseren"
       ],
-      "correct": 3,
-      "explanation": "Volgens BRUZZ geeft geen enkel bord de grenzen van de 19 hotspots aan, waardoor beboeten niet kan. De operatoren Bolt en Dott zeggen te wachten op een precieze kaart van de zones van de gewestelijke overheid.",
+      "correct": 0,
+      "explanation": "De resolutie vraagt ook masculinisme op te nemen in de gewestelijke veiligheidsstrategieën; een resolutie richt vragen aan de regering, zonder de kracht van een ordonnantie.",
       "sourceSlug": "/nl/domeinen/security",
       "sourceTitle": "Veiligheid: drugscommissaris, Stationsplan, misdaadcijfers stabiel",
       "provenance": {
-        "sourceLastModified": "2026-11-14",
-        "sourceContentHash": "sha256:a33d40196aee997b276767cf3140ed20",
-        "generatedAt": "2026-11-15T11:20:20.077Z",
+        "sourceLastModified": "2026-11-16",
+        "sourceContentHash": "sha256:a686cc5750365ab1e57a6301d7d0b656",
+        "generatedAt": "2026-11-17T09:37:16.042Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -560,21 +560,21 @@
       "id": "domain-urban-planning-0",
       "source": "domain",
       "domain": "Stedenbouw",
-      "question": "Waarvan hangt volgens de staatssecretaris voor Stedenbouw, in de commissie van het Brussels Parlement op 9 november 2026, de doorstorting aan de gemeenten van de geldelijke stedenbouwkundige lasten af?",
+      "question": "Wat besloten de leden van de commissie van het Brussels Parlement volgens La DH van 16 november 2026 over het voorstel van ordonnantie over de eenmalige bevrijdende stedenbouwkundige aangifte (DLUU)?",
       "options": [
-        "Van een regeringsbesluit en van de beschikbare begrotingskredieten",
-        "Van een stemming in de gemeenteraad en een advies van het gewestelijk toezicht",
-        "Van een overeenkomst met elke betrokken vastgoedpromotor",
-        "Van een voorafgaand advies van het Rekenhof over elk dossier"
+        "Het voorstel met de amendementen voor advies naar de Raad van State sturen",
+        "Het voorstel definitief goedkeuren in de commissie",
+        "Het voorstel voor de rest van de zittingsperiode van de agenda halen",
+        "Het voorstel aan een gewestelijk openbaar onderzoek onderwerpen"
       ],
       "correct": 0,
-      "explanation": "De geïnde lasten gaan via het Fonds voor stedenbouw en grondbeheer en worden als subsidies uitbetaald; de staatssecretaris erkent dat dit mechanisme het wegwerken van de achterstand afremt.",
+      "explanation": "De meerderheid wilde het voorstel op de volgende plenaire vergadering laten goedkeuren; ze aanvaardde haar planning te herzien.",
       "sourceSlug": "/nl/domeinen/urban-planning",
       "sourceTitle": "Stedenbouw: versnelling van vergunningen en stedenbouwkundige amnestie",
       "provenance": {
-        "sourceLastModified": "2026-11-13",
-        "sourceContentHash": "sha256:f6dcf797aec9297e013a4a832368178e",
-        "generatedAt": "2026-11-13T10:43:16.315Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:dc357d7efffb9a2833c8dc73a428c9f6",
+        "generatedAt": "2026-11-17T09:37:16.042Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -583,21 +583,21 @@
       "id": "domain-urban-planning-1",
       "source": "domain",
       "domain": "Stedenbouw",
-      "question": "Tegen wanneer werd volgens het antwoord in de commissie van het Brussels Parlement op 9 november 2026 het eerste verslag over de opvolging van de milieueffecten van het GBP verwacht?",
+      "question": "Hoelang zou de regularisatieprocedure van de eenmalige bevrijdende stedenbouwkundige aangifte (DLUU) volgens La DH van 16 november 2026 openstaan?",
       "options": [
-        "1 september 2022, en het is niet opgesteld",
-        "1 september 2017, en het werd in 2018 gepubliceerd",
-        "1 januari 2024, en het werd aan het Parlement bezorgd",
-        "1 september 2025, en het werd online gepubliceerd"
+        "Drie jaar",
+        "Een jaar",
+        "Vijf jaar",
+        "Onbeperkt"
       ],
       "correct": 0,
-      "explanation": "Artikel 30 van het BWRO, ingevoegd in 2017, schrijft dat verslag om de vijf jaar voor; perspective.brussels moet die opvolging voortaan verzorgen, met een referentiesituatie bij de inwerkingtreding van het nieuwe GBP.",
+      "explanation": "De dossiers zouden door het Gewest, via urban.brussels, worden behandeld, met 30 dagen om te beslissen zodra het dossier volledig is; anders zou de aanvraag geweigerd zijn.",
       "sourceSlug": "/nl/domeinen/urban-planning",
       "sourceTitle": "Stedenbouw: versnelling van vergunningen en stedenbouwkundige amnestie",
       "provenance": {
-        "sourceLastModified": "2026-11-13",
-        "sourceContentHash": "sha256:f6dcf797aec9297e013a4a832368178e",
-        "generatedAt": "2026-11-13T10:43:16.315Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:dc357d7efffb9a2833c8dc73a428c9f6",
+        "generatedAt": "2026-11-17T09:37:16.042Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1170,9 +1170,9 @@
       "sourceSlug": "/nl/dossiers/mobilite-partagee",
       "sourceTitle": "Gedeelde mobiliteit",
       "provenance": {
-        "sourceLastModified": "2026-11-12",
-        "sourceContentHash": "sha256:954ea089430908dd41ebb33be107eab7",
-        "generatedAt": "2026-11-12T13:21:13.855Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:81470d44eec76d7000ef6fc22bacef03",
+        "generatedAt": "2026-11-17T09:43:50.238Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1189,13 +1189,13 @@
         "Op 1 juli 2027"
       ],
       "correct": 0,
-      "explanation": "De regering wijst op de verkeersveiligheid en op het gebruik van die toestellen voor criminele doeleinden. Privésteps blijven toegelaten: ze vallen onder de federale regelgeving.",
+      "explanation": "De regering wijst op de verkeersveiligheid en op het gebruik van die toestellen voor criminele doeleinden. Privésteps blijven toegelaten, behalve in de 19 hotspots van de drugshandel, waar het politiebesluit van 19 oktober 2026 alle elektrische steps verbiedt.",
       "sourceSlug": "/nl/dossiers/mobilite-partagee",
       "sourceTitle": "Gedeelde mobiliteit",
       "provenance": {
-        "sourceLastModified": "2026-11-12",
-        "sourceContentHash": "sha256:954ea089430908dd41ebb33be107eab7",
-        "generatedAt": "2026-11-12T13:21:13.855Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:81470d44eec76d7000ef6fc22bacef03",
+        "generatedAt": "2026-11-17T09:43:50.238Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1227,21 +1227,21 @@
       "id": "dossier-petite-enfance-0",
       "source": "dossier",
       "domain": "Onderwijs",
-      "question": "Welke opdracht gaf de regering van de Federatie Wallonië-Brussel in november 2026 aan haar commissaris bij de ONE, volgens de RTBF?",
+      "question": "Welke functie bekleedt volgens La Libre van 16 november 2026 het lid van het Office de la naissance et de l'enfance (ONE) dat van dienst is vrijgesteld?",
       "options": [
-        "De crèches sluiten waarnaar een onderzoek loopt",
-        "De continuïteit van het beheer van de dienst verzekeren",
-        "De tarieven van de gesubsidieerde crèches herzien",
-        "De inspectie van de Brusselse crèches overnemen"
+        "Adjunct-directeur-generaal",
+        "Administrateur-generaal",
+        "Voorzitter van de raad van bestuur",
+        "Regeringscommissaris"
       ],
-      "correct": 1,
-      "explanation": "Volgens het persbericht van de minister van Kind dat de RTBF op 14 november 2026 aanhaalt, is een lid van de ONE vrijgesteld van dienst en verzekert de regeringscommissaris tijdelijk de continuïteit van het beheer.",
+      "correct": 0,
+      "explanation": "Omdat de administrateur-generaal met ziekteverlof is, heeft het Office geen leiding meer; de regeringscommissaris van de Federatie Wallonië-Brussel verzekert de continuïteit.",
       "sourceSlug": "/nl/dossiers/petite-enfance",
       "sourceTitle": "Kinderopvang",
       "provenance": {
-        "sourceLastModified": "2026-11-15",
-        "sourceContentHash": "sha256:3e170e9126117622f372c7d9a6770eb3",
-        "generatedAt": "2026-11-15T11:20:20.077Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:fbd3ead099ec76484d97dce4592fc2fd",
+        "generatedAt": "2026-11-17T09:37:16.042Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1250,21 +1250,21 @@
       "id": "dossier-petite-enfance-1",
       "source": "dossier",
       "domain": "Onderwijs",
-      "question": "Tot welk maandtarief voor voltijdse opvang kan een niet-gesubsidieerde crèche in oktober 2026 de uitzonderlijke steun van de ONE van 620 euro per plaats krijgen?",
+      "question": "Welke uitzonderlijke steun per plaats kende het ONE in oktober 2026 toe aan niet-gesubsidieerde crèches waarvan het tarief voltijds niet hoger ligt dan 1.060 euro per maand?",
       "options": [
-        "1.060 euro per maand",
-        "620 euro per maand",
-        "1.500 euro per maand",
-        "850 euro per maand"
+        "620 euro",
+        "310 euro",
+        "1.060 euro",
+        "150 euro"
       ],
       "correct": 0,
-      "explanation": "De ONE kent op aanvraag 620 euro per plaats toe aan niet-gesubsidieerde crèches, als hun tarief niet hoger is dan 1.060 euro per maand voor voltijdse opvang. Zelfstandige onthaalouders krijgen 310 euro per plaats.",
+      "explanation": "Zelfstandige onthaalouders krijgen 310 euro per plaats, onder dezelfde tariefvoorwaarde.",
       "sourceSlug": "/nl/dossiers/petite-enfance",
       "sourceTitle": "Kinderopvang",
       "provenance": {
-        "sourceLastModified": "2026-11-15",
-        "sourceContentHash": "sha256:3e170e9126117622f372c7d9a6770eb3",
-        "generatedAt": "2026-11-15T11:20:20.077Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:fbd3ead099ec76484d97dce4592fc2fd",
+        "generatedAt": "2026-11-17T09:37:16.042Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1480,21 +1480,21 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Klimaat",
-      "question": "Waarom kan de Vlaamse Gemeenschapscommissie (VGC) de vliegroute RNP 07L niet aanvechten bij de Raad van State, volgens BRUZZ in november 2026?",
+      "question": "Wat besliste het Overlegcomité van 16 november 2026 over de vliegroutes van Brussels Airport, volgens het Belga-bericht?",
       "options": [
-        "Ze liet de termijn van zestig dagen verstrijken",
-        "Ze heeft geen enkele bevoegdheid in het Brussels Gewest",
-        "Ze is een gedecentraliseerde overheid zonder decreetgevende macht",
-        "Ze had het behoud van die route zelf goedgekeurd"
+        "Het overleg voortzetten, bij gebrek aan akkoord",
+        "De norm voor rugwind voor de banen 25 en 07 verhogen",
+        "De landingsroute RNP 07L afschaffen",
+        "Het Grondwettelijk Hof adiëren"
       ],
-      "correct": 2,
-      "explanation": "Volgens BRUZZ is de VGC een gedecentraliseerde overheid van de Vlaamse Gemeenschap, zonder decreetgevende bevoegdheid. De COCOF en de GGC kondigden wel verzoekschriften aan.",
+      "correct": 0,
+      "explanation": "Het Comité nam akte van de uiteenlopende standpunten; het belangenconflict dat Vlaanderen inriep, schorst de federale maatregelen zestig dagen.",
       "sourceSlug": "/nl/dossiers/survol-bruxelles",
       "sourceTitle": "Overvliegen Brussel",
       "provenance": {
-        "sourceLastModified": "2026-11-14",
-        "sourceContentHash": "sha256:f2e3983ee999a9b17a0256c9b23a712a",
-        "generatedAt": "2026-11-15T11:20:20.077Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:a2a911f25ae26c572d3b976b3f922a1a",
+        "generatedAt": "2026-11-17T09:37:16.042Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 64
+  "reviewedCount": 56
 }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T09:37:16.742Z",
+  "generatedAt": "2026-11-17T09:43:50.930Z",
   "locale": "en",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -1170,9 +1170,9 @@
       "sourceSlug": "/en/dossiers/mobilite-partagee",
       "sourceTitle": "Shared Mobility",
       "provenance": {
-        "sourceLastModified": "2026-11-12",
-        "sourceContentHash": "sha256:db05ef9e29c45191273430305e122fbd",
-        "generatedAt": "2026-11-12T13:21:14.179Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:fb462993178a8e46cd359300e40aaab6",
+        "generatedAt": "2026-11-17T09:43:50.930Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1189,13 +1189,13 @@
         "From 1 July 2027"
       ],
       "correct": 0,
-      "explanation": "The government cites road safety and the use of these vehicles for criminal purposes. Private e-scooters remain allowed: they fall under federal rules.",
+      "explanation": "The government cites road safety and the use of these vehicles for criminal purposes. Private e-scooters remain allowed, except in the 19 drug-trafficking hotspots, where the police order of 19 October 2026 bans all electric e-scooters.",
       "sourceSlug": "/en/dossiers/mobilite-partagee",
       "sourceTitle": "Shared Mobility",
       "provenance": {
-        "sourceLastModified": "2026-11-12",
-        "sourceContentHash": "sha256:db05ef9e29c45191273430305e122fbd",
-        "generatedAt": "2026-11-12T13:21:14.179Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:fb462993178a8e46cd359300e40aaab6",
+        "generatedAt": "2026-11-17T09:43:50.930Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1614,6 +1614,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 57
+  ]
 }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T09:37:16.042Z",
+  "generatedAt": "2026-11-17T09:43:50.238Z",
   "locale": "nl",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -1170,9 +1170,9 @@
       "sourceSlug": "/nl/dossiers/mobilite-partagee",
       "sourceTitle": "Gedeelde mobiliteit",
       "provenance": {
-        "sourceLastModified": "2026-11-12",
-        "sourceContentHash": "sha256:954ea089430908dd41ebb33be107eab7",
-        "generatedAt": "2026-11-12T13:21:13.855Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:81470d44eec76d7000ef6fc22bacef03",
+        "generatedAt": "2026-11-17T09:43:50.238Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1189,13 +1189,13 @@
         "Op 1 juli 2027"
       ],
       "correct": 0,
-      "explanation": "De regering wijst op de verkeersveiligheid en op het gebruik van die toestellen voor criminele doeleinden. Privésteps blijven toegelaten: ze vallen onder de federale regelgeving.",
+      "explanation": "De regering wijst op de verkeersveiligheid en op het gebruik van die toestellen voor criminele doeleinden. Privésteps blijven toegelaten, behalve in de 19 hotspots van de drugshandel, waar het politiebesluit van 19 oktober 2026 alle elektrische steps verbiedt.",
       "sourceSlug": "/nl/dossiers/mobilite-partagee",
       "sourceTitle": "Gedeelde mobiliteit",
       "provenance": {
-        "sourceLastModified": "2026-11-12",
-        "sourceContentHash": "sha256:954ea089430908dd41ebb33be107eab7",
-        "generatedAt": "2026-11-12T13:21:13.855Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:81470d44eec76d7000ef6fc22bacef03",
+        "generatedAt": "2026-11-17T09:43:50.238Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1614,6 +1614,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 57
+  ]
 }

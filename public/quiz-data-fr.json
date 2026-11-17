@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T09:35:46.877Z",
+  "generatedAt": "2026-11-17T09:43:49.514Z",
   "locale": "fr",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -1170,9 +1170,9 @@
       "sourceSlug": "/fr/dossiers/mobilite-partagee",
       "sourceTitle": "Mobilité partagée",
       "provenance": {
-        "sourceLastModified": "2026-11-12",
+        "sourceLastModified": "2026-11-17",
         "sourceContentHash": "sha256:2eb0bb8b59f4a106817a9536f78008fa",
-        "generatedAt": "2026-11-12T13:17:35.428Z",
+        "generatedAt": "2026-11-17T09:43:49.514Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1189,13 +1189,13 @@
         "Le 1er juillet 2027"
       ],
       "correct": 0,
-      "explanation": "Le gouvernement invoque la sécurité routière et l'usage de ces engins à des fins criminelles. Les trottinettes privées restent autorisées : elles relèvent de la réglementation fédérale.",
+      "explanation": "Le gouvernement invoque la sécurité routière et l'usage de ces engins à des fins criminelles. Les trottinettes privées restent autorisées, sauf dans les 19 zones sensibles liées au trafic de stupéfiants, où l'arrêté de police du 19 octobre 2026 interdit toutes les trottinettes électriques.",
       "sourceSlug": "/fr/dossiers/mobilite-partagee",
       "sourceTitle": "Mobilité partagée",
       "provenance": {
-        "sourceLastModified": "2026-11-12",
+        "sourceLastModified": "2026-11-17",
         "sourceContentHash": "sha256:2eb0bb8b59f4a106817a9536f78008fa",
-        "generatedAt": "2026-11-12T13:17:35.428Z",
+        "generatedAt": "2026-11-17T09:43:49.514Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1614,6 +1614,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 57
+  ]
 }

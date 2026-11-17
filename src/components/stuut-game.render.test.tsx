@@ -317,7 +317,9 @@ describe('StuutGame : inscription au Stuut par e-mail', () => {
     await finirPartie();
     envoyer('a@exemple.be');
     const texte = await screen.findByText(/C'est noté/);
-    expect(document.activeElement).toBe(texte);
+    // Le focus est posé dans un effet, après le rendu du texte : l'attendre, sinon
+    // le test dépend de la charge de la machine (échec isolé en CI, PR #872).
+    await waitFor(() => expect(document.activeElement).toBe(texte));
     expect(texte.getAttribute('role')).toBe('status');
     expect(texte.textContent).toMatch(/Si cette adresse n'était pas encore inscrite/);
   });

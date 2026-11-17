@@ -95,7 +95,8 @@ describe('inventaires : trois cartes sur mobile, toutes dès que la grille a deu
       });
 
       it('garde un lien vers la liste complète en tête de section', () => {
-        const link = src.match(/link=\{<MoreLink href="([^"]+)">/);
+        // Tolère le retour à la ligne que Prettier pose entre `link={` et la balise.
+        const link = src.match(/link=\{\s*<MoreLink\s+href="([^"]+)"/);
         expect(link, 'MoreLink introuvable').not.toBeNull();
         expect(link![1]).toBe(`/${section}`);
       });

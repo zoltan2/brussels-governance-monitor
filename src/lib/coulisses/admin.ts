@@ -10,8 +10,20 @@ import * as J from './journal';
 import { contenuDuRendezVous, contenuIncomplet } from './envoi';
 import { contientRepereSondage, nettoyerCorps } from './corps';
 import { BLOCAGE_MINUTES } from './journal';
+import { routing } from '@/i18n/routing';
 import { estJourDEnvoi, moisValide, premierJeudi, prochainRendezVous } from './calendrier';
 import { jourABruxelles } from '@/lib/jours-ecoules';
+
+/**
+ * Chemins du sondage dans toutes les langues (« /sondage », « /enquete » en nl),
+ * lus dans la table de routage : un lien en dur dans le texte de la bienvenue
+ * se repère quelle que soit la langue (17/11/2026, seul « /sondage » était vu).
+ */
+const LIEN_SONDAGE = new RegExp(
+  `/(?:${[...new Set(Object.values(routing.pathnames['/sondage']))]
+    .map((c) => c.replace(/^\//, '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+    .join('|')})\\b`,
+);
 
 // HTML de l'éditeur : les balises comptent, d'où une marge large.
 export const LONGUEUR_MAX = 60_000;
@@ -74,7 +86,7 @@ export function etatAdmin(db: DatabaseSync, moisDemande: unknown, maintenant = D
       : [],
     // Lien vers le sondage écrit dans le texte même, hors du bloc : il resterait après la clôture.
     sondageEnDur: bienvenue
-      ? LANGUES.filter((l) => /\/sondage\b/.test(bienvenue.textes[l]?.corps ?? ''))
+      ? LANGUES.filter((l) => LIEN_SONDAGE.test(bienvenue.textes[l]?.corps ?? ''))
       : [],
     // Numéros d'avant la séparation restés sans mois : invisibles ici, à signaler.
     orphelins: (db.prepare(`SELECT numero FROM coulisses_numeros WHERE mois IS NULL AND etat != 'envoye'`).all() as Array<{ numero: number }>).map((r) => r.numero),

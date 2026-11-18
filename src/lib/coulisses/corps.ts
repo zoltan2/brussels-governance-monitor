@@ -104,13 +104,14 @@ export function corpsVide(corps: string): boolean {
 }
 
 /**
- * Repère du bloc sondage dans le modèle de bienvenue : un paragraphe qui ne
- * contient que « [sondage] ». À l'envoi, il est remplacé par le bloc de la
+ * Repère du bloc sondage dans le modèle de bienvenue : un paragraphe ou un
+ * titre (h2, h3) qui ne contient que « [sondage] » (17/11/2026 : mis en titre
+ * dans l'éditeur, il partait tel quel). À l'envoi, il est remplacé par le bloc de la
  * langue tant que la campagne du sondage est ouverte (src/lib/sondage/campagne.ts),
  * et retiré sinon : les autres paragraphes ne changent pas.
  */
 export const REPERE_SONDAGE = '[sondage]';
-const PARAGRAPHE_REPERE = /<p>\s*\[sondage\]\s*<\/p>/gi;
+const PARAGRAPHE_REPERE = /<(p|h2|h3)>\s*\[sondage\]\s*<\/\1>/gi;
 
 export function contientRepereSondage(corps: string): boolean {
   return new RegExp(PARAGRAPHE_REPERE.source, 'i').test(nettoyerCorps(corps));

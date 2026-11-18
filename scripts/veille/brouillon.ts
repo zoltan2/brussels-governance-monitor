@@ -24,9 +24,16 @@
  * partie (le 13/10, un script arrêté à mi-course avait laissé une langue
  * modifiée sur quatre).
  *
+ * En-tête (18/11/2026) : `entete` remplace un texte exact dans `summary`,
+ * `summaryFalc`, `whyStatus`, `concreteImpact`, `metrics` ou `faq`, et rien
+ * d'autre. Le compte rendu du 18/11 renvoyait à la main le chapeau et la FAQ
+ * du survol, la FAQ sécurité et le chiffre clé de la LEZ. Le fichier relu par
+ * le vrai parseur ne doit différer que dans les champs déclarés, et le texte
+ * neuf doit s'y lire tel quel.
+ *
  * Hors périmètre, refusé plutôt que deviné : création d'une fiche, `changeType`
- * autre que `updated`, `digestHeadline`, fiches comparaison et solution,
- * engagements, quiz. Les dates de relecture (`statusReviewed`, `faqReviewed`,
+ * autre que `updated`, `digestHeadline`, `title`, alertes, fiches comparaison
+ * et solution, engagements, quiz. Les dates de relecture (`statusReviewed`, `faqReviewed`,
  * `impactReviewed`, `summaryReviewed`) ne sont posées que si le brouillon les
  * déclare dans `relectures` : une attestation se déclare, elle ne se déduit pas.
  */
@@ -67,6 +74,18 @@ const operation = z
     message: 'ancre obligatoire pour avant, apres et remplacer, interdite pour fin',
   });
 
+/** Champs de l'en-tête que le brouillon peut retoucher, et leur longueur maximale (velite.config.ts). */
+export const CHAMPS_ENTETE = { summary: 500, summaryFalc: 200, whyStatus: 600, concreteImpact: 700, metrics: null, faq: null } as const;
+type ChampEntete = keyof typeof CHAMPS_ENTETE;
+
+const retouche = z
+  .object({
+    champ: z.enum(Object.keys(CHAMPS_ENTETE) as [ChampEntete, ...ChampEntete[]]),
+    ancre: parLangue,
+    texte: parLangue,
+  })
+  .strict();
+
 const fiche = z
   .object({
     fiche: z.string().regex(new RegExp(`^(${COLLECTIONS.join('|')})/${SLUG.source.slice(1, -1)}$`), {
@@ -77,9 +96,11 @@ const fiche = z
     sources: z
       .array(z.object({ url: z.url(), type: z.string().regex(/^[a-z]+$/), label: parLangue }).strict())
       .default([]),
-    corps: z.array(operation).min(1),
+    entete: z.array(retouche).default([]),
+    corps: z.array(operation).default([]),
   })
-  .strict();
+  .strict()
+  .refine((f) => f.corps.length + f.entete.length > 0, { message: 'ni corps ni entete : rien à écrire' });
 
 const identifiant = z.string().regex(/^\d{4}-\d{2}-\d{2}-[a-z0-9-]+$/, 'attendu AAAA-MM-JJ-slug');
 
@@ -218,6 +239,38 @@ export function appliquerOperation(
   return { corps: `${corps.slice(0, fin)}\n\n${bloc}${corps.slice(fin)}` };
 }
 
+/** Forme d'un texte dans un scalaire YAML entre guillemets doubles. */
+const echapper = (t: string) => JSON.stringify(t).slice(1, -1);
+const CLE_RACINE = /^[A-Za-z_][\w-]*:/;
+
+/**
+ * Remplace `ancre` par `texte` dans le bloc de `champ` (de sa ligne à la clé
+ * racine suivante). L'ancre est cherchée sous sa forme échappée et doit y
+ * figurer une fois. Rend les lignes modifiées, ou le problème.
+ */
+export function retoucherEntete(lignes: string[], champ: string, ancre: string, texte: string): { lignes: string[] } | { probleme: string } {
+  if (/\n/.test(ancre) || /\n/.test(texte)) return { probleme: `${champ} : ancre et texte tiennent sur une ligne (un seul scalaire)` };
+  const debuts = lignes.flatMap((l, i) => (l.startsWith(`${champ}:`) ? [i] : []));
+  if (debuts.length !== 1) return { probleme: `${champ} ${debuts.length === 0 ? 'absent' : `présent ${debuts.length} fois`} dans le frontmatter` };
+  const debut = debuts[0]!;
+  let fin = lignes.findIndex((l, i) => i > debut && CLE_RACINE.test(l));
+  if (fin < 0) fin = lignes.length;
+  const bloc = lignes.slice(debut, fin).join('\n');
+  const a = echapper(ancre);
+  const n = bloc.split(a).length - 1;
+  if (n !== 1) return { probleme: `${champ} : ancre ${n === 0 ? 'introuvable' : `présente ${n} fois`} : « ${ancre.slice(0, 80)} »` };
+  const neuf = bloc.replace(a, () => echapper(texte));
+  return { lignes: [...lignes.slice(0, debut), ...neuf.split('\n'), ...lignes.slice(fin)] };
+}
+
+/** Toutes les chaînes d'une valeur YAML lue. */
+function feuilles(v: unknown): string[] {
+  if (typeof v === 'string') return [v];
+  if (Array.isArray(v)) return v.flatMap(feuilles);
+  if (v && typeof v === 'object') return Object.values(v).flatMap(feuilles);
+  return [];
+}
+
 function jour(valeur: unknown): string | undefined {
   return typeof valeur === 'string' ? valeur.slice(0, 10) : undefined;
 }
@@ -249,7 +302,12 @@ function planifierFiche(f: Fiche, date: string, depot: Depot, plan: Plan): void 
       ici(`déjà datée du ${date} sur la branche de base : une fiche fusionnée aujourd'hui ne se retouche pas dans une autre PR (contrôle lastModified de la CI)`);
     }
 
-    const lignes = tete[1]!.split('\n');
+    let lignes = tete[1]!.split('\n');
+    for (const r of f.entete) {
+      const res = retoucherEntete(lignes, r.champ, r.ancre[l], r.texte[l]);
+      if ('probleme' in res) ici(`entete : ${res.probleme}`);
+      else lignes = res.lignes;
+    }
     if (!lignes.some((x) => /^changeType: ["']?updated["']?\s*$/.test(x))) ici('changeType autre que « updated » : hors périmètre, à traiter à la main');
     if (lignes.some((x) => x.startsWith('digestHeadline:'))) ici('digestHeadline présent : à retirer ou à réécrire à la main');
 
@@ -284,6 +342,7 @@ function planifierFiche(f: Fiche, date: string, depot: Depot, plan: Plan): void 
       if (lu.changeSummary !== cs) ici('changeSummary relu différent de celui du brouillon');
       if (jour(lu.lastModified) !== date || jour(lu.changeSummaryDate) !== date) ici('dates relues différentes de celle du brouillon');
       for (const d of findDuplicateSources(lu.sources)) ici(`source citée deux fois : ${d.url}`);
+      if (f.entete.length > 0) controlerEntete(f, l, readGuardFrontmatter(brut) ?? {}, lu, ici);
     } catch (err) {
       if (!(err instanceof FrontmatterError)) throw err;
       ici(`frontmatter illisible après écriture : ${err.message}`);
@@ -298,8 +357,26 @@ function planifierFiche(f: Fiche, date: string, depot: Depot, plan: Plan): void 
     plan.mdx.push(chemin);
   }
   plan.lignes.push(
-    `${f.fiche} : ${f.corps.length} opération(s), ${f.sources.length} source(s), accroche (120 au plus) ${accroches.join(' · ')}`,
+    `${f.fiche} : ${f.corps.length} opération(s), ${f.entete.length} retouche(s) d'en-tête, ${f.sources.length} source(s), accroche (120 au plus) ${accroches.join(' · ')}`,
   );
+}
+
+/**
+ * Ce que l'en-tête relu doit vérifier après une retouche : aucun autre champ
+ * n'a bougé (hors dates, accroche, relectures et sources que le brouillon pose
+ * lui-même), le texte neuf se lit dans son champ, la longueur tient.
+ */
+function controlerEntete(f: Fiche, l: Locale, avant: Record<string, unknown>, apres: Record<string, unknown>, ici: (m: string) => void): void {
+  const libres = new Set<string>(['lastModified', 'changeSummary', 'changeSummaryDate', 'sources', ...f.relectures, ...f.entete.map((r) => r.champ)]);
+  for (const cle of new Set([...Object.keys(avant), ...Object.keys(apres)])) {
+    if (!libres.has(cle) && JSON.stringify(avant[cle]) !== JSON.stringify(apres[cle])) ici(`entete : ${cle} a changé sans être déclaré`);
+  }
+  for (const r of f.entete) {
+    if (!feuilles(apres[r.champ]).some((t) => t.includes(r.texte[l]))) ici(`entete : ${r.champ} relu sans le texte neuf (scalaire hors guillemets doubles ?)`);
+    const max = CHAMPS_ENTETE[r.champ];
+    const v = apres[r.champ];
+    if (max !== null && typeof v === 'string' && v.length > max) ici(`entete : ${r.champ} fait ${v.length} caractères, ${max} au plus (Velite écarterait la fiche)`);
+  }
 }
 
 function lireJson(chemin: keyof typeof INDENTATION, depot: Depot, plan: Plan): unknown | null {

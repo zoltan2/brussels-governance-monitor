@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { CHANGELOG, RADAR, appliquerOperation, lireBrouillon, planifier, type Brouillon, type Depot } from './brouillon';
+import { CHANGELOG, RADAR, appliquerOperation, lireBrouillon, planifier, retoucherEntete, type Brouillon, type Depot } from './brouillon';
 import { readGuardFrontmatter } from '../../src/lib/frontmatter';
 
 const JOUR = '2026-10-13';
@@ -174,6 +174,84 @@ describe('planifier, fiche', () => {
     const p = planifier(brouillon(), depot(apres, fichiersDeBase())).problemes.join('\n');
     expect(p).toMatch(/texte déjà présent dans la fiche/);
     expect(p).toMatch(/une entrée communes\/anderlecht existe déjà au 2026-10-13/);
+  });
+});
+
+describe('planifier, en-tête (18/11/2026)', () => {
+  const ENTETE = [
+    'summary: "Le chapeau dit que sept communes préparent un recours."',
+    'metrics:',
+    '  - label: "Amendes envoyées (au 6 septembre 2026)"',
+    '    value: "1 890"',
+    'faq:',
+    '  - q: "Quand une décision est-elle attendue ?"',
+    '    a: "La route est maintenue sans date de fin."',
+    'whyStatus: "Sans date de fin."',
+  ].join('\n');
+  const avecEntete = () => {
+    const f = fichiersDeBase();
+    for (const l of LANGUES) f[`content/commune-cards/anderlecht.${l}.mdx`] = fiche(l, '2026-10-08', ENTETE);
+    return f;
+  };
+  const tous = (t: string) => ({ fr: t, nl: t, en: t, de: t });
+
+  it('retouche le chapeau, une réponse de FAQ et un chiffre clé, sans toucher au reste', () => {
+    const plan = planifier(
+      brouillon({
+        corps: [],
+        entete: [
+          { champ: 'summary', ancre: tous('sept communes préparent un recours'), texte: tous('la Région a déposé son recours le 16 novembre 2026') },
+          { champ: 'faq', ancre: tous('sans date de fin'), texte: tous('jusqu\'en mai 2028 selon un courrier "fédéral"') },
+          { champ: 'metrics', ancre: tous('1 890'), texte: tous('2 907') },
+        ],
+      }),
+      depot(avecEntete()),
+    );
+    expect(plan.problemes).toEqual([]);
+    const lu = readGuardFrontmatter(plan.ecritures.get('content/commune-cards/anderlecht.nl.mdx')!)!;
+    expect(lu.summary).toBe('Le chapeau dit que la Région a déposé son recours le 16 novembre 2026.');
+    expect((lu.faq as { a: string }[])[0]!.a).toBe('La route est maintenue jusqu\'en mai 2028 selon un courrier "fédéral".');
+    expect((lu.metrics as { value: string }[])[0]!.value).toBe('2 907');
+    // « Sans date de fin » vit aussi dans whyStatus : seule la FAQ, déclarée, change.
+    expect(lu.whyStatus).toBe('Sans date de fin.');
+    expect(plan.lignes[0]).toMatch(/0 opération\(s\), 3 retouche\(s\) d'en-tête/);
+  });
+
+  it('ancre absente du champ, même présente ailleurs dans l’en-tête : refus', () => {
+    const plan = planifier(
+      brouillon({ entete: [{ champ: 'summary', ancre: tous('1 890'), texte: tous('2 907') }] }),
+      depot(avecEntete()),
+    );
+    expect(plan.problemes.join('\n')).toMatch(/summary : ancre introuvable : « 1 890 »/);
+  });
+
+  it('champ absent de la fiche : refus', () => {
+    const plan = planifier(brouillon({ entete: [{ champ: 'concreteImpact', ancre: tous('a'), texte: tous('b') }] }), depot(avecEntete()));
+    expect(plan.problemes.join('\n')).toMatch(/concreteImpact absent/);
+  });
+
+  it('longueur au-delà de la limite de Velite : refus', () => {
+    const plan = planifier(
+      brouillon({ entete: [{ champ: 'whyStatus', ancre: tous('Sans date de fin'), texte: tous('x'.repeat(600)) }] }),
+      depot(avecEntete()),
+    );
+    expect(plan.problemes.join('\n')).toMatch(/whyStatus fait 601 caractères, 600 au plus/);
+  });
+
+  it('scalaire hors guillemets doubles : refus plutôt qu’un texte faussé', () => {
+    const f = fichiersDeBase();
+    for (const l of LANGUES) f[`content/commune-cards/anderlecht.${l}.mdx`] = fiche(l, '2026-10-08', "summary: 'Chapeau entre apostrophes.'");
+    const plan = planifier(brouillon({ entete: [{ champ: 'summary', ancre: tous('Chapeau'), texte: tous('Le "chapeau"') }] }), depot(f));
+    expect(plan.problemes.join('\n')).toMatch(/summary relu sans le texte neuf|illisible/);
+  });
+
+  it('ni corps ni en-tête : refus à la lecture ; champ hors liste : refus', () => {
+    expect(() => brouillon({ corps: [] })).toThrow(/ni corps ni entete/);
+    expect(() => brouillon({ entete: [{ champ: 'title' as 'summary', ancre: tous('a'), texte: tous('b') }] })).toThrow(/entete\.0\.champ/);
+  });
+
+  it('retoucherEntete : ancre et texte sur une ligne', () => {
+    expect(retoucherEntete(['summary: "a"'], 'summary', 'a\nb', 'c')).toEqual({ probleme: expect.stringContaining('une ligne') });
   });
 });
 

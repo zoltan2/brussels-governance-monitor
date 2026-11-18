@@ -28,6 +28,24 @@ fiches:
           nl: "La DH, Anderlecht: een gemeentegebouw gebruikt voor 400 euro per jaar (10 oktober 2026)"
           en: "La DH, Anderlecht: a municipal building occupied for EUR 400 a year (10 October 2026)"
           de: "La DH, Anderlecht: ein Gemeindegebäude für 400 Euro pro Jahr genutzt (10.10.2026)"
+    # Retouches de l'en-tête : remplace l'ancre par le texte dans UN champ parmi
+    # summary (500 au plus), summaryFalc (200), whyStatus (600), concreteImpact (700),
+    # metrics et faq. L'ancre est le texte tel qu'on le lit, sur une ligne, présent
+    # une fois dans ce champ et dans chaque langue. Rien d'autre de l'en-tête ne
+    # doit changer. title, alertes et sources des FAQ restent à la main.
+    # À omettre (ou []) si rien ne change dans l'en-tête ; corps peut alors être vide.
+    entete:
+      - champ: faq
+        ancre:
+          fr: "sans date de fin"
+          nl: "zonder einddatum"
+          en: "with no end date"
+          de: "ohne Enddatum"
+        texte:
+          fr: "jusqu'en mai 2028 selon un courrier fédéral du 6 novembre 2026"
+          nl: "tot mei 2028 volgens een federale brief van 6 november 2026"
+          en: "until May 2028 according to a federal letter of 6 November 2026"
+          de: "bis Mai 2028 laut einem föderalen Schreiben vom 6. November 2026"
     corps:
       # avant     : insère le texte avant la ligne qui commence par l'ancre
       # apres     : insère le texte après le paragraphe qui contient l'ancre

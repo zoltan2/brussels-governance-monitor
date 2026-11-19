@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T09:43:49.514Z",
+  "generatedAt": "2026-11-19T08:36:08.029Z",
   "locale": "fr",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -54,21 +54,21 @@
       "id": "domain-cleanliness-0",
       "source": "domain",
       "domain": "Propreté",
-      "question": "Selon BruxellesToday (15 novembre 2026), combien d'espaces de tri dans l'espace public la réforme régionale de la collecte des déchets prévoit-elle, d'après la réponse de la secrétaire d'État à la Propreté publique en plénière du 13 novembre 2026 ?",
+      "question": "Selon Fost Plus, cité par La DH le 17 novembre 2026, quelle part du contenu des sacs PMC (sacs bleus) bruxellois ne respecte pas les consignes de tri ?",
       "options": [
-        "60 espaces de tri",
-        "120 espaces de tri",
-        "16 espaces de tri",
-        "19 espaces de tri"
+        "17 %, contre 13,5 % en moyenne en Belgique",
+        "13,5 %, contre 17 % en moyenne en Belgique",
+        "8 %, contre 11 % en moyenne en Belgique",
+        "25 %, contre 20 % en moyenne en Belgique"
       ],
       "correct": 0,
-      "explanation": "La secrétaire d'État a cité 60 espaces de tri dans l'espace public, et 16 communes sur 19 ont déposé une première proposition. La présentation de septembre 2026 parlait de 120 espaces-tri, sans que le périmètre soit précisé.",
+      "explanation": "En 2025, près de 4 000 tonnes de déchets ont abouti à tort dans les sacs bleus bruxellois, pour un coût de près de 4 millions d'euros par an. Une campagne de Fost Plus et Bruxelles-Propreté court du 9 novembre au 28 décembre 2026.",
       "sourceSlug": "/fr/domaines/cleanliness",
       "sourceTitle": "Propreté : brigades régionales et perception immédiate des amendes",
       "provenance": {
-        "sourceLastModified": "2026-11-16",
-        "sourceContentHash": "sha256:94c38fa6c9aef52e9d6d4deb463fb735",
-        "generatedAt": "2026-11-16T11:09:08.975Z",
+        "sourceLastModified": "2026-11-18",
+        "sourceContentHash": "sha256:cc1187fe10c03bce294facfb615bd3f4",
+        "generatedAt": "2026-11-19T08:36:08.029Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -77,21 +77,21 @@
       "id": "domain-cleanliness-1",
       "source": "domain",
       "domain": "Propreté",
-      "question": "Selon BruxellesToday (15 novembre 2026), comment l'accès aux espaces de tri de la réforme bruxelloise de la collecte des déchets est-il prévu ?",
+      "question": "Selon BruxellesToday (15 novembre 2026), combien d'espaces de tri dans l'espace public la réforme régionale de la collecte des déchets prévoit-elle ?",
       "options": [
-        "Accès libre d'abord, un badge pouvant être ajouté en cas de difficulté",
-        "Accès par badge payant pour chaque ménage dès la mise en service",
-        "Accès libre, mais avec des déchets pesés et facturés au kilo",
-        "Accès réservé aux commerçants munis d'une dérogation communale"
+        "60 espaces de tri",
+        "16 espaces de tri",
+        "19 espaces de tri",
+        "120 espaces de tri"
       ],
       "correct": 0,
-      "explanation": "Le cahier des charges permet d'ajouter un badge si la gestion pose problème ; l'usage reste gratuit et les déchets ne sont pas pesés. La place Jourdan, à Etterbeek, teste déjà un accès par badge.",
+      "explanation": "La secrétaire d'État à la Propreté publique l'a précisé en séance plénière le 13 novembre 2026 : 16 communes sur 19 avaient déposé une première proposition, et l'accès sera libre dans un premier temps.",
       "sourceSlug": "/fr/domaines/cleanliness",
       "sourceTitle": "Propreté : brigades régionales et perception immédiate des amendes",
       "provenance": {
-        "sourceLastModified": "2026-11-16",
-        "sourceContentHash": "sha256:94c38fa6c9aef52e9d6d4deb463fb735",
-        "generatedAt": "2026-11-16T11:09:08.975Z",
+        "sourceLastModified": "2026-11-18",
+        "sourceContentHash": "sha256:cc1187fe10c03bce294facfb615bd3f4",
+        "generatedAt": "2026-11-19T08:36:08.029Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -238,21 +238,21 @@
       "id": "domain-education-0",
       "source": "domain",
       "domain": "Enseignement",
-      "question": "Quel montant la Commission communautaire française consacre-t-elle à l'appel à projets « Parcours + » contre le décrochage scolaire, lancé en octobre 2026 ?",
+      "question": "Quelle organisation étudiante néerlandophone s'est jointe pour la première fois à la manifestation de la Fédération des étudiants francophones (FEF) du 17 novembre 2026 à Bruxelles ?",
       "options": [
-        "Cinq cent mille euros par an",
-        "Deux millions d'euros par an",
-        "Trois millions d'euros par an",
-        "Un million d'euros par an"
+        "La Vlaamse Vereniging van Studenten (VVS)",
+        "Le conseil étudiant de la VUB, seul",
+        "Le syndicat étudiant flamand de la FGTB",
+        "L'association des étudiants de la KU Leuven"
       ],
-      "correct": 3,
-      "explanation": "« Parcours + » vise les jeunes de 11 à 25 ans en décrochage ou en grande vulnérabilité. Les associations pouvaient postuler jusqu'au 18 novembre 2026.",
+      "correct": 0,
+      "explanation": "Selon VRT NWS, la VVS contestait les économies flamandes sur les allocations d'études ; la FEF dénonçait notamment la hausse du minerval. La police a compté 3 200 manifestants.",
       "sourceSlug": "/fr/domaines/education",
       "sourceTitle": "Enseignement : places en crèche, décrochage scolaire et tensions Cocof/VGC",
       "provenance": {
-        "sourceLastModified": "2026-10-26",
-        "sourceContentHash": "sha256:7980ebdb505368cc5362c3caf1ed5dce",
-        "generatedAt": "2026-10-29T21:11:41.405Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:40d4fde2baf4e0f76190cd5281f5700e",
+        "generatedAt": "2026-11-19T08:36:08.029Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -261,21 +261,21 @@
       "id": "domain-education-1",
       "source": "domain",
       "domain": "Enseignement",
-      "question": "Selon l'IBSA (2026), quelle part des Bruxellois de 18 à 24 ans quitte l'enseignement secondaire sans diplôme ni qualification ?",
+      "question": "Selon le décret-programme adopté le 5 juin 2026 par la Fédération Wallonie-Bruxelles, comment évolue le minerval annuel pour environ 58 % des étudiants ?",
       "options": [
-        "18 %",
-        "12 %",
-        "25 %",
-        "9 %"
+        "De 835 à 1 194 euros par an",
+        "De 835 à 1 035 euros par an",
+        "De 750 à 1 194 euros par an",
+        "De 835 à 1 500 euros par an"
       ],
       "correct": 0,
-      "explanation": "Le taux bruxellois de 18 % dépasse la moyenne belge de 12 %. C'est le public visé par l'appel à projets « Parcours + » de la Cocof.",
+      "explanation": "La hausse s'applique depuis la rentrée 2026. Le minerval relève de la Fédération Wallonie-Bruxelles, pas de la Région bruxelloise.",
       "sourceSlug": "/fr/domaines/education",
       "sourceTitle": "Enseignement : places en crèche, décrochage scolaire et tensions Cocof/VGC",
       "provenance": {
-        "sourceLastModified": "2026-10-26",
-        "sourceContentHash": "sha256:7980ebdb505368cc5362c3caf1ed5dce",
-        "generatedAt": "2026-10-29T21:11:41.405Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:40d4fde2baf4e0f76190cd5281f5700e",
+        "generatedAt": "2026-11-19T08:36:08.029Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -284,21 +284,21 @@
       "id": "domain-employment-0",
       "source": "domain",
       "domain": "Emploi",
-      "question": "Selon le communiqué d'Actiris du 5 novembre 2026, quel effet la limitation dans le temps des allocations de chômage a-t-elle sur le nombre total de chercheurs d'emploi inscrits à Bruxelles ?",
+      "question": "Selon le ministre bruxellois de l'Emploi, en commission le 18 novembre 2026, combien de chercheurs d'emploi bénéficiaient du revenu d'intégration en octobre 2026, contre 17 030 en janvier 2025 ?",
       "options": [
-        "Elle ne le réduit pas : des inscrits changent de catégorie",
-        "Elle le réduit, car les exclus quittent les listes d'Actiris",
-        "Elle le réduit surtout parmi les chercheurs d'emploi jeunes",
-        "Elle le stabilise, entrées et sorties s'équilibrant chaque mois"
+        "37 564",
+        "27 564",
+        "17 940",
+        "47 030"
       ],
       "correct": 0,
-      "explanation": "Les personnes en fin de droits restent inscrites : elles passent surtout de la catégorie des allocataires à celle des bénéficiaires du revenu d'intégration versé par le CPAS. Fin octobre 2026, Actiris comptait 102 550 inscrits, 6,6 % de plus qu'un an plus tôt.",
+      "explanation": "Le ministre attribue cette hausse à la limitation fédérale des allocations de chômage dans le temps et estime que près de 10 000 personnes de plus rejoindront cette catégorie d'ici juin 2027. Actiris ne reçoit pas de moyens supplémentaires.",
       "sourceSlug": "/fr/domaines/employment",
       "sourceTitle": "Emploi : objectif 70 %, activation renforcée et bilinguisme",
       "provenance": {
-        "sourceLastModified": "2026-11-05",
-        "sourceContentHash": "sha256:6f49a929bbac290ea8458eff49899561",
-        "generatedAt": "2026-11-05T15:31:08.041Z",
+        "sourceLastModified": "2026-11-19",
+        "sourceContentHash": "sha256:ff8100e3832ef1baf9a30af650c1966d",
+        "generatedAt": "2026-11-19T08:36:08.029Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -307,21 +307,21 @@
       "id": "domain-employment-1",
       "source": "domain",
       "domain": "Emploi",
-      "question": "Fin octobre 2026, selon Actiris, quelle part des chercheurs d'emploi inscrits en Région bruxelloise étaient aussi inscrits dans un CPAS ?",
+      "question": "Selon une dépêche Belga du 18 novembre 2026, dans combien d'entreprises bruxelloises de titres-services l'inspection régionale de l'emploi a-t-elle constaté en 2025 des infractions donnant lieu à des poursuites pénales ?",
       "options": [
-        "36,6 %",
-        "18,2 %",
-        "51,0 %",
-        "8,4 %"
+        "32 entreprises",
+        "151 entreprises",
+        "69 entreprises",
+        "214 entreprises"
       ],
       "correct": 0,
-      "explanation": "37 564 des 102 550 chercheurs d'emploi relevaient d'un CPAS, soit 97,3 % de plus en un an. La limitation fédérale des allocations dans le temps déplace la charge vers les CPAS communaux.",
+      "explanation": "L'inspection a ouvert 151 dossiers d'enquête en 2025, notamment pour des prestations fictives. Près de 1,8 million d'euros de subsides indûment perçus sont en cours de recouvrement.",
       "sourceSlug": "/fr/domaines/employment",
       "sourceTitle": "Emploi : objectif 70 %, activation renforcée et bilinguisme",
       "provenance": {
-        "sourceLastModified": "2026-11-05",
-        "sourceContentHash": "sha256:6f49a929bbac290ea8458eff49899561",
-        "generatedAt": "2026-11-05T15:31:08.041Z",
+        "sourceLastModified": "2026-11-19",
+        "sourceContentHash": "sha256:ff8100e3832ef1baf9a30af650c1966d",
+        "generatedAt": "2026-11-19T08:36:08.029Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Selon l'arrêté de police du 19 octobre 2026, quelles trottinettes électriques sont interdites de circulation et de stationnement dans les 19 zones sensibles liées au trafic de stupéfiants à Bruxelles ?",
+      "question": "Selon les auditions de la commission de l'Intérieur de la Chambre du 17 novembre 2026, comment se répartit le fonds fédéral de 55 millions d'euros par an pour la sécurité à Bruxelles ?",
       "options": [
-        "Toutes, partagées ou privées",
-        "Seulement les trottinettes partagées",
-        "Seulement les trottinettes privées qui dépassent 20 km/h",
-        "Seulement entre 22 heures et 6 heures"
+        "35 millions pour les zones de police, 20 millions pour les communes",
+        "20 millions pour les zones de police, 35 millions pour les communes",
+        "45 millions pour les zones de police, 10 millions pour la Région",
+        "27,5 millions pour les zones de police, 27,5 millions pour les communes"
       ],
       "correct": 0,
-      "explanation": "L'article 6 de l'arrêté vise toutes les trottinettes électriques, partagées ou privées, et charge les opérateurs d'empêcher leurs engins d'y circuler.",
+      "explanation": "Les hauts fonctionnaires entendus décrivent un contrôle fédéral quasi inexistant une fois la répartition décidée par le gouvernement bruxellois. Un audit commandé par le ministre fédéral de l'Intérieur doit être achevé en mars 2027.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, Plan Gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-11-16",
-        "sourceContentHash": "sha256:e0699eb51a4cbb4a1fdb289d901db854",
-        "generatedAt": "2026-11-17T09:35:46.877Z",
+        "sourceLastModified": "2026-11-18",
+        "sourceContentHash": "sha256:3337a1941be78cc274c912a40c897f20",
+        "generatedAt": "2026-11-19T08:36:08.029Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sécurité",
-      "question": "Que demande à safe.brussels la résolution contre le masculinisme adoptée à l'unanimité par le Parlement bruxellois le 13 novembre 2026, selon La DH ?",
+      "question": "Selon le ministre-président en commission du Parlement bruxellois le 10 novembre 2026, à quelle date la commissaire régionale à la sécurité et aux drogues entre-t-elle en fonction ?",
       "options": [
-        "D'en mesurer l'ampleur à Bruxelles",
-        "De fermer les comptes en ligne concernés",
-        "De créer une nouvelle zone de police",
-        "D'organiser un référendum régional"
+        "Le 1er janvier 2027",
+        "Le 1er décembre 2026",
+        "Le 1er mars 2027",
+        "Le 1er septembre 2027"
       ],
       "correct": 0,
-      "explanation": "La résolution demande aussi d'intégrer le masculinisme aux stratégies régionales de sécurité ; une résolution adresse des demandes au gouvernement, sans la force d'une ordonnance.",
+      "explanation": "Elle disposera de trois mois pour proposer une stratégie qui renforce la coopération entre services régionaux, communes, zones de police et autorités fédérales, et elle évaluera la stratégie des zones sensibles.",
       "sourceSlug": "/fr/domaines/security",
       "sourceTitle": "Sécurité : commissaire anti-drogues, Plan Gares, criminalité stable",
       "provenance": {
-        "sourceLastModified": "2026-11-16",
-        "sourceContentHash": "sha256:e0699eb51a4cbb4a1fdb289d901db854",
-        "generatedAt": "2026-11-17T09:35:46.877Z",
+        "sourceLastModified": "2026-11-18",
+        "sourceContentHash": "sha256:3337a1941be78cc274c912a40c897f20",
+        "generatedAt": "2026-11-19T08:36:08.029Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Social",
-      "question": "Quel niveau de pouvoir décide du financement du Brussels Deal, le dispositif d'accueil dont la fin est annoncée pour la fin de l'année 2026 selon La DH ?",
+      "question": "Selon le Samusocial, cité par la RTBF et VRT NWS le 19 novembre 2026, de combien de places d'hébergement d'urgence pour les familles l'opérateur dispose-t-il ?",
       "options": [
-        "Le gouvernement de la Région bruxelloise",
-        "Le gouvernement fédéral",
-        "La Commission communautaire commune",
-        "Les dix-neuf communes bruxelloises"
+        "577 places",
+        "377 places",
+        "240 places",
+        "1 000 places"
       ],
-      "correct": 1,
-      "explanation": "Le Brussels Deal est financé par l'État fédéral. Le 14 novembre 2026, La DH rapporte que le ministre bruxellois de la Santé estime que Bruxelles ne peut pas compenser seule une décision fédérale.",
+      "correct": 0,
+      "explanation": "C'est le nombre le plus élevé qu'il ait jamais eu, mais 3 396 des 3 778 personnes en famille qui ont demandé un hébergement en septembre et octobre 2026 ont été refusées faute de place.",
       "sourceSlug": "/fr/domaines/social",
       "sourceTitle": "Social : dispositif d'accueil réduit, Samusocial saturé, CPAS sous pression",
       "provenance": {
-        "sourceLastModified": "2026-11-15",
-        "sourceContentHash": "sha256:db38fe180082602decba20a8b7209276",
-        "generatedAt": "2026-11-15T11:18:53.913Z",
+        "sourceLastModified": "2026-11-19",
+        "sourceContentHash": "sha256:112361f6139b847f3eedb6c62bc36986",
+        "generatedAt": "2026-11-19T08:36:08.029Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Social",
-      "question": "Selon la Croix-Rouge et Médecins du Monde (12 novembre 2026), qu'est-ce qui distingue le centre médical Refugee Medical Point à Bruxelles ?",
+      "question": "Selon La DH du 14 novembre 2026, à combien le ministre bruxellois chargé de la Santé évalue-t-il le coût annuel de la prise en charge du sans-abrisme à Bruxelles, hors bâtiments et accompagnement ?",
       "options": [
-        "Il est le seul lieu de consultations gratuites sans rendez-vous ni conditions",
-        "Il est le seul centre de soins financé entièrement par la Région bruxelloise",
-        "Il est le seul hôpital réservé aux demandeurs de protection internationale",
-        "Il est le seul service médical ouvert la nuit aux personnes sans abri"
+        "120 millions d'euros, dont 80 millions de la Région",
+        "120 millions d'euros, dont 40 millions de la Région",
+        "144 millions d'euros, dont 80 millions du fédéral",
+        "80 millions d'euros, dont 40 millions du fédéral"
       ],
       "correct": 0,
-      "explanation": "Selon les deux organisations, le Refugee Medical Point est le seul lieu de Bruxelles à proposer des consultations gratuites, sans rendez-vous ni conditions administratives. Le centre Athéna a fermé fin 2025 faute de subsides.",
+      "explanation": "Le fédéral finance les 40 millions restants. Avec les bâtiments mis à disposition et les frais d'accompagnement, le ministre arrive à 144 millions d'euros ; ce sont des chiffres avancés en commission, pas des montants budgétaires.",
       "sourceSlug": "/fr/domaines/social",
       "sourceTitle": "Social : dispositif d'accueil réduit, Samusocial saturé, CPAS sous pression",
       "provenance": {
-        "sourceLastModified": "2026-11-15",
-        "sourceContentHash": "sha256:db38fe180082602decba20a8b7209276",
-        "generatedAt": "2026-11-15T11:18:53.913Z",
+        "sourceLastModified": "2026-11-19",
+        "sourceContentHash": "sha256:112361f6139b847f3eedb6c62bc36986",
+        "generatedAt": "2026-11-19T08:36:08.029Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -813,21 +813,21 @@
       "id": "dossier-cpas-bruxellois-0",
       "source": "dossier",
       "domain": "Social",
-      "question": "Devant le siège de quelle institution le front commun syndical des communes et des CPAS bruxellois s'est-il rassemblé le 13 novembre 2026 ?",
+      "question": "Selon la RTBF (18 novembre 2026), quelle part des compensations fédérales destinées au revenu d'intégration, prévues dans l'ajustement du budget fédéral 2026, revient à Bruxelles ?",
       "options": [
-        "Le Parlement bruxellois",
-        "L'office régional Actiris",
-        "La banque Belfius",
-        "La fédération des CPAS"
+        "29 %",
+        "53 %",
+        "18 %",
+        "41 %"
       ],
-      "correct": 2,
-      "explanation": "Les syndicats se sont rassemblés place Rogier, devant le siège de Belfius. Selon BRUZZ, ils reprochent à la banque de conditionner tout nouveau prêt aux communes à des économies.",
+      "correct": 0,
+      "explanation": "La Wallonie reçoit 53 % et la Flandre 18 %. L'ajustement prévoit 210 millions d'euros en plus des 300 millions prévus au départ pour permettre aux CPAS de payer les revenus d'intégration.",
       "sourceSlug": "/fr/dossiers/cpas-bruxellois",
       "sourceTitle": "CPAS bruxellois",
       "provenance": {
-        "sourceLastModified": "2026-11-14",
-        "sourceContentHash": "sha256:9e4c1e0bba7f512ced07a72bdf0e84ec",
-        "generatedAt": "2026-11-15T11:18:53.913Z",
+        "sourceLastModified": "2026-11-19",
+        "sourceContentHash": "sha256:ac18d1fdda07801d92a0c3522967cf74",
+        "generatedAt": "2026-11-19T08:36:08.029Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1066,21 +1066,21 @@
       "id": "dossier-lez-0",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "Sur les 1 890 amendes de la zone de basses émissions envoyées depuis juillet 2026, combien avaient été effectivement payées au 6 septembre 2026 ?",
+      "question": "Selon les chiffres de Bruxelles Fiscalité rapportés par BRUZZ le 18 novembre 2026, combien d'amendes de la zone de basses émissions ont visé des véhicules immatriculés à l'étranger en 2025 et 2026 ?",
       "options": [
-        "Environ 255, soit un peu plus de 13 %",
-        "Environ 940, soit un peu moins de 50 %",
-        "Environ 1 700, soit près de 90 %",
-        "Environ 630, soit un tiers du total"
+        "0 amende",
+        "1 207 amendes",
+        "2 907 amendes",
+        "9 561 amendes"
       ],
       "correct": 0,
-      "explanation": "Soit 89 152,50 euros encaissés. L'administration précise qu'une partie des délais de paiement court encore et que les amendes les plus récentes n'ont pas toutes été expédiées : c'est un point d'étape, pas un solde. Le premier semestre avait produit 25 905 avertissements, pour un gisement estimé à 29 000 véhicules en Région bruxelloise.",
+      "explanation": "Les caméras lisent les plaques étrangères, mais Bruxelles Fiscalité n'a pas accès aux données d'immatriculation des autres pays. Sur la même période, 17 717 amendes ont visé des véhicules immatriculés en Belgique.",
       "sourceSlug": "/fr/dossiers/lez",
       "sourceTitle": "LEZ",
       "provenance": {
-        "sourceLastModified": "2026-09-10",
-        "sourceContentHash": "sha256:f907c7bd0f8687f68ba743c42ae168e1",
-        "generatedAt": "2026-09-18T12:54:32.625Z",
+        "sourceLastModified": "2026-11-19",
+        "sourceContentHash": "sha256:127c3e69a7eadc3b7f0327b81024c7cd",
+        "generatedAt": "2026-11-19T08:36:08.029Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1089,21 +1089,21 @@
       "id": "dossier-lez-1",
       "source": "dossier",
       "domain": "Mobilité",
-      "question": "À quelle condition un véhicule ancêtre, immatriculé sous plaque O, est-il exempté de la zone de basses émissions bruxelloise ?",
+      "question": "Selon le Moniteur Automobile (18 novembre 2026), à partir de quelle date des amendes de 350 euros ont-elles été envoyées aux diesels Euro 5 et essences Euro 2, interdits dans la zone de basses émissions depuis le 1er janvier 2026 ?",
       "options": [
-        "À son seul âge, sans contrôle de son usage réel",
-        "À un plafond de trente jours de circulation par an",
-        "À une inspection technique annuelle spécifique",
-        "À une demande d'exemption renouvelée chaque année"
+        "Le 1er juillet 2026",
+        "Le 1er janvier 2026",
+        "Le 1er avril 2026",
+        "Le 14 octobre 2026"
       ],
       "correct": 0,
-      "explanation": "Les caméras à lecture de plaques identifient ces véhicules mais ne contrôlent pas leur usage effectif : un véhicule de collection peu utilisé et un véhicule ancien roulant quotidiennement bénéficient de la même exemption. Leur nombre est passé de 3 936 en 2019 à 13 799 en 2024, et ceux qui roulent cent jours par an ou plus de 17 à 156.",
+      "explanation": "Une première infraction donne lieu à une lettre d'avertissement. Du 1er juillet au 14 octobre 2026, 2 907 amendes ont été envoyées, après 30 975 lettres d'avertissement depuis janvier.",
       "sourceSlug": "/fr/dossiers/lez",
       "sourceTitle": "LEZ",
       "provenance": {
-        "sourceLastModified": "2026-09-10",
-        "sourceContentHash": "sha256:f907c7bd0f8687f68ba743c42ae168e1",
-        "generatedAt": "2026-09-18T12:54:32.625Z",
+        "sourceLastModified": "2026-11-19",
+        "sourceContentHash": "sha256:127c3e69a7eadc3b7f0327b81024c7cd",
+        "generatedAt": "2026-11-19T08:36:08.029Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1227,21 +1227,21 @@
       "id": "dossier-petite-enfance-0",
       "source": "dossier",
       "domain": "Enseignement",
-      "question": "Selon La Libre du 16 novembre 2026, quelle fonction occupe le membre de l'Office de la naissance et de l'enfance (ONE) dispensé de service ?",
+      "question": "Selon Le Soir du 17 novembre 2026, à combien s'élève le budget informatique ajusté pour 2026 de l'Office de la naissance et de l'enfance (ONE) ?",
       "options": [
-        "Directeur général adjoint",
-        "Administrateur général",
-        "Président du conseil d'administration",
-        "Commissaire du gouvernement"
+        "33,8 millions d'euros",
+        "24,4 millions d'euros",
+        "19,0 millions d'euros",
+        "48,2 millions d'euros"
       ],
       "correct": 0,
-      "explanation": "L'administratrice générale étant en congé de maladie, l'Office n'a plus de direction ; le commissaire du gouvernement de la Fédération Wallonie-Bruxelles assure la continuité.",
+      "explanation": "Une enveloppe de 24,4 millions regroupe l'essentiel des prestations de consultance. Un rapport confidentiel du 30 octobre 2026 relève des prestations difficiles à retracer et des fournisseurs liés.",
       "sourceSlug": "/fr/dossiers/petite-enfance",
       "sourceTitle": "Petite enfance",
       "provenance": {
-        "sourceLastModified": "2026-11-17",
-        "sourceContentHash": "sha256:d6f1cc8b9e101153bb6785d0b8abb900",
-        "generatedAt": "2026-11-17T09:35:46.877Z",
+        "sourceLastModified": "2026-11-19",
+        "sourceContentHash": "sha256:529ab6eb7f47c5bb565c1c10f9a99cf1",
+        "generatedAt": "2026-11-19T08:36:08.029Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1250,21 +1250,21 @@
       "id": "dossier-petite-enfance-1",
       "source": "dossier",
       "domain": "Enseignement",
-      "question": "En octobre 2026, quelle aide exceptionnelle par place l'ONE accorde-t-elle aux crèches non subventionnées dont le tarif ne dépasse pas 1 060 euros par mois à temps plein ?",
+      "question": "Dans leur communiqué du 18 novembre 2026, comment le conseil d'administration de l'ONE et le commissaire du gouvernement qualifient-ils la dispense de service du directeur général adjoint de l'Office ?",
       "options": [
-        "620 euros",
-        "310 euros",
-        "1 060 euros",
-        "150 euros"
+        "Une mesure d'ordre, pas une mesure disciplinaire",
+        "Une sanction disciplinaire en attendant le jugement",
+        "Une suspension ordonnée par le parquet de Bruxelles",
+        "Un congé demandé par le directeur lui-même"
       ],
       "correct": 0,
-      "explanation": "Les accueillantes indépendantes reçoivent 310 euros par place, aux mêmes conditions de tarif.",
+      "explanation": "Décidée par le gouvernement de la Fédération Wallonie-Bruxelles, elle vise selon eux à garantir l'impartialité de l'analyse forensique. Ils rappellent que la présomption d'innocence s'applique pleinement.",
       "sourceSlug": "/fr/dossiers/petite-enfance",
       "sourceTitle": "Petite enfance",
       "provenance": {
-        "sourceLastModified": "2026-11-17",
-        "sourceContentHash": "sha256:d6f1cc8b9e101153bb6785d0b8abb900",
-        "generatedAt": "2026-11-17T09:35:46.877Z",
+        "sourceLastModified": "2026-11-19",
+        "sourceContentHash": "sha256:529ab6eb7f47c5bb565c1c10f9a99cf1",
+        "generatedAt": "2026-11-19T08:36:08.029Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1411,21 +1411,21 @@
       "id": "dossier-seniors-a-bruxelles-0",
       "source": "dossier",
       "domain": "Social",
-      "question": "Comment la part de seniors percevant la garantie de revenus aux personnes âgées (GRAPA) se compare-t-elle entre régions, selon les données de janvier 2022 ?",
+      "question": "Selon BRUZZ (17 novembre 2026), combien des dix-neuf communes bruxelloises disposent d'un conseil consultatif consacré aux aînés ?",
       "options": [
-        "Trois fois plus élevée à Bruxelles qu'en Flandre",
-        "Deux fois moins élevée à Bruxelles qu'en Flandre",
-        "Identique à Bruxelles et en Flandre depuis 2020",
-        "Quatre fois moins élevée à Bruxelles qu'en Wallonie"
+        "6 communes",
+        "3 communes",
+        "12 communes",
+        "19 communes"
       ],
       "correct": 0,
-      "explanation": "13 % des Bruxellois de 65 ans et plus perçoivent la GRAPA, contre 4 % en Flandre et 5 % en Wallonie. L'écart entre communes va de 4 % à Woluwe-Saint-Pierre à 26 % à Saint-Josse-ten-Noode.",
+      "explanation": "Il s'agit d'Uccle, Bruxelles-Ville, Etterbeek, Saint-Gilles, Watermael-Boitsfort et Woluwe-Saint-Pierre. Un financement prévu par une ordonnance de 2017 n'a jamais été mis en œuvre, faute d'arrêté d'exécution.",
       "sourceSlug": "/fr/dossiers/seniors-a-bruxelles",
       "sourceTitle": "Seniors",
       "provenance": {
-        "sourceLastModified": "2026-09-22",
-        "sourceContentHash": "sha256:f540d396c3fa68a63246618ca142c126",
-        "generatedAt": "2026-09-23T10:11:28.744Z",
+        "sourceLastModified": "2026-11-18",
+        "sourceContentHash": "sha256:f3acb289c458d87af860734a95070e3c",
+        "generatedAt": "2026-11-19T08:36:08.029Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1480,21 +1480,21 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Climat",
-      "question": "Qu'a décidé le Comité de concertation du 16 novembre 2026 au sujet des routes aériennes de Brussels Airport, selon la dépêche Belga ?",
+      "question": "Quelles institutions bruxelloises ont introduit, le 16 novembre 2026, un recours en annulation au Conseil d'État contre la route aérienne RNP 07L ?",
       "options": [
-        "Poursuivre la concertation, faute d'accord",
-        "Relever la norme de vent arrière pour les pistes 25 et 07",
-        "Supprimer la route d'atterrissage RNP 07L",
-        "Saisir la Cour constitutionnelle"
+        "La Région, la COCOM et la COCOF",
+        "La Région, Jette et Berchem-Sainte-Agathe",
+        "La Région seule, sans les commissions",
+        "La COCOF et la Ville de Bruxelles"
       ],
       "correct": 0,
-      "explanation": "Le Comité a pris acte des points de vue divergents ; le conflit d'intérêts invoqué par la Flandre suspend les mesures fédérales pendant soixante jours.",
+      "explanation": "Si le recours de la Région était jugé tardif, la procédure resterait valable pour la COCOM et la COCOF, que le délai contesté ne concerne pas. Berchem-Sainte-Agathe prépare son propre recours avec des riverains.",
       "sourceSlug": "/fr/dossiers/survol-bruxelles",
       "sourceTitle": "Survol aérien",
       "provenance": {
-        "sourceLastModified": "2026-11-17",
-        "sourceContentHash": "sha256:c01fdaef30bd96ea4ad1278d6e3424f4",
-        "generatedAt": "2026-11-17T09:35:46.877Z",
+        "sourceLastModified": "2026-11-18",
+        "sourceContentHash": "sha256:480bb1ddd8c302ebcf3c12c3d500f1a7",
+        "generatedAt": "2026-11-19T08:36:08.029Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1614,6 +1614,5 @@
         "promptVersion": "v3"
       }
     }
-  ],
-  "reviewedCount": 70
+  ]
 }

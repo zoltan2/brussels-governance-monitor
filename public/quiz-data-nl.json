@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T09:43:50.238Z",
+  "generatedAt": "2026-11-19T08:38:41.078Z",
   "locale": "nl",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -54,21 +54,21 @@
       "id": "domain-cleanliness-0",
       "source": "domain",
       "domain": "Netheid",
-      "question": "Hoeveel sorteerruimtes in de openbare ruimte plant de gewestelijke hervorming van de afvalophaling, volgens het antwoord van de staatssecretaris voor Openbare Netheid in de plenaire vergadering van 13 november 2026 (BruxellesToday, 15 november 2026)?",
+      "question": "Welk deel van de inhoud van de Brusselse pmd-zakken (blauwe zakken) voldoet niet aan de sorteerregels, volgens Fost Plus, geciteerd door La DH op 17 november 2026?",
       "options": [
-        "60 sorteerruimtes",
-        "120 sorteerruimtes",
-        "16 sorteerruimtes",
-        "19 sorteerruimtes"
+        "17 %, tegenover 13,5 % gemiddeld in België",
+        "13,5 %, tegenover 17 % gemiddeld in België",
+        "8 %, tegenover 11 % gemiddeld in België",
+        "25 %, tegenover 20 % gemiddeld in België"
       ],
       "correct": 0,
-      "explanation": "De staatssecretaris noemde 60 sorteerruimtes in de openbare ruimte, en 16 van de 19 gemeenten dienden een eerste voorstel in. Bij de voorstelling in september 2026 was sprake van 120 sorteerruimtes, zonder verduidelijking van de reikwijdte.",
+      "explanation": "In 2025 belandde bijna 4.000 ton afval ten onrechte in de Brusselse blauwe zakken, wat jaarlijks bijna 4 miljoen euro kost. Fost Plus en Net Brussel voeren van 9 november tot 28 december 2026 een campagne.",
       "sourceSlug": "/nl/domeinen/cleanliness",
       "sourceTitle": "Netheid: regionale brigades en onmiddellijke boete-inning",
       "provenance": {
-        "sourceLastModified": "2026-11-16",
-        "sourceContentHash": "sha256:875d5d66b8abd01ba61bd3a71988467b",
-        "generatedAt": "2026-11-16T11:10:08.581Z",
+        "sourceLastModified": "2026-11-18",
+        "sourceContentHash": "sha256:543379acd7fb11cb8bb5e51a3132f76a",
+        "generatedAt": "2026-11-19T08:38:41.078Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -77,21 +77,21 @@
       "id": "domain-cleanliness-1",
       "source": "domain",
       "domain": "Netheid",
-      "question": "Hoe is de toegang tot de sorteerruimtes van de Brusselse hervorming van de afvalophaling gepland, volgens BruxellesToday (15 november 2026)?",
+      "question": "Hoeveel sorteerruimtes in de openbare ruimte plant de gewestelijke hervorming van de afvalophaling, volgens BruxellesToday (15 november 2026)?",
       "options": [
-        "Eerst vrije toegang, met een badge erbij bij beheersproblemen",
-        "Toegang met een betalende badge voor elk gezin vanaf de start",
-        "Vrije toegang, maar het afval wordt gewogen en per kilo aangerekend",
-        "Toegang alleen voor handelaars met een gemeentelijke afwijking"
+        "60 sorteerruimtes",
+        "16 sorteerruimtes",
+        "19 sorteerruimtes",
+        "120 sorteerruimtes"
       ],
       "correct": 0,
-      "explanation": "Het bestek laat toe om een badge toe te voegen als het beheer problemen geeft; het gebruik blijft gratis en het afval wordt niet gewogen. Het Jourdanplein in Etterbeek test al een toegang met badge.",
+      "explanation": "De staatssecretaris voor Openbare Netheid lichtte dat toe in de plenaire vergadering van 13 november 2026: 16 van de 19 gemeenten hadden een eerste voorstel ingediend, en de toegang is eerst vrij.",
       "sourceSlug": "/nl/domeinen/cleanliness",
       "sourceTitle": "Netheid: regionale brigades en onmiddellijke boete-inning",
       "provenance": {
-        "sourceLastModified": "2026-11-16",
-        "sourceContentHash": "sha256:875d5d66b8abd01ba61bd3a71988467b",
-        "generatedAt": "2026-11-16T11:10:08.581Z",
+        "sourceLastModified": "2026-11-18",
+        "sourceContentHash": "sha256:543379acd7fb11cb8bb5e51a3132f76a",
+        "generatedAt": "2026-11-19T08:38:41.078Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -238,21 +238,21 @@
       "id": "domain-education-0",
       "source": "domain",
       "domain": "Onderwijs",
-      "question": "Welk bedrag besteedt de Franse Gemeenschapscommissie aan de projectoproep “Parcours +” tegen schooluitval, gelanceerd in oktober 2026?",
+      "question": "Welke Nederlandstalige studentenorganisatie sloot zich voor het eerst aan bij de betoging van de Fédération des étudiants francophones (FEF) op 17 november 2026 in Brussel?",
       "options": [
-        "Vijfhonderdduizend euro per jaar",
-        "Twee miljoen euro per jaar",
-        "Drie miljoen euro per jaar",
-        "Een miljoen euro per jaar"
+        "De Vlaamse Vereniging van Studenten (VVS)",
+        "De studentenraad van de VUB, alleen",
+        "De Vlaamse studentenvakbond van het ABVV",
+        "De studentenvereniging van de KU Leuven"
       ],
-      "correct": 3,
-      "explanation": "“Parcours +” richt zich tot jongeren van 11 tot 25 jaar die de school vroegtijdig verlaten of in grote kwetsbaarheid leven. Verenigingen konden zich tot 18 november 2026 kandidaat stellen.",
+      "correct": 0,
+      "explanation": "Volgens VRT NWS protesteerde de VVS tegen de Vlaamse besparingen op de studietoelagen; de FEF klaagde onder meer de verhoging van het inschrijvingsgeld aan. De politie telde 3.200 betogers.",
       "sourceSlug": "/nl/domeinen/education",
       "sourceTitle": "Onderwijs: kinderopvangplaatsen, schooluitval en spanningen Cocof/VGC",
       "provenance": {
-        "sourceLastModified": "2026-10-26",
-        "sourceContentHash": "sha256:ae249536fcc6e08e69f4bbf5c4ce4157",
-        "generatedAt": "2026-10-29T21:16:21.636Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:d55c3c889fff428c73263fdf252ca9d9",
+        "generatedAt": "2026-11-19T08:38:41.078Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -261,21 +261,21 @@
       "id": "domain-education-1",
       "source": "domain",
       "domain": "Onderwijs",
-      "question": "Welk deel van de Brusselaars van 18 tot 24 jaar verlaat volgens het BISA (2026) het secundair onderwijs zonder diploma of kwalificatie?",
+      "question": "Hoe verandert het jaarlijkse inschrijvingsgeld voor ongeveer 58 % van de studenten volgens het programmadecreet dat de Federatie Wallonië-Brussel op 5 juni 2026 aannam?",
       "options": [
-        "18 %",
-        "12 %",
-        "25 %",
-        "9 %"
+        "Van 835 naar 1.194 euro per jaar",
+        "Van 835 naar 1.035 euro per jaar",
+        "Van 750 naar 1.194 euro per jaar",
+        "Van 835 naar 1.500 euro per jaar"
       ],
       "correct": 0,
-      "explanation": "Het Brusselse percentage van 18 % ligt boven het Belgische gemiddelde van 12 %. Dat is het doelpubliek van de projectoproep “Parcours +” van de Cocof.",
+      "explanation": "De verhoging geldt sinds het academiejaar 2026-2027. Het inschrijvingsgeld is een bevoegdheid van de Federatie Wallonië-Brussel, niet van het Brussels Gewest.",
       "sourceSlug": "/nl/domeinen/education",
       "sourceTitle": "Onderwijs: kinderopvangplaatsen, schooluitval en spanningen Cocof/VGC",
       "provenance": {
-        "sourceLastModified": "2026-10-26",
-        "sourceContentHash": "sha256:ae249536fcc6e08e69f4bbf5c4ce4157",
-        "generatedAt": "2026-10-29T21:16:21.636Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:d55c3c889fff428c73263fdf252ca9d9",
+        "generatedAt": "2026-11-19T08:38:41.078Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -284,21 +284,21 @@
       "id": "domain-employment-0",
       "source": "domain",
       "domain": "Werkgelegenheid",
-      "question": "Welk effect heeft de beperking van de werkloosheidsuitkeringen in de tijd volgens het persbericht van Actiris van 5 november 2026 op het totale aantal ingeschreven werkzoekenden in Brussel?",
+      "question": "Hoeveel werkzoekenden kregen in oktober 2026 een leefloon, tegenover 17.030 in januari 2025, volgens de Brusselse minister van Werk in de commissie op 18 november 2026?",
       "options": [
-        "Ze verlaagt het niet: ingeschrevenen veranderen van categorie",
-        "Ze verlaagt het, want wie uitgesloten is, verlaat de lijsten",
-        "Ze verlaagt het vooral bij jonge werkzoekenden",
-        "Ze stabiliseert het, in- en uitstroom houden elkaar in evenwicht"
+        "37.564",
+        "27.564",
+        "17.940",
+        "47.030"
       ],
       "correct": 0,
-      "explanation": "Wie zijn recht verliest, blijft ingeschreven: vooral van de categorie uitkeringsgerechtigden naar die van leefloners van het OCMW. Eind oktober 2026 telde Actiris 102.550 ingeschrevenen, 6,6 % meer dan een jaar eerder.",
+      "explanation": "De minister schrijft die stijging toe aan de federale beperking van de werkloosheidsuitkeringen in de tijd en raamt dat tegen juni 2027 nog bijna 10.000 mensen in die categorie terechtkomen. Actiris krijgt geen extra middelen.",
       "sourceSlug": "/nl/domeinen/employment",
       "sourceTitle": "Werkgelegenheid: doelstelling 70 %, versterkte activering en tweetaligheid",
       "provenance": {
-        "sourceLastModified": "2026-11-05",
-        "sourceContentHash": "sha256:a30ba67e0de5a39d87e56e048922266f",
-        "generatedAt": "2026-11-05T15:32:07.872Z",
+        "sourceLastModified": "2026-11-19",
+        "sourceContentHash": "sha256:311e24bdd819f586f5024f8e4fccd98c",
+        "generatedAt": "2026-11-19T08:38:41.078Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -307,21 +307,21 @@
       "id": "domain-employment-1",
       "source": "domain",
       "domain": "Werkgelegenheid",
-      "question": "Welk deel van de ingeschreven werkzoekenden in het Brussels Gewest was eind oktober 2026 volgens Actiris ook ingeschreven bij een OCMW?",
+      "question": "Bij hoeveel Brusselse dienstenchequebedrijven stelde de gewestelijke werkgelegenheidsinspectie in 2025 inbreuken vast die tot strafrechtelijke vervolging leiden, volgens een Belga-bericht van 18 november 2026?",
       "options": [
-        "36,6 %",
-        "18,2 %",
-        "51,0 %",
-        "8,4 %"
+        "32 bedrijven",
+        "151 bedrijven",
+        "69 bedrijven",
+        "214 bedrijven"
       ],
       "correct": 0,
-      "explanation": "37.564 van de 102.550 werkzoekenden vielen onder een OCMW, 97,3 % meer op een jaar. De federale beperking van de uitkeringen in de tijd verschuift de last naar de gemeentelijke OCMW's.",
+      "explanation": "De inspectie opende in 2025 151 onderzoeksdossiers, onder meer voor fictieve prestaties. Bijna 1,8 miljoen euro onterecht ontvangen subsidies wordt teruggevorderd.",
       "sourceSlug": "/nl/domeinen/employment",
       "sourceTitle": "Werkgelegenheid: doelstelling 70 %, versterkte activering en tweetaligheid",
       "provenance": {
-        "sourceLastModified": "2026-11-05",
-        "sourceContentHash": "sha256:a30ba67e0de5a39d87e56e048922266f",
-        "generatedAt": "2026-11-05T15:32:07.872Z",
+        "sourceLastModified": "2026-11-19",
+        "sourceContentHash": "sha256:311e24bdd819f586f5024f8e4fccd98c",
+        "generatedAt": "2026-11-19T08:38:41.078Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Veiligheid",
-      "question": "Welke elektrische steps zijn volgens het politiebesluit van 19 oktober 2026 verboden om te rijden en te stallen in de 19 Brusselse hotspots van de drugshandel?",
+      "question": "Hoe wordt het federale fonds van 55 miljoen euro per jaar voor de veiligheid in Brussel verdeeld, volgens de hoorzittingen in de Kamercommissie Binnenlandse Zaken van 17 november 2026?",
       "options": [
-        "Alle steps, deelsteps en privésteps",
-        "Alleen deelsteps",
-        "Alleen privésteps die sneller dan 20 km/u kunnen",
-        "Alleen tussen 22 uur en 6 uur"
+        "35 miljoen voor de politiezones, 20 miljoen voor de gemeenten",
+        "20 miljoen voor de politiezones, 35 miljoen voor de gemeenten",
+        "45 miljoen voor de politiezones, 10 miljoen voor het Gewest",
+        "27,5 miljoen voor de politiezones, 27,5 miljoen voor de gemeenten"
       ],
       "correct": 0,
-      "explanation": "Artikel 6 van het besluit geldt voor alle elektrische steps, gedeeld of privé, en verplicht de operatoren ervoor te zorgen dat hun steps er niet rijden.",
+      "explanation": "De gehoorde topambtenaren beschrijven een bijna onbestaande federale controle zodra de Brusselse regering de verdeling heeft vastgelegd. Een audit, besteld door de federale minister van Binnenlandse Zaken, moet in maart 2027 klaar zijn.",
       "sourceSlug": "/nl/domeinen/security",
       "sourceTitle": "Veiligheid: drugscommissaris, Stationsplan, misdaadcijfers stabiel",
       "provenance": {
-        "sourceLastModified": "2026-11-16",
-        "sourceContentHash": "sha256:a686cc5750365ab1e57a6301d7d0b656",
-        "generatedAt": "2026-11-17T09:37:16.042Z",
+        "sourceLastModified": "2026-11-18",
+        "sourceContentHash": "sha256:968c921b7cff2bf478d1f8bbfed8aeb5",
+        "generatedAt": "2026-11-19T08:38:41.078Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Veiligheid",
-      "question": "Wat vraagt de resolutie tegen masculinisme, op 13 november 2026 unaniem aangenomen door het Brussels Parlement, aan safe.brussels, volgens La DH?",
+      "question": "Op welke datum treedt de gewestelijke commissaris voor veiligheid en drugs in functie, volgens de minister-president in een commissie van het Brussels Parlement op 10 november 2026?",
       "options": [
-        "De omvang ervan in Brussel te meten",
-        "De betrokken onlineaccounts te sluiten",
-        "Een nieuwe politiezone op te richten",
-        "Een gewestelijk referendum te organiseren"
+        "Op 1 januari 2027",
+        "Op 1 december 2026",
+        "Op 1 maart 2027",
+        "Op 1 september 2027"
       ],
       "correct": 0,
-      "explanation": "De resolutie vraagt ook masculinisme op te nemen in de gewestelijke veiligheidsstrategieën; een resolutie richt vragen aan de regering, zonder de kracht van een ordonnantie.",
+      "explanation": "Ze krijgt drie maanden om een strategie voor te stellen die de samenwerking tussen gewestelijke diensten, gemeenten, politiezones en federale overheden versterkt, en ze evalueert de strategie voor de gevoelige zones.",
       "sourceSlug": "/nl/domeinen/security",
       "sourceTitle": "Veiligheid: drugscommissaris, Stationsplan, misdaadcijfers stabiel",
       "provenance": {
-        "sourceLastModified": "2026-11-16",
-        "sourceContentHash": "sha256:a686cc5750365ab1e57a6301d7d0b656",
-        "generatedAt": "2026-11-17T09:37:16.042Z",
+        "sourceLastModified": "2026-11-18",
+        "sourceContentHash": "sha256:968c921b7cff2bf478d1f8bbfed8aeb5",
+        "generatedAt": "2026-11-19T08:38:41.078Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Sociaal",
-      "question": "Welk bestuursniveau beslist over de financiering van de Brussels Deal, de opvangregeling waarvan het einde tegen eind 2026 is aangekondigd volgens La DH?",
+      "question": "Over hoeveel noodopvangplaatsen voor gezinnen beschikt Samusocial, volgens de organisatie zelf, geciteerd door de RTBF en VRT NWS op 19 november 2026?",
       "options": [
-        "De regering van het Brussels Gewest",
-        "De federale regering",
-        "De Gemeenschappelijke Gemeenschapscommissie",
-        "De negentien Brusselse gemeenten"
+        "577 plaatsen",
+        "377 plaatsen",
+        "240 plaatsen",
+        "1.000 plaatsen"
       ],
-      "correct": 1,
-      "explanation": "De Brussels Deal wordt door de federale overheid gefinancierd. Op 14 november 2026 meldt La DH dat de Brusselse minister van Gezondheid vindt dat Brussel een federale beslissing niet alleen kan compenseren.",
+      "correct": 0,
+      "explanation": "Dat is het hoogste aantal dat de organisatie ooit had, maar 3.396 van de 3.778 personen in gezinnen die in september en oktober 2026 opvang vroegen, werden geweigerd bij gebrek aan plaats.",
       "sourceSlug": "/nl/domeinen/social",
       "sourceTitle": "Sociaal: opvangsysteem ingekrompen, Samusocial verzadigd, OCMW's onder druk",
       "provenance": {
-        "sourceLastModified": "2026-11-15",
-        "sourceContentHash": "sha256:e893f3b2dc5916d6b80b766375b2e98f",
-        "generatedAt": "2026-11-15T11:20:20.077Z",
+        "sourceLastModified": "2026-11-19",
+        "sourceContentHash": "sha256:e12a51711789eac56c9bbaa165a5e631",
+        "generatedAt": "2026-11-19T08:38:41.078Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Sociaal",
-      "question": "Wat onderscheidt het medisch centrum Refugee Medical Point in Brussel, volgens het Rode Kruis en Dokters van de Wereld (12 november 2026)?",
+      "question": "Op hoeveel raamt de Brusselse minister van Gezondheid de jaarlijkse kosten van de opvang van daklozen in Brussel, zonder gebouwen en begeleiding, volgens La DH van 14 november 2026?",
       "options": [
-        "Het is de enige plek met gratis consultaties zonder afspraak of voorwaarden",
-        "Het is het enige zorgcentrum dat volledig door het Brussels Gewest wordt betaald",
-        "Het is het enige ziekenhuis dat is voorbehouden aan verzoekers om bescherming",
-        "Het is de enige medische dienst die 's nachts open is voor daklozen"
+        "120 miljoen euro, waarvan 80 miljoen van het Gewest",
+        "120 miljoen euro, waarvan 40 miljoen van het Gewest",
+        "144 miljoen euro, waarvan 80 miljoen van de federale overheid",
+        "80 miljoen euro, waarvan 40 miljoen van de federale overheid"
       ],
       "correct": 0,
-      "explanation": "Volgens beide organisaties is het Refugee Medical Point de enige plek in Brussel met gratis consultaties, zonder afspraak of administratieve voorwaarden. Het centrum Athéna sloot eind 2025 bij gebrek aan subsidies.",
+      "explanation": "De federale overheid financiert de overige 40 miljoen. Met de ter beschikking gestelde gebouwen en de begeleidingskosten komt de minister op 144 miljoen euro; het gaat om cijfers die hij in de commissie noemde, niet om begrotingsbedragen.",
       "sourceSlug": "/nl/domeinen/social",
       "sourceTitle": "Sociaal: opvangsysteem ingekrompen, Samusocial verzadigd, OCMW's onder druk",
       "provenance": {
-        "sourceLastModified": "2026-11-15",
-        "sourceContentHash": "sha256:e893f3b2dc5916d6b80b766375b2e98f",
-        "generatedAt": "2026-11-15T11:20:20.077Z",
+        "sourceLastModified": "2026-11-19",
+        "sourceContentHash": "sha256:e12a51711789eac56c9bbaa165a5e631",
+        "generatedAt": "2026-11-19T08:38:41.078Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -813,21 +813,21 @@
       "id": "dossier-cpas-bruxellois-0",
       "source": "dossier",
       "domain": "Sociaal",
-      "question": "Voor de zetel van welke instelling verzamelde het gemeenschappelijk vakbondsfront van de Brusselse gemeenten en OCMW's op 13 november 2026?",
+      "question": "Welk deel van de federale compensaties voor het leefloon in de aanpassing van de federale begroting 2026 gaat naar Brussel, volgens de RTBF (18 november 2026)?",
       "options": [
-        "Het Brussels Parlement",
-        "De gewestelijke dienst Actiris",
-        "De bank Belfius",
-        "De federatie van OCMW's"
+        "29 %",
+        "53 %",
+        "18 %",
+        "41 %"
       ],
-      "correct": 2,
-      "explanation": "De vakbonden verzamelden op het Rogierplein, voor de zetel van Belfius. Volgens BRUZZ verwijten ze de bank dat ze elke nieuwe lening aan gemeenten afhankelijk maakt van besparingen.",
+      "correct": 0,
+      "explanation": "Wallonië krijgt 53 % en Vlaanderen 18 %. De aanpassing voorziet 210 miljoen euro bovenop de oorspronkelijk geplande 300 miljoen, zodat de OCMW's de leeflonen kunnen uitbetalen.",
       "sourceSlug": "/nl/dossiers/cpas-bruxellois",
       "sourceTitle": "Brusselse OCMW's",
       "provenance": {
-        "sourceLastModified": "2026-11-14",
-        "sourceContentHash": "sha256:eff7932c52d0830d536510078a90c600",
-        "generatedAt": "2026-11-15T11:20:20.077Z",
+        "sourceLastModified": "2026-11-19",
+        "sourceContentHash": "sha256:f412819dc4aa23be238f7d09f87366a2",
+        "generatedAt": "2026-11-19T08:38:41.078Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1066,21 +1066,21 @@
       "id": "dossier-lez-0",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Van de 1.890 boetes van de lage-emissiezone die sinds juli 2026 werden verstuurd, hoeveel waren er op 6 september 2026 effectief betaald?",
+      "question": "Hoeveel boetes van de lage-emissiezone gingen in 2025 en 2026 naar voertuigen met een buitenlandse nummerplaat, volgens de cijfers van Brussel Fiscaliteit die BRUZZ op 18 november 2026 bracht?",
       "options": [
-        "Ongeveer 255, iets meer dan 13 %",
-        "Ongeveer 940, iets minder dan 50 %",
-        "Ongeveer 1.700, bijna 90 %",
-        "Ongeveer 630, een derde van het totaal"
+        "0 boetes",
+        "1.207 boetes",
+        "2.907 boetes",
+        "9.561 boetes"
       ],
       "correct": 0,
-      "explanation": "Dat is 89.152,50 euro geïnd. De administratie preciseert dat een deel van de betalingstermijnen nog loopt en dat de laatste boetes nog niet allemaal zijn verstuurd: het is een tussenstand, geen saldo. Het eerste halfjaar leverde 25.905 waarschuwingen op, voor een geschat bestand van 29.000 voertuigen in het Brussels Gewest.",
+      "explanation": "De camera's lezen buitenlandse nummerplaten, maar Brussel Fiscaliteit heeft geen toegang tot de inschrijvingsgegevens van andere landen. In dezelfde periode gingen 17.717 boetes naar voertuigen die in België zijn ingeschreven.",
       "sourceSlug": "/nl/dossiers/lez",
       "sourceTitle": "LEZ",
       "provenance": {
-        "sourceLastModified": "2026-09-19",
-        "sourceContentHash": "sha256:6b5a62cc14812e283c8129b006a32a88",
-        "generatedAt": "2026-10-09T06:43:50.633Z",
+        "sourceLastModified": "2026-11-19",
+        "sourceContentHash": "sha256:cd31cad6af8dcf90165a5c26525053b3",
+        "generatedAt": "2026-11-19T08:38:41.078Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1089,21 +1089,21 @@
       "id": "dossier-lez-1",
       "source": "dossier",
       "domain": "Mobiliteit",
-      "question": "Onder welke voorwaarde is een oldtimer, ingeschreven met een O-nummerplaat, vrijgesteld van de Brusselse lage-emissiezone?",
+      "question": "Vanaf welke datum werden boetes van 350 euro verstuurd naar diesels Euro 5 en benzinewagens Euro 2, die sinds 1 januari 2026 uit de lage-emissiezone geweerd zijn, volgens Moniteur Automobile (18 november 2026)?",
       "options": [
-        "Enkel op zijn leeftijd, zonder controle van het werkelijke gebruik",
-        "Op een plafond van dertig rijdagen per jaar",
-        "Op een specifieke jaarlijkse technische keuring",
-        "Op een elk jaar hernieuwde vrijstellingsaanvraag"
+        "Vanaf 1 juli 2026",
+        "Vanaf 1 januari 2026",
+        "Vanaf 1 april 2026",
+        "Vanaf 14 oktober 2026"
       ],
       "correct": 0,
-      "explanation": "De camera's met nummerplaatherkenning identificeren die voertuigen wel, maar controleren hun werkelijke gebruik niet: een weinig gebruikte verzamelwagen en een dagelijks rijdende oude wagen genieten dezelfde vrijstelling. Hun aantal steeg van 3.936 in 2019 naar 13.799 in 2024, en het aantal dat honderd dagen per jaar of meer rijdt van 17 naar 156.",
+      "explanation": "Een eerste overtreding levert een waarschuwingsbrief op. Van 1 juli tot 14 oktober 2026 werden 2.907 boetes verstuurd, na 30.975 waarschuwingsbrieven sinds januari.",
       "sourceSlug": "/nl/dossiers/lez",
       "sourceTitle": "LEZ",
       "provenance": {
-        "sourceLastModified": "2026-09-19",
-        "sourceContentHash": "sha256:6b5a62cc14812e283c8129b006a32a88",
-        "generatedAt": "2026-10-09T06:43:50.633Z",
+        "sourceLastModified": "2026-11-19",
+        "sourceContentHash": "sha256:cd31cad6af8dcf90165a5c26525053b3",
+        "generatedAt": "2026-11-19T08:38:41.078Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1227,21 +1227,21 @@
       "id": "dossier-petite-enfance-0",
       "source": "dossier",
       "domain": "Onderwijs",
-      "question": "Welke functie bekleedt volgens La Libre van 16 november 2026 het lid van het Office de la naissance et de l'enfance (ONE) dat van dienst is vrijgesteld?",
+      "question": "Hoeveel bedraagt het aangepaste informaticabudget 2026 van het Office de la naissance et de l'enfance (ONE), volgens Le Soir van 17 november 2026?",
       "options": [
-        "Adjunct-directeur-generaal",
-        "Administrateur-generaal",
-        "Voorzitter van de raad van bestuur",
-        "Regeringscommissaris"
+        "33,8 miljoen euro",
+        "24,4 miljoen euro",
+        "19,0 miljoen euro",
+        "48,2 miljoen euro"
       ],
       "correct": 0,
-      "explanation": "Omdat de administrateur-generaal met ziekteverlof is, heeft het Office geen leiding meer; de regeringscommissaris van de Federatie Wallonië-Brussel verzekert de continuïteit.",
+      "explanation": "Een enveloppe van 24,4 miljoen omvat het grootste deel van de consultancyopdrachten. Een vertrouwelijk rapport van 30 oktober 2026 wijst op moeilijk traceerbare prestaties en verbonden leveranciers.",
       "sourceSlug": "/nl/dossiers/petite-enfance",
       "sourceTitle": "Kinderopvang",
       "provenance": {
-        "sourceLastModified": "2026-11-17",
-        "sourceContentHash": "sha256:fbd3ead099ec76484d97dce4592fc2fd",
-        "generatedAt": "2026-11-17T09:37:16.042Z",
+        "sourceLastModified": "2026-11-19",
+        "sourceContentHash": "sha256:263397e79e0fe79f0f0d588475921125",
+        "generatedAt": "2026-11-19T08:38:41.078Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1250,21 +1250,21 @@
       "id": "dossier-petite-enfance-1",
       "source": "dossier",
       "domain": "Onderwijs",
-      "question": "Welke uitzonderlijke steun per plaats kende het ONE in oktober 2026 toe aan niet-gesubsidieerde crèches waarvan het tarief voltijds niet hoger ligt dan 1.060 euro per maand?",
+      "question": "Hoe omschrijven de raad van bestuur van het ONE en de regeringscommissaris in hun persbericht van 18 november 2026 de vrijstelling van dienst van de adjunct-directeur-generaal van de instelling?",
       "options": [
-        "620 euro",
-        "310 euro",
-        "1.060 euro",
-        "150 euro"
+        "Een ordemaatregel, geen tuchtmaatregel",
+        "Een voorlopige tuchtsanctie tot het vonnis",
+        "Een schorsing bevolen door het Brusselse parket",
+        "Een verlof aangevraagd door de directeur zelf"
       ],
       "correct": 0,
-      "explanation": "Zelfstandige onthaalouders krijgen 310 euro per plaats, onder dezelfde tariefvoorwaarde.",
+      "explanation": "De maatregel, genomen door de regering van de Federatie Wallonië-Brussel, moet volgens hen de onpartijdigheid van de forensische analyse waarborgen. Ze herinneren eraan dat het vermoeden van onschuld volledig geldt.",
       "sourceSlug": "/nl/dossiers/petite-enfance",
       "sourceTitle": "Kinderopvang",
       "provenance": {
-        "sourceLastModified": "2026-11-17",
-        "sourceContentHash": "sha256:fbd3ead099ec76484d97dce4592fc2fd",
-        "generatedAt": "2026-11-17T09:37:16.042Z",
+        "sourceLastModified": "2026-11-19",
+        "sourceContentHash": "sha256:263397e79e0fe79f0f0d588475921125",
+        "generatedAt": "2026-11-19T08:38:41.078Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1411,21 +1411,21 @@
       "id": "dossier-seniors-a-bruxelles-0",
       "source": "dossier",
       "domain": "Sociaal",
-      "question": "Hoe verhoudt het aandeel senioren dat de inkomensgarantie voor ouderen (IGO) ontvangt zich tussen de gewesten, volgens de gegevens van januari 2022?",
+      "question": "Hoeveel van de negentien Brusselse gemeenten hebben een adviesraad voor ouderen (ouderenraad), volgens BRUZZ (17 november 2026)?",
       "options": [
-        "Drie keer hoger in Brussel dan in Vlaanderen",
-        "Twee keer lager in Brussel dan in Vlaanderen",
-        "Gelijk in Brussel en in Vlaanderen sinds 2020",
-        "Vier keer lager in Brussel dan in Wallonië"
+        "6 gemeenten",
+        "3 gemeenten",
+        "12 gemeenten",
+        "19 gemeenten"
       ],
       "correct": 0,
-      "explanation": "13 % van de Brusselse 65-plussers ontvangt de IGO, tegenover 4 % in Vlaanderen en 5 % in Wallonië. Het verschil tussen gemeenten loopt van 4 % in Sint-Pieters-Woluwe tot 26 % in Sint-Joost-ten-Node.",
+      "explanation": "Het gaat om Ukkel, Brussel-Stad, Etterbeek, Sint-Gillis, Watermaal-Bosvoorde en Sint-Pieters-Woluwe. Een financiering uit een ordonnantie van 2017 werd nooit uitgevoerd, bij gebrek aan uitvoeringsbesluit.",
       "sourceSlug": "/nl/dossiers/seniors-a-bruxelles",
       "sourceTitle": "Senioren",
       "provenance": {
-        "sourceLastModified": "2026-09-22",
-        "sourceContentHash": "sha256:e2fd88329d26c74fc75da46142b39155",
-        "generatedAt": "2026-09-23T10:11:29.953Z",
+        "sourceLastModified": "2026-11-18",
+        "sourceContentHash": "sha256:671172af0aeabd3a2131e556c40a3b48",
+        "generatedAt": "2026-11-19T08:38:41.078Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1480,21 +1480,21 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Klimaat",
-      "question": "Wat besliste het Overlegcomité van 16 november 2026 over de vliegroutes van Brussels Airport, volgens het Belga-bericht?",
+      "question": "Welke Brusselse instellingen dienden op 16 november 2026 bij de Raad van State een beroep tot vernietiging in tegen de vliegroute RNP 07L?",
       "options": [
-        "Het overleg voortzetten, bij gebrek aan akkoord",
-        "De norm voor rugwind voor de banen 25 en 07 verhogen",
-        "De landingsroute RNP 07L afschaffen",
-        "Het Grondwettelijk Hof adiëren"
+        "Het Gewest, de GGC en de COCOF",
+        "Het Gewest, Jette en Sint-Agatha-Berchem",
+        "Het Gewest alleen, zonder de commissies",
+        "De COCOF en de Stad Brussel"
       ],
       "correct": 0,
-      "explanation": "Het Comité nam akte van de uiteenlopende standpunten; het belangenconflict dat Vlaanderen inriep, schorst de federale maatregelen zestig dagen.",
+      "explanation": "Mocht het beroep van het Gewest te laat worden bevonden, dan blijft de procedure geldig voor de GGC en de COCOF, waarvoor de betwiste termijn niet geldt. Sint-Agatha-Berchem bereidt met omwonenden een eigen beroep voor.",
       "sourceSlug": "/nl/dossiers/survol-bruxelles",
       "sourceTitle": "Overvliegen Brussel",
       "provenance": {
-        "sourceLastModified": "2026-11-17",
-        "sourceContentHash": "sha256:a2a911f25ae26c572d3b976b3f922a1a",
-        "generatedAt": "2026-11-17T09:37:16.042Z",
+        "sourceLastModified": "2026-11-18",
+        "sourceContentHash": "sha256:f934bdf585c23c88224888ddc07bd09e",
+        "generatedAt": "2026-11-19T08:38:41.078Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 70
+  "reviewedCount": 53
 }

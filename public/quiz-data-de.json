@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T09:43:51.642Z",
+  "generatedAt": "2026-11-19T08:38:42.342Z",
   "locale": "de",
   "poolSize": 70,
   "questionsPerSession": 10,
@@ -54,21 +54,21 @@
       "id": "domain-cleanliness-0",
       "source": "domain",
       "domain": "Sauberkeit",
-      "question": "Wie viele Sortierräume im öffentlichen Raum sieht die regionale Reform der Müllabfuhr vor, laut der Antwort der Staatssekretärin für öffentliche Sauberkeit in der Plenarsitzung vom 13.11.2026 (BruxellesToday, 15.11.2026)?",
+      "question": "Welcher Anteil des Inhalts der Brüsseler PMC-Säcke (blaue Säcke) entspricht laut Fost Plus, zitiert von La DH am 17.11.2026, nicht den Sortierregeln?",
       "options": [
-        "60 Sortierräume",
-        "120 Sortierräume",
-        "16 Sortierräume",
-        "19 Sortierräume"
+        "17 %, gegenüber 13,5 % im belgischen Durchschnitt",
+        "13,5 %, gegenüber 17 % im belgischen Durchschnitt",
+        "8 %, gegenüber 11 % im belgischen Durchschnitt",
+        "25 %, gegenüber 20 % im belgischen Durchschnitt"
       ],
       "correct": 0,
-      "explanation": "Die Staatssekretärin nannte 60 Sortierräume im öffentlichen Raum, und 16 der 19 Gemeinden haben einen ersten Vorschlag eingereicht. Bei der Vorstellung im September 2026 war von 120 Sortierräumen die Rede, ohne Angabe des Umfangs.",
+      "explanation": "2025 landeten fast 4.000 Tonnen Abfall fälschlich in den Brüsseler blauen Säcken, was jährlich fast 4 Millionen Euro kostet. Fost Plus und Bruxelles-Propreté führen vom 09.11. bis 28.12.2026 eine Kampagne durch.",
       "sourceSlug": "/de/bereiche/cleanliness",
       "sourceTitle": "Sauberkeit: Regionalbrigaden und sofortige Bußgelderhebung",
       "provenance": {
-        "sourceLastModified": "2026-11-16",
-        "sourceContentHash": "sha256:b95006fc94b5c7bd9b708dc140feae0b",
-        "generatedAt": "2026-11-16T11:10:09.201Z",
+        "sourceLastModified": "2026-11-18",
+        "sourceContentHash": "sha256:c3cf0befe7597ef8a621c32f21a70975",
+        "generatedAt": "2026-11-19T08:38:42.342Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -77,21 +77,21 @@
       "id": "domain-cleanliness-1",
       "source": "domain",
       "domain": "Sauberkeit",
-      "question": "Wie ist der Zugang zu den Sortierräumen der Brüsseler Reform der Müllabfuhr laut BruxellesToday (15.11.2026) vorgesehen?",
+      "question": "Wie viele Sortierräume im öffentlichen Raum sieht die regionale Reform der Müllabfuhr laut BruxellesToday (15.11.2026) vor?",
       "options": [
-        "Zunächst frei, ein Badge kann bei Problemen hinzukommen",
-        "Mit kostenpflichtigem Badge für jeden Haushalt ab dem Start",
-        "Frei, aber die Abfälle werden gewogen und pro Kilo berechnet",
-        "Nur für Geschäftsleute mit kommunaler Ausnahmegenehmigung"
+        "60 Sortierräume",
+        "16 Sortierräume",
+        "19 Sortierräume",
+        "120 Sortierräume"
       ],
       "correct": 0,
-      "explanation": "Das Lastenheft erlaubt einen Badge, wenn die Verwaltung schwierig wird; die Nutzung bleibt kostenlos, die Abfälle werden nicht gewogen. Der Place Jourdan in Etterbeek testet bereits einen Zugang per Badge.",
+      "explanation": "Die Staatssekretärin für öffentliche Sauberkeit erläuterte dies in der Plenarsitzung vom 13.11.2026: 16 der 19 Gemeinden hatten einen ersten Vorschlag eingereicht, und der Zugang ist zunächst frei.",
       "sourceSlug": "/de/bereiche/cleanliness",
       "sourceTitle": "Sauberkeit: Regionalbrigaden und sofortige Bußgelderhebung",
       "provenance": {
-        "sourceLastModified": "2026-11-16",
-        "sourceContentHash": "sha256:b95006fc94b5c7bd9b708dc140feae0b",
-        "generatedAt": "2026-11-16T11:10:09.201Z",
+        "sourceLastModified": "2026-11-18",
+        "sourceContentHash": "sha256:c3cf0befe7597ef8a621c32f21a70975",
+        "generatedAt": "2026-11-19T08:38:42.342Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -238,21 +238,21 @@
       "id": "domain-education-0",
       "source": "domain",
       "domain": "Bildung",
-      "question": "Welchen Betrag stellt die Französische Gemeinschaftskommission für den im Oktober 2026 gestarteten Projektaufruf „Parcours +“ gegen Schulabbruch bereit?",
+      "question": "Welche niederländischsprachige Studierendenorganisation schloss sich am 17.11.2026 in Brüssel erstmals der Demonstration der Fédération des étudiants francophones (FEF) an?",
       "options": [
-        "Fünfhunderttausend Euro pro Jahr",
-        "Zwei Millionen Euro pro Jahr",
-        "Drei Millionen Euro pro Jahr",
-        "Eine Million Euro pro Jahr"
+        "Die Vlaamse Vereniging van Studenten (VVS)",
+        "Der Studierendenrat der VUB, allein",
+        "Die flämische Studierendengewerkschaft des ABVV",
+        "Die Studierendenvereinigung der KU Leuven"
       ],
-      "correct": 3,
-      "explanation": "„Parcours +“ richtet sich an Jugendliche von 11 bis 25 Jahren, die die Schule abgebrochen haben oder besonders verletzlich sind. Vereinigungen konnten sich bis zum 18. November 2026 bewerben.",
+      "correct": 0,
+      "explanation": "Laut VRT NWS protestierte die VVS gegen flämische Kürzungen bei den Studienbeihilfen; die FEF kritisierte unter anderem die Erhöhung der Einschreibegebühr. Die Polizei zählte 3.200 Demonstrierende.",
       "sourceSlug": "/de/bereiche/education",
       "sourceTitle": "Bildung: Krippenplätze, Schulabbruch und Spannungen Cocof/VGC",
       "provenance": {
-        "sourceLastModified": "2026-10-26",
-        "sourceContentHash": "sha256:6ce080c7b107d13138102a6cbb2603f3",
-        "generatedAt": "2026-10-29T21:16:53.503Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:c9bb532739d5ca3edbb2e1d088ea4fac",
+        "generatedAt": "2026-11-19T08:38:42.342Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -261,21 +261,21 @@
       "id": "domain-education-1",
       "source": "domain",
       "domain": "Bildung",
-      "question": "Welcher Anteil der Brüsseler zwischen 18 und 24 Jahren verlässt laut dem IBSA (2026) den Sekundarunterricht ohne Abschluss oder Qualifikation?",
+      "question": "Wie verändert sich laut dem am 05.06.2026 von der Föderation Wallonie-Brüssel verabschiedeten Programmdekret die jährliche Einschreibegebühr für etwa 58 % der Studierenden?",
       "options": [
-        "18 %",
-        "12 %",
-        "25 %",
-        "9 %"
+        "Von 835 auf 1.194 Euro pro Jahr",
+        "Von 835 auf 1.035 Euro pro Jahr",
+        "Von 750 auf 1.194 Euro pro Jahr",
+        "Von 835 auf 1.500 Euro pro Jahr"
       ],
       "correct": 0,
-      "explanation": "Die Brüsseler Quote von 18 % liegt über dem belgischen Durchschnitt von 12 %. Diese Gruppe ist die Zielgruppe des Projektaufrufs „Parcours +“ der Cocof.",
+      "explanation": "Die Erhöhung gilt seit dem akademischen Jahr 2026-2027. Die Einschreibegebühr fällt in die Zuständigkeit der Föderation Wallonie-Brüssel, nicht der Region Brüssel.",
       "sourceSlug": "/de/bereiche/education",
       "sourceTitle": "Bildung: Krippenplätze, Schulabbruch und Spannungen Cocof/VGC",
       "provenance": {
-        "sourceLastModified": "2026-10-26",
-        "sourceContentHash": "sha256:6ce080c7b107d13138102a6cbb2603f3",
-        "generatedAt": "2026-10-29T21:16:53.503Z",
+        "sourceLastModified": "2026-11-17",
+        "sourceContentHash": "sha256:c9bb532739d5ca3edbb2e1d088ea4fac",
+        "generatedAt": "2026-11-19T08:38:42.342Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -284,21 +284,21 @@
       "id": "domain-employment-0",
       "source": "domain",
       "domain": "Beschäftigung",
-      "question": "Welche Wirkung hat die zeitliche Begrenzung des Arbeitslosengeldes laut der Pressemitteilung von Actiris vom 5.11.2026 auf die Gesamtzahl der in Brüssel eingeschriebenen Arbeitsuchenden?",
+      "question": "Wie viele Arbeitsuchende bezogen laut dem Brüsseler Arbeitsminister im Ausschuss am 18.11.2026 im Oktober 2026 das Eingliederungseinkommen, gegenüber 17.030 im Januar 2025?",
       "options": [
-        "Sie senkt sie nicht: Eingeschriebene wechseln die Kategorie",
-        "Sie senkt sie, weil Ausgeschlossene die Listen verlassen",
-        "Sie senkt sie vor allem bei jungen Arbeitsuchenden",
-        "Sie stabilisiert sie, Zu- und Abgänge gleichen sich monatlich aus"
+        "37.564",
+        "27.564",
+        "17.940",
+        "47.030"
       ],
       "correct": 0,
-      "explanation": "Wer seinen Anspruch verliert, bleibt eingeschrieben: vor allem als Wechsel von den Leistungsbeziehern zu den Beziehern des Eingliederungseinkommens des ÖSHZ. Ende Oktober 2026 zählte Actiris 102.550 Eingeschriebene, 6,6 % mehr als ein Jahr zuvor.",
+      "explanation": "Der Minister führt den Anstieg auf die föderale zeitliche Begrenzung des Arbeitslosengeldes zurück und schätzt, dass bis Juni 2027 fast 10.000 weitere Personen in diese Kategorie fallen. Actiris erhält keine zusätzlichen Mittel.",
       "sourceSlug": "/de/bereiche/employment",
       "sourceTitle": "Beschäftigung: Ziel 70 %, verstärkte Aktivierung und Zweisprachigkeit",
       "provenance": {
-        "sourceLastModified": "2026-11-05",
-        "sourceContentHash": "sha256:6546f2375d9a441b39828394b0f467d4",
-        "generatedAt": "2026-11-05T15:32:08.392Z",
+        "sourceLastModified": "2026-11-19",
+        "sourceContentHash": "sha256:0ab9f4513d22e04d3919bfa58f54b5c1",
+        "generatedAt": "2026-11-19T08:38:42.342Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -307,21 +307,21 @@
       "id": "domain-employment-1",
       "source": "domain",
       "domain": "Beschäftigung",
-      "question": "Welcher Anteil der in der Region Brüssel eingeschriebenen Arbeitsuchenden war laut Actiris Ende Oktober 2026 zugleich bei einem ÖSHZ eingeschrieben?",
+      "question": "Bei wie vielen Brüsseler Dienstleistungsscheck-Unternehmen stellte die regionale Arbeitsinspektion 2025 laut einer Belga-Meldung vom 18.11.2026 Verstöße fest, die zu Strafverfahren führen?",
       "options": [
-        "36,6 %",
-        "18,2 %",
-        "51,0 %",
-        "8,4 %"
+        "32 Unternehmen",
+        "151 Unternehmen",
+        "69 Unternehmen",
+        "214 Unternehmen"
       ],
       "correct": 0,
-      "explanation": "37.564 der 102.550 Arbeitsuchenden unterstanden einem ÖSHZ, 97,3 % mehr als ein Jahr zuvor. Die föderale zeitliche Begrenzung der Leistungen verlagert die Last auf die kommunalen ÖSHZ.",
+      "explanation": "Die Inspektion eröffnete 2025 151 Untersuchungsakten, unter anderem wegen fiktiver Leistungen. Fast 1,8 Millionen Euro zu Unrecht erhaltener Zuschüsse werden zurückgefordert.",
       "sourceSlug": "/de/bereiche/employment",
       "sourceTitle": "Beschäftigung: Ziel 70 %, verstärkte Aktivierung und Zweisprachigkeit",
       "provenance": {
-        "sourceLastModified": "2026-11-05",
-        "sourceContentHash": "sha256:6546f2375d9a441b39828394b0f467d4",
-        "generatedAt": "2026-11-05T15:32:08.392Z",
+        "sourceLastModified": "2026-11-19",
+        "sourceContentHash": "sha256:0ab9f4513d22e04d3919bfa58f54b5c1",
+        "generatedAt": "2026-11-19T08:38:42.342Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -468,21 +468,21 @@
       "id": "domain-security-0",
       "source": "domain",
       "domain": "Sicherheit",
-      "question": "Welche E-Scooter dürfen laut dem Polizeierlass vom 19.10.2026 in den 19 Brüsseler Hotspots des Drogenhandels weder fahren noch abgestellt werden?",
+      "question": "Wie wird der föderale Fonds von 55 Millionen Euro pro Jahr für die Sicherheit in Brüssel laut den Anhörungen im Innenausschuss der Kammer vom 17.11.2026 aufgeteilt?",
       "options": [
-        "Alle, geteilt oder privat",
-        "Nur Leih-E-Scooter",
-        "Nur private E-Scooter, die schneller als 20 km/h fahren",
-        "Nur zwischen 22 und 6 Uhr"
+        "35 Millionen für die Polizeizonen, 20 Millionen für die Gemeinden",
+        "20 Millionen für die Polizeizonen, 35 Millionen für die Gemeinden",
+        "45 Millionen für die Polizeizonen, 10 Millionen für die Region",
+        "27,5 Millionen für die Polizeizonen, 27,5 Millionen für die Gemeinden"
       ],
       "correct": 0,
-      "explanation": "Artikel 6 des Erlasses gilt für alle E-Scooter, geteilt oder privat, und verpflichtet die Betreiber, die Nutzung ihrer Scooter dort zu verhindern.",
+      "explanation": "Die angehörten Spitzenbeamten beschreiben eine fast nicht vorhandene föderale Kontrolle, sobald die Brüsseler Regierung die Aufteilung beschlossen hat. Ein vom föderalen Innenminister beauftragtes Audit soll im März 2027 abgeschlossen sein.",
       "sourceSlug": "/de/bereiche/security",
       "sourceTitle": "Sicherheit: Drogenkommissar, Bahnhofsplan, stabile Kriminalitätsrate",
       "provenance": {
-        "sourceLastModified": "2026-11-16",
-        "sourceContentHash": "sha256:857f425dd289c538c1bf0714629e2c54",
-        "generatedAt": "2026-11-17T09:37:17.423Z",
+        "sourceLastModified": "2026-11-18",
+        "sourceContentHash": "sha256:8bdb49a39dd48f349ab91dfcc04329b2",
+        "generatedAt": "2026-11-19T08:38:42.342Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -491,21 +491,21 @@
       "id": "domain-security-1",
       "source": "domain",
       "domain": "Sicherheit",
-      "question": "Worum bittet die am 13.11.2026 vom Brüsseler Parlament einstimmig angenommene Entschließung gegen Maskulinismus safe.brussels laut La DH?",
+      "question": "An welchem Datum tritt die regionale Kommissarin für Sicherheit und Drogen laut dem Ministerpräsidenten in einem Ausschuss des Brüsseler Parlaments am 10.11.2026 ihr Amt an?",
       "options": [
-        "Sein Ausmaß in Brüssel zu messen",
-        "Die betreffenden Online-Konten zu schließen",
-        "Eine neue Polizeizone zu schaffen",
-        "Ein regionales Referendum zu organisieren"
+        "Am 01.01.2027",
+        "Am 01.12.2026",
+        "Am 01.03.2027",
+        "Am 01.09.2027"
       ],
       "correct": 0,
-      "explanation": "Die Entschließung fordert auch, Maskulinismus in die regionalen Sicherheitsstrategien aufzunehmen; eine Entschließung richtet Forderungen an die Regierung, ohne die Kraft einer Ordonnanz.",
+      "explanation": "Sie hat drei Monate Zeit, eine Strategie vorzuschlagen, die die Zusammenarbeit zwischen regionalen Diensten, Gemeinden, Polizeizonen und föderalen Behörden stärkt, und soll die Strategie für sensible Zonen bewerten.",
       "sourceSlug": "/de/bereiche/security",
       "sourceTitle": "Sicherheit: Drogenkommissar, Bahnhofsplan, stabile Kriminalitätsrate",
       "provenance": {
-        "sourceLastModified": "2026-11-16",
-        "sourceContentHash": "sha256:857f425dd289c538c1bf0714629e2c54",
-        "generatedAt": "2026-11-17T09:37:17.423Z",
+        "sourceLastModified": "2026-11-18",
+        "sourceContentHash": "sha256:8bdb49a39dd48f349ab91dfcc04329b2",
+        "generatedAt": "2026-11-19T08:38:42.342Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -514,21 +514,21 @@
       "id": "domain-social-0",
       "source": "domain",
       "domain": "Soziales",
-      "question": "Welche Ebene entscheidet über die Finanzierung des Brussels Deal, der Aufnahmeregelung, deren Ende laut La DH für Ende 2026 angekündigt ist?",
+      "question": "Über wie viele Notunterkunftsplätze für Familien verfügt der Samusocial laut eigenen Angaben, zitiert von RTBF und VRT NWS am 19.11.2026?",
       "options": [
-        "Die Regierung der Region Brüssel",
-        "Die Föderalregierung",
-        "Die Gemeinsame Gemeinschaftskommission",
-        "Die neunzehn Brüsseler Gemeinden"
+        "577 Plätze",
+        "377 Plätze",
+        "240 Plätze",
+        "1.000 Plätze"
       ],
-      "correct": 1,
-      "explanation": "Der Brussels Deal wird vom Föderalstaat finanziert. Am 14.11.2026 berichtet La DH, der Brüsseler Gesundheitsminister halte Brüssel nicht für in der Lage, eine föderale Entscheidung allein auszugleichen.",
+      "correct": 0,
+      "explanation": "So viele wie nie zuvor, doch 3.396 der 3.778 Personen in Familien, die im September und Oktober 2026 um Unterkunft baten, wurden mangels Platz abgewiesen.",
       "sourceSlug": "/de/bereiche/social",
       "sourceTitle": "Soziales: Aufnahmesystem gekürzt, Samusocial überlastet, ÖSHZ unter Druck",
       "provenance": {
-        "sourceLastModified": "2026-11-15",
-        "sourceContentHash": "sha256:1902f4c5ff543e0e172a78ffc57a0328",
-        "generatedAt": "2026-11-15T11:20:21.308Z",
+        "sourceLastModified": "2026-11-19",
+        "sourceContentHash": "sha256:23a7ca5c3d51181467a8b9698485ecca",
+        "generatedAt": "2026-11-19T08:38:42.342Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -537,21 +537,21 @@
       "id": "domain-social-1",
       "source": "domain",
       "domain": "Soziales",
-      "question": "Was zeichnet laut dem Roten Kreuz und Ärzte der Welt (12.11.2026) das medizinische Zentrum Refugee Medical Point in Brüssel aus?",
+      "question": "Auf wie viel schätzt der Brüsseler Gesundheitsminister laut La DH vom 14.11.2026 die jährlichen Kosten der Betreuung obdachloser Menschen in Brüssel, ohne Gebäude und Begleitung?",
       "options": [
-        "Es ist der einzige Ort mit kostenlosen Sprechstunden ohne Termin und Bedingungen",
-        "Es ist das einzige Versorgungszentrum, das ganz von der Region Brüssel bezahlt wird",
-        "Es ist das einzige Krankenhaus, das Schutzsuchenden vorbehalten ist",
-        "Es ist der einzige medizinische Dienst, der nachts für Obdachlose geöffnet ist"
+        "120 Millionen Euro, davon 80 Millionen von der Region",
+        "120 Millionen Euro, davon 40 Millionen von der Region",
+        "144 Millionen Euro, davon 80 Millionen vom Föderalstaat",
+        "80 Millionen Euro, davon 40 Millionen vom Föderalstaat"
       ],
       "correct": 0,
-      "explanation": "Laut beiden Organisationen ist der Refugee Medical Point der einzige Ort in Brüssel mit kostenlosen Sprechstunden ohne Termin und ohne administrative Bedingungen. Das Zentrum Athéna schloss Ende 2025 mangels Zuschüssen.",
+      "explanation": "Der Föderalstaat finanziert die übrigen 40 Millionen. Mit den zur Verfügung gestellten Gebäuden und den Begleitkosten kommt der Minister auf 144 Millionen Euro; es sind Zahlen aus dem Ausschuss, keine Haushaltsbeträge.",
       "sourceSlug": "/de/bereiche/social",
       "sourceTitle": "Soziales: Aufnahmesystem gekürzt, Samusocial überlastet, ÖSHZ unter Druck",
       "provenance": {
-        "sourceLastModified": "2026-11-15",
-        "sourceContentHash": "sha256:1902f4c5ff543e0e172a78ffc57a0328",
-        "generatedAt": "2026-11-15T11:20:21.308Z",
+        "sourceLastModified": "2026-11-19",
+        "sourceContentHash": "sha256:23a7ca5c3d51181467a8b9698485ecca",
+        "generatedAt": "2026-11-19T08:38:42.342Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -813,21 +813,21 @@
       "id": "dossier-cpas-bruxellois-0",
       "source": "dossier",
       "domain": "Soziales",
-      "question": "Vor dem Sitz welcher Einrichtung versammelte sich die gemeinsame Gewerkschaftsfront der Brüsseler Gemeinden und ÖSHZ am 13.11.2026?",
+      "question": "Welcher Anteil der föderalen Ausgleichszahlungen für das Eingliederungseinkommen, vorgesehen in der Anpassung des föderalen Haushalts 2026, geht laut RTBF (18.11.2026) an Brüssel?",
       "options": [
-        "Das Brüsseler Parlament",
-        "Das regionale Amt Actiris",
-        "Die Bank Belfius",
-        "Der Verband der ÖSHZ"
+        "29 %",
+        "53 %",
+        "18 %",
+        "41 %"
       ],
-      "correct": 2,
-      "explanation": "Die Gewerkschaften versammelten sich auf der Place Rogier, vor dem Sitz von Belfius. Laut BRUZZ werfen sie der Bank vor, jeden neuen Kredit an Gemeinden von Einsparungen abhängig zu machen.",
+      "correct": 0,
+      "explanation": "Die Wallonie erhält 53 % und Flandern 18 %. Die Anpassung sieht 210 Millionen Euro zusätzlich zu den ursprünglich geplanten 300 Millionen vor, damit die ÖSHZ die Eingliederungseinkommen zahlen können.",
       "sourceSlug": "/de/dossiers/cpas-bruxellois",
       "sourceTitle": "Brüsseler ÖSHZ",
       "provenance": {
-        "sourceLastModified": "2026-11-14",
-        "sourceContentHash": "sha256:819b67dc25538fe65d4d91f6de2f2e23",
-        "generatedAt": "2026-11-15T11:20:21.308Z",
+        "sourceLastModified": "2026-11-19",
+        "sourceContentHash": "sha256:fe9cd3e101ea815eebe65b574919b496",
+        "generatedAt": "2026-11-19T08:38:42.342Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1066,21 +1066,21 @@
       "id": "dossier-lez-0",
       "source": "dossier",
       "domain": "Mobilität",
-      "question": "Von den 1.890 seit Juli 2026 versandten Bußgeldern der Umweltzone waren am 6. September 2026 wie viele tatsächlich bezahlt?",
+      "question": "Wie viele Bußgelder der Umweltzone gingen 2025 und 2026 an im Ausland zugelassene Fahrzeuge, laut den Zahlen von Bruxelles Fiscalité, über die BRUZZ am 18.11.2026 berichtete?",
       "options": [
-        "Etwa 255, gut 13 %",
-        "Etwa 940, knapp 50 %",
-        "Etwa 1.700, fast 90 %",
-        "Etwa 630, ein Drittel des Ganzen"
+        "0 Bußgelder",
+        "1.207 Bußgelder",
+        "2.907 Bußgelder",
+        "9.561 Bußgelder"
       ],
       "correct": 0,
-      "explanation": "Das sind 89.152,50 Euro an Einnahmen. Die Verwaltung stellt klar, dass ein Teil der Zahlungsfristen noch läuft und dass die jüngsten Bußgelder noch nicht alle versandt wurden: es ist ein Zwischenstand, kein Saldo. Das erste Halbjahr brachte 25.905 Verwarnungen, bei einem geschätzten Bestand von 29.000 Fahrzeugen in der Region Brüssel.",
+      "explanation": "Die Kameras lesen ausländische Kennzeichen, aber Bruxelles Fiscalité hat keinen Zugang zu den Zulassungsdaten anderer Länder. Im selben Zeitraum gingen 17.717 Bußgelder an in Belgien zugelassene Fahrzeuge.",
       "sourceSlug": "/de/dossiers/lez",
       "sourceTitle": "LEZ",
       "provenance": {
-        "sourceLastModified": "2026-09-19",
-        "sourceContentHash": "sha256:5da8bcbe4cfcbb0afc93be389ecdd366",
-        "generatedAt": "2026-10-09T06:43:50.881Z",
+        "sourceLastModified": "2026-11-19",
+        "sourceContentHash": "sha256:e0b4fed5a8d9ee906af5ca2d87b8ed09",
+        "generatedAt": "2026-11-19T08:38:42.342Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1089,21 +1089,21 @@
       "id": "dossier-lez-1",
       "source": "dossier",
       "domain": "Mobilität",
-      "question": "Unter welcher Bedingung ist ein Oldtimer mit O-Kennzeichen von der Brüsseler Umweltzone befreit?",
+      "question": "Ab welchem Datum wurden laut Moniteur Automobile (18.11.2026) Bußgelder von 350 Euro an Diesel Euro 5 und Benziner Euro 2 verschickt, die seit dem 01.01.2026 aus der Umweltzone verbannt sind?",
       "options": [
-        "Allein durch sein Alter, ohne Kontrolle der Nutzung",
-        "Bei höchstens dreißig Fahrtagen im Jahr",
-        "Bei einer besonderen jährlichen technischen Kontrolle",
-        "Bei einem jährlich erneuerten Befreiungsantrag"
+        "Ab dem 01.07.2026",
+        "Ab dem 01.01.2026",
+        "Ab dem 01.04.2026",
+        "Ab dem 14.10.2026"
       ],
       "correct": 0,
-      "explanation": "Die Kennzeichenkameras erkennen diese Fahrzeuge, kontrollieren aber ihre tatsächliche Nutzung nicht: ein selten gefahrener Sammlerwagen und ein täglich gefahrener alter Wagen genießen dieselbe Befreiung. Ihre Zahl stieg von 3.936 im Jahr 2019 auf 13.799 im Jahr 2024, und die Zahl derer, die hundert Tage im Jahr oder mehr fahren, von 17 auf 156.",
+      "explanation": "Ein erster Verstoß führt zu einem Verwarnungsschreiben. Vom 01.07. bis 14.10.2026 wurden 2.907 Bußgelder verschickt, nach 30.975 Verwarnungsschreiben seit Januar.",
       "sourceSlug": "/de/dossiers/lez",
       "sourceTitle": "LEZ",
       "provenance": {
-        "sourceLastModified": "2026-09-19",
-        "sourceContentHash": "sha256:5da8bcbe4cfcbb0afc93be389ecdd366",
-        "generatedAt": "2026-10-09T06:43:50.881Z",
+        "sourceLastModified": "2026-11-19",
+        "sourceContentHash": "sha256:e0b4fed5a8d9ee906af5ca2d87b8ed09",
+        "generatedAt": "2026-11-19T08:38:42.342Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1227,21 +1227,21 @@
       "id": "dossier-petite-enfance-0",
       "source": "dossier",
       "domain": "Bildung",
-      "question": "Welche Funktion hat laut La Libre vom 16.11.2026 das vom Dienst freigestellte Mitglied des Office de la naissance et de l'enfance (ONE)?",
+      "question": "Wie hoch ist laut Le Soir vom 17.11.2026 das angepasste IT-Budget 2026 des Office de la naissance et de l'enfance (ONE)?",
       "options": [
-        "Stellvertretender Generaldirektor",
-        "Generalverwalter",
-        "Vorsitzender des Verwaltungsrats",
-        "Regierungskommissar"
+        "33,8 Millionen Euro",
+        "24,4 Millionen Euro",
+        "19,0 Millionen Euro",
+        "48,2 Millionen Euro"
       ],
       "correct": 0,
-      "explanation": "Da die Generalverwalterin krankgeschrieben ist, hat das Office keine Leitung mehr; der Regierungskommissar der Föderation Wallonie-Brüssel sichert die Kontinuität.",
+      "explanation": "Ein Posten von 24,4 Millionen umfasst den Großteil der Beratungsleistungen. Ein vertraulicher Bericht vom 30.10.2026 verweist auf schwer nachvollziehbare Leistungen und verbundene Lieferanten.",
       "sourceSlug": "/de/dossiers/petite-enfance",
       "sourceTitle": "Kleinkindbetreuung",
       "provenance": {
-        "sourceLastModified": "2026-11-17",
-        "sourceContentHash": "sha256:1fa54501a91823f7f89e4687d6e9e70b",
-        "generatedAt": "2026-11-17T09:37:17.423Z",
+        "sourceLastModified": "2026-11-19",
+        "sourceContentHash": "sha256:ed140637cfa8f0479af8e63d864f5ce8",
+        "generatedAt": "2026-11-19T08:38:42.342Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1250,21 +1250,21 @@
       "id": "dossier-petite-enfance-1",
       "source": "dossier",
       "domain": "Bildung",
-      "question": "Welche außerordentliche Hilfe pro Platz gewährte das ONE im Oktober 2026 nicht subventionierten Krippen, deren Vollzeittarif 1.060 Euro im Monat nicht übersteigt?",
+      "question": "Wie bezeichnen der Verwaltungsrat des ONE und der Regierungskommissar in ihrer Mitteilung vom 18.11.2026 die Dienstfreistellung des stellvertretenden Generaldirektors des Amtes?",
       "options": [
-        "620 Euro",
-        "310 Euro",
-        "1.060 Euro",
-        "150 Euro"
+        "Als Ordnungsmaßnahme, nicht als Disziplinarmaßnahme",
+        "Als Disziplinarstrafe bis zu einem Urteil",
+        "Als vom Brüsseler Prokurator angeordnete Suspendierung",
+        "Als vom Direktor selbst beantragten Urlaub"
       ],
       "correct": 0,
-      "explanation": "Selbstständige Tagesmütter erhalten 310 Euro pro Platz, unter derselben Tarifbedingung.",
+      "explanation": "Die von der Regierung der Föderation Wallonie-Brüssel beschlossene Maßnahme soll nach ihren Worten die Unparteilichkeit der forensischen Analyse gewährleisten. Sie erinnern daran, dass die Unschuldsvermutung uneingeschränkt gilt.",
       "sourceSlug": "/de/dossiers/petite-enfance",
       "sourceTitle": "Kleinkindbetreuung",
       "provenance": {
-        "sourceLastModified": "2026-11-17",
-        "sourceContentHash": "sha256:1fa54501a91823f7f89e4687d6e9e70b",
-        "generatedAt": "2026-11-17T09:37:17.423Z",
+        "sourceLastModified": "2026-11-19",
+        "sourceContentHash": "sha256:ed140637cfa8f0479af8e63d864f5ce8",
+        "generatedAt": "2026-11-19T08:38:42.342Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1411,21 +1411,21 @@
       "id": "dossier-seniors-a-bruxelles-0",
       "source": "dossier",
       "domain": "Soziales",
-      "question": "Wie verhält sich der Anteil der Senioren, die die Einkommensgarantie für ältere Personen (GRAPA) beziehen, zwischen den Regionen, laut den Daten vom Januar 2022?",
+      "question": "Wie viele der neunzehn Brüsseler Gemeinden verfügen laut BRUZZ (17.11.2026) über einen Seniorenbeirat?",
       "options": [
-        "Dreimal höher in Brüssel als in Flandern",
-        "Halb so hoch in Brüssel wie in Flandern",
-        "Gleich hoch in Brüssel und in Flandern seit 2020",
-        "Viermal niedriger in Brüssel als in Wallonien"
+        "6 Gemeinden",
+        "3 Gemeinden",
+        "12 Gemeinden",
+        "19 Gemeinden"
       ],
       "correct": 0,
-      "explanation": "13 % der Brüsseler ab 65 Jahren beziehen die GRAPA, gegenüber 4 % in Flandern und 5 % in Wallonien. Der Abstand zwischen den Gemeinden reicht von 4 % in Woluwe-Saint-Pierre bis 26 % in Saint-Josse-ten-Noode.",
+      "explanation": "Es sind Uccle, Brüssel-Stadt, Etterbeek, Saint-Gilles, Watermael-Boitsfort und Woluwe-Saint-Pierre. Eine in einer Ordonnanz von 2017 vorgesehene Finanzierung wurde mangels Ausführungserlass nie umgesetzt.",
       "sourceSlug": "/de/dossiers/seniors-a-bruxelles",
       "sourceTitle": "Senioren",
       "provenance": {
-        "sourceLastModified": "2026-09-22",
-        "sourceContentHash": "sha256:6872495ec6c94c120e4b681e313ed963",
-        "generatedAt": "2026-09-23T10:11:30.723Z",
+        "sourceLastModified": "2026-11-18",
+        "sourceContentHash": "sha256:b2f6995010eb4e62b01d9d374394c4fb",
+        "generatedAt": "2026-11-19T08:38:42.342Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1480,21 +1480,21 @@
       "id": "dossier-survol-bruxelles-0",
       "source": "dossier",
       "domain": "Klima",
-      "question": "Was beschloss der Konzertierungsausschuss vom 16.11.2026 zu den Flugrouten von Brussels Airport, laut der Belga-Meldung?",
+      "question": "Welche Brüsseler Institutionen reichten am 16.11.2026 beim Staatsrat eine Nichtigkeitsklage gegen die Flugroute RNP 07L ein?",
       "options": [
-        "Die Konzertierung fortzusetzen, mangels Einigung",
-        "Die Rückenwindnorm für die Pisten 25 und 07 anzuheben",
-        "Die Landeroute RNP 07L abzuschaffen",
-        "Den Verfassungsgerichtshof anzurufen"
+        "Die Region, die GGK und die COCOF",
+        "Die Region, Jette und Berchem-Sainte-Agathe",
+        "Die Region allein, ohne die Kommissionen",
+        "Die COCOF und die Stadt Brüssel"
       ],
       "correct": 0,
-      "explanation": "Der Ausschuss nahm die unterschiedlichen Standpunkte zur Kenntnis; der von Flandern geltend gemachte Interessenkonflikt setzt die föderalen Maßnahmen für sechzig Tage aus.",
+      "explanation": "Sollte die Klage der Region als verspätet gelten, bliebe das Verfahren für die GGK und die COCOF gültig, die die umstrittene Frist nicht betrifft. Berchem-Sainte-Agathe bereitet mit Anwohnern eine eigene Klage vor.",
       "sourceSlug": "/de/dossiers/survol-bruxelles",
       "sourceTitle": "Fluglärm Brüssel",
       "provenance": {
-        "sourceLastModified": "2026-11-17",
-        "sourceContentHash": "sha256:d1ba0db862df5e89c5728624203de851",
-        "generatedAt": "2026-11-17T09:37:17.423Z",
+        "sourceLastModified": "2026-11-18",
+        "sourceContentHash": "sha256:7baf1428c795cbaf3ea9a3e9ea0a5f75",
+        "generatedAt": "2026-11-19T08:38:42.342Z",
         "model": "claude-opus-5 (session Claude Code, sans appel API)",
         "promptVersion": "v3"
       }
@@ -1615,5 +1615,5 @@
       }
     }
   ],
-  "reviewedCount": 70
+  "reviewedCount": 53
 }

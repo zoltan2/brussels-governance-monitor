@@ -7,8 +7,10 @@ import {
   readSeoReport,
   gscMesurePresente,
   pagesCassees,
+  type BilanAction,
   type Bloc,
   type CrawlDonnees,
+  type MesureBilan,
   type FenetreRapport,
   type GscDonnees,
   type PageCrawl,
@@ -1001,15 +1003,160 @@ function accorderPreuve(preuve: string): string {
  * n'est pas traité comme « aucune action » : c'est un payload
  * suspect, indisponible comme une panne.
  */
-function SectionAFaire({ bloc }: { bloc: Bloc<GscDonnees> }) {
+function SectionAFaire({ bloc, bilans }: { bloc: Bloc<GscDonnees>; bilans: BilanAction[] | null }) {
   return (
     <section id="actions" className="mb-10 scroll-mt-4" aria-labelledby="titre-a-faire">
       <h2 id="titre-a-faire" className="mb-3 text-xl font-semibold text-neutral-900">
         À faire
       </h2>
       <ListeActions bloc={bloc} />
+      <BilansActions bilans={bilans} />
       <TitresARevoir bloc={bloc} />
     </section>
+  );
+}
+
+/** Position d'une page dans un bilan : une page absente des résultats (zéro
+ * impression mesurée) n'a pas de position, ce qui n'est pas une panne. */
+function positionBilan(m: MesureBilan): string {
+  if (m.position !== null) return formatDecimal(m.position, 1);
+  return m.impressions === 0 ? 'absente' : 'indisponible';
+}
+
+function LigneBilan({ moment, mesure }: { moment: string; mesure: MesureBilan | null }) {
+  return (
+    <tr className="border-t border-neutral-100">
+      <th
+        scope="row"
+        className="px-3 py-2 text-left font-normal whitespace-nowrap text-neutral-800"
+      >
+        {moment}
+        {mesure && (
+          <span className="block text-xs text-neutral-500">au {formatDateSeule(mesure.fin)}</span>
+        )}
+      </th>
+      {mesure ? (
+        <>
+          <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
+            {formatNombre(mesure.clics)}
+          </td>
+          <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
+            {formatNombre(mesure.impressions)}
+          </td>
+          <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
+            {positionBilan(mesure)}
+          </td>
+          <td className="px-3 py-2 text-right tabular-nums text-neutral-700">
+            {formatNombre(mesure.clicsSite)}
+          </td>
+        </>
+      ) : (
+        <td colSpan={4} className="px-3 py-2 text-neutral-500">
+          pas encore de recul
+        </td>
+      )}
+    </tr>
+  );
+}
+
+/** La phrase qui compare la page au site, sur le dernier délai disponible :
+ * une page qui baisse autant que le site n'a rien de particulier. */
+function comparaisonBilan(b: BilanAction): string | null {
+  const [delai, apres] = b.apres8
+    ? ['8 semaines', b.apres8]
+    : b.apres4
+      ? ['4 semaines', b.apres4]
+      : [null, null];
+  if (!delai || !apres) return null;
+  const page = formatEcart(apres.clics, b.depart.clics);
+  const site = formatEcart(apres.clicsSite, b.depart.clicsSite);
+  if (!page) return null;
+  return `Après ${delai} : clics de la page ${page}${site ? `, clics belges du site ${site}` : ''}.`;
+}
+
+/**
+ * Bilan des actions passées (bgm-ops, bilan.mjs, 19/11/2026) : sans lui,
+ * personne ne pouvait dire si une action suggérée servait à quelque chose.
+ * Chiffres de la page à la première apparition de l'action, puis quatre et
+ * huit semaines après, à côté des clics belges du site sur les mêmes
+ * fenêtres. Le bilan ne sait pas si l'action a été faite.
+ */
+function BilansActions({ bilans }: { bilans: BilanAction[] | null }) {
+  return (
+    <div className="mt-6" data-testid="bilans-actions">
+      <h3 className="mb-2 text-lg font-semibold text-neutral-900">Bilan des actions passées</h3>
+      <p className="mb-3 text-sm text-neutral-600">
+        Ce que sont devenues les pages visées, quatre et huit semaines après la première apparition
+        de l&apos;action, à côté des clics belges du site sur les mêmes fenêtres. Le bilan ne sait
+        pas si l&apos;action a été faite : il dit si la page a bougé plus ou moins que le site.
+        Chiffres de Search Console par page, partiels : à comparer entre eux, jamais au total.
+      </p>
+      {bilans === null && (
+        <p className="text-sm text-neutral-600">
+          indisponible : la collecte ne transmet pas encore de bilan.
+        </p>
+      )}
+      {bilans !== null && bilans.length === 0 && (
+        <p className="text-sm text-neutral-600">Aucune action à suivre dans l&apos;historique.</p>
+      )}
+      {bilans !== null && bilans.length > 0 && (
+        <ul className="space-y-3">
+          {bilans.map((b) => {
+            const comparaison = comparaisonBilan(b);
+            return (
+              <li
+                key={`${b.regle}-${b.chemin}`}
+                className="rounded border border-neutral-200 bg-neutral-50 p-4"
+              >
+                <p className="text-sm font-semibold break-words text-neutral-900">
+                  {b.titre ?? b.regle}
+                </p>
+                <p className="mt-1 text-xs text-neutral-500">
+                  Règle : {b.regle}
+                  {b.semainesAffichee !== null &&
+                    ` · montrée dans ${b.semainesAffichee.toLocaleString('fr-BE')} ${b.semainesAffichee === 1 ? 'relevé' : 'relevés'}`}
+                </p>
+                <p className="mt-2 text-sm">
+                  <a
+                    href={`https://governance.brussels${b.chemin}`}
+                    className="break-words text-brand-700 underline-offset-4 hover:underline"
+                  >
+                    {b.chemin}
+                  </a>
+                </p>
+                <TableauEnveloppe legende={`Bilan de l'action ${b.titre ?? b.regle}`}>
+                  <thead>
+                    <tr className="text-left text-xs uppercase tracking-wide text-neutral-500">
+                      <th scope="col" className="px-3 py-2">
+                        Relevé
+                      </th>
+                      <th scope="col" className="px-3 py-2 text-right">
+                        Clics de la page
+                      </th>
+                      <th scope="col" className="px-3 py-2 text-right">
+                        Impressions
+                      </th>
+                      <th scope="col" className="px-3 py-2 text-right">
+                        Position
+                      </th>
+                      <th scope="col" className="px-3 py-2 text-right">
+                        Clics du site
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <LigneBilan moment="Au départ" mesure={b.depart} />
+                    <LigneBilan moment="4 semaines après" mesure={b.apres4} />
+                    <LigneBilan moment="8 semaines après" mesure={b.apres8} />
+                  </tbody>
+                </TableauEnveloppe>
+                {comparaison && <p className="mt-2 text-sm text-neutral-800">{comparaison}</p>}
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </div>
   );
 }
 
@@ -1064,6 +1211,12 @@ function ListeActions({ bloc }: { bloc: Bloc<GscDonnees> }) {
                     : ' · priorité indisponible'}
                 </p>
                 <p className="mt-2 text-sm text-neutral-700">{accorderPreuve(action.preuve)}</p>
+                {action.raison && (
+                  <p className="mt-2 text-sm text-neutral-900">
+                    <span className="font-semibold">Pourquoi : </span>
+                    {action.raison}
+                  </p>
+                )}
                 {action.geste && (
                   <p className="mt-2 text-sm text-neutral-900">
                     <span className="font-semibold">Geste : </span>
@@ -2102,7 +2255,7 @@ export default async function AdminRapportPage({
 
       <SectionEnBref rapport={rapport} />
       <SectionEssentiel gsc={gsc} umami={umami} serie={rapport.serie ?? null} />
-      <SectionAFaire bloc={gsc} />
+      <SectionAFaire bloc={gsc} bilans={rapport.bilans ?? null} />
       <SectionMouvements gsc={gsc} />
       <SectionSources umami={umami} />
       <SectionLangues gsc={gsc} umami={umami} />

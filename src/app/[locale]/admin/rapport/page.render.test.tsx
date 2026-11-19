@@ -441,7 +441,7 @@ describe('AdminRapportPage', () => {
     const section = container.querySelector('section#actions');
     expect(section?.querySelector('h2')?.textContent).toBe('À faire');
     const sousTitres = Array.from(section?.querySelectorAll('h3') ?? []).map((h) => h.textContent);
-    expect(sousTitres).toEqual(['Actions suggérées', 'Titres à revoir']);
+    expect(sousTitres).toEqual(['Actions suggérées', 'Bilan des actions passées', 'Titres à revoir']);
   });
 
   it('dit la panne du bloc GSC dans la section Actions, jamais « aucune action »', async () => {
@@ -535,6 +535,59 @@ describe('AdminRapportPage', () => {
     vi.mocked(readSeoReport).mockResolvedValue(rapportAvecActions(0, 'Vérifier la fraîcheur de la fiche.'));
     await rendrePage();
     expect(sectionActionsListItems()[0].textContent).toContain('Geste : Vérifier la fraîcheur de la fiche.');
+  });
+
+  it('affiche la raison quand la collecte la donne, et se tait sans elle', async () => {
+    const avecRaison = rapportAvecActions(0, null);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (avecRaison.blocs.gsc.donnees as any).actions[0].raison =
+      "La moyenne baisse surtout parce que la page apparaît sur de nouvelles requêtes.";
+    vi.mocked(readSeoReport).mockResolvedValue(avecRaison);
+    const { unmount } = await rendrePage();
+    expect(sectionActionsListItems()[0].textContent).toContain(
+      'Pourquoi : La moyenne baisse surtout parce que la page apparaît sur de nouvelles requêtes.',
+    );
+    unmount();
+    vi.mocked(readSeoReport).mockResolvedValue(rapportAvecActions(0, null));
+    await rendrePage();
+    expect(sectionActionsListItems()[0].textContent).not.toContain('Pourquoi');
+  });
+
+  it('bilan des actions passées : chiffres de la page et du site, recul manquant dit en clair', async () => {
+    const rapport = {
+      ...rapportAvecActions(0, null),
+      bilans: [
+        {
+          regle: 'chute-clics-be',
+          chemin: '/fr/dossiers/lez',
+          titre: 'Chute de clics : /fr/dossiers/lez',
+          semainesAffichee: 5,
+          depart: { semaine: '2026-W41', fin: '2026-10-09', clics: 60, impressions: 642, position: 7.8, clicsSite: 1010 },
+          apres4: { semaine: '2026-W45', fin: '2026-11-06', clics: 31, impressions: 869, position: 8.6, clicsSite: 878 },
+          apres8: null,
+        },
+      ],
+    } satisfies RapportSeo;
+    vi.mocked(readSeoReport).mockResolvedValue(rapport);
+    await rendrePage();
+    const bloc = screen.getByTestId('bilans-actions');
+    const texte = bloc.textContent ?? '';
+    expect(texte).toContain('montrée dans 5 relevés');
+    expect(texte).toContain('au 09/10/2026');
+    expect(texte).toContain('pas encore de recul');
+    expect(texte).toContain('Après 4 semaines : clics de la page \u221229 (\u221248,3 %), clics belges du site \u2212132 (\u221213,1 %).');
+    expect(bloc.querySelector('a')?.getAttribute('href')).toBe('https://governance.brussels/fr/dossiers/lez');
+    expect(texte).not.toContain('—');
+  });
+
+  it('bilan : indisponible sans données, phrase dédiée si la liste est vide', async () => {
+    vi.mocked(readSeoReport).mockResolvedValue(rapportAvecActions(0, null));
+    const { unmount } = await rendrePage();
+    expect(screen.getByTestId('bilans-actions').textContent).toContain('indisponible');
+    unmount();
+    vi.mocked(readSeoReport).mockResolvedValue({ ...rapportAvecActions(0, null), bilans: [] });
+    await rendrePage();
+    expect(screen.getByTestId('bilans-actions').textContent).toContain("Aucune action à suivre dans l'historique.");
   });
 
   it('sans geste (relevé antérieur), ni libellé vide ni « null »', async () => {

@@ -6,7 +6,7 @@ import { describe, it, expect, vi, beforeAll } from 'vitest';
 vi.mock('node:fs/promises', () => ({ readFile: vi.fn() }));
 
 import { readFile } from 'node:fs/promises';
-import { normaliserFinExclusive, parseSerie, readSeoReport } from './seo-report';
+import { normaliserFinExclusive, parseBilans, parseSerie, readSeoReport } from './seo-report';
 
 beforeAll(() => {
   // Meme mecanisme que traffic-status.ts : le repertoire est deduit de
@@ -104,6 +104,7 @@ describe('readSeoReport', () => {
         priorite: 1,
         fenetre: { debut: '2026-08-20', fin: '2026-09-16', fuseau: null },
         geste: null,
+        raison: null,
       },
     ]);
     // Relevé antérieur au lot 4 : aucun compte d'actions écartées, null
@@ -550,6 +551,90 @@ describe('readSeoReport', () => {
       expect(parseSerie({ schemaVersion: 1, semaines: [semaine('W45', {}, {})] })).toEqual([]);
       expect(parseSerie({ schemaVersion: 2, semaines: [] })).toBeNull();
       expect(parseSerie(null)).toBeNull();
+    });
+  });
+
+  it('lit la raison des règles de page, null ailleurs ou si illisible (19/11/2026)', async () => {
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify({
+        schemaVersion: 4,
+        bloc: 'gsc',
+        status: 'ok',
+        generatedAt: '2026-11-19T06:30:00Z',
+        donnees: {
+          actions: [
+            {
+              regle: 'chute-clics-be',
+              priorite: 2,
+              url: 'https://governance.brussels/fr/dossiers/lez',
+              preuve: '31 clics belges contre 60',
+              raison: 'Requête qui perd le plus : « lez bruxelles pass annuel », 18 clics contre 47 ; la demande retombe.',
+            },
+            { regle: 'position-glisse', priorite: 5, url: 'https://governance.brussels/fr/r', preuve: 'position 27 contre 15', raison: 7 },
+            { regle: 'page-en-erreur', priorite: 1, url: '/fr/x', preuve: 'statut HTTP 500' },
+          ],
+        },
+      }),
+    );
+    const actions = (await readSeoReport()).blocs.gsc.donnees?.actions ?? [];
+    expect(actions.map((a) => [a.regle, a.raison])).toEqual([
+      ['page-en-erreur', null],
+      ['chute-clics-be', 'Requête qui perd le plus : « lez bruxelles pass annuel », 18 clics contre 47 ; la demande retombe.'],
+      ['position-glisse', null],
+    ]);
+  });
+
+  describe('parseBilans (seo-serie.json, bilansActions, 19/11/2026)', () => {
+    const mesure = (semaine: string, fin: string, o: Record<string, unknown> = {}) => ({
+      semaine, fin, clics: 60, impressions: 642, position: 7.8, clicsSite: 1010, ...o,
+    });
+    it('lit chaque bilan ; pas de recul = null', () => {
+      const bilans = parseBilans({
+        schemaVersion: 1,
+        semaines: [],
+        bilansActions: [
+          {
+            regle: 'chute-clics-be',
+            chemin: '/fr/dossiers/lez',
+            titre: 'Chute de clics : /fr/dossiers/lez',
+            semainesAffichee: 5,
+            depart: mesure('2026-W41', '2026-10-09'),
+            apres4: mesure('2026-W45', '2026-11-06', { clics: 31, impressions: 869, position: 8.6, clicsSite: 878 }),
+            apres8: null,
+          },
+        ],
+      });
+      expect(bilans).toEqual([
+        {
+          regle: 'chute-clics-be',
+          chemin: '/fr/dossiers/lez',
+          titre: 'Chute de clics : /fr/dossiers/lez',
+          semainesAffichee: 5,
+          depart: { semaine: '2026-W41', fin: '2026-10-09', clics: 60, impressions: 642, position: 7.8, clicsSite: 1010 },
+          apres4: { semaine: '2026-W45', fin: '2026-11-06', clics: 31, impressions: 869, position: 8.6, clicsSite: 878 },
+          apres8: null,
+        },
+      ]);
+    });
+    it('valeur illisible = null, jamais 0 ; bilan sans départ ou au chemin non relatif écarté', () => {
+      const bilans = parseBilans({
+        schemaVersion: 1,
+        semaines: [],
+        bilansActions: [
+          { regle: 'a', chemin: '/fr/a', depart: mesure('2026-W41', '2026-10-09', { clics: -3, position: null, clicsSite: 'x' }) },
+          { regle: 'b', chemin: '/fr/b', depart: null },
+          { regle: 'c', chemin: 'https://autre.test/fr/c', depart: mesure('2026-W41', '2026-10-09') },
+          { regle: 'd', chemin: '/fr/d', depart: mesure('2026-W41', 'hier') },
+        ],
+      });
+      expect(bilans?.map((b) => b.regle)).toEqual(['a']);
+      expect(bilans?.[0].depart).toMatchObject({ clics: null, position: null, clicsSite: null });
+      expect(bilans?.[0].semainesAffichee).toBeNull();
+    });
+    it('série produite avant le bilan (champ absent) : null, pas une liste vide', () => {
+      expect(parseBilans({ schemaVersion: 1, semaines: [] })).toBeNull();
+      expect(parseBilans({ schemaVersion: 1, semaines: [], bilansActions: [] })).toEqual([]);
+      expect(parseBilans({ schemaVersion: 2, semaines: [], bilansActions: [] })).toBeNull();
     });
   });
 

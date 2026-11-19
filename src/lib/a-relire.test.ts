@@ -24,6 +24,7 @@ function action(overrides: Partial<ActionSuggeree> = {}): ActionSuggeree {
     priorite: 1,
     fenetre: null,
     geste: null,
+    raison: null,
     ...overrides,
   };
 }

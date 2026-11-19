@@ -136,6 +136,10 @@ export interface ActionSuggeree {
   // Ce qu'il faut faire (règles v2, bgm-ops lot 4). `null` pour une action
   // produite avant : la preuve reste lisible, seul le geste manque.
   geste: string | null;
+  // Pourquoi la page bouge (19/11/2026) : la requête qui explique une baisse
+  // ou un glissement. Seules ces deux règles la portent ; `null` ailleurs et
+  // pour les relevés antérieurs.
+  raison: string | null;
 }
 
 /** Une journée de clics depuis la Belgique (GSC 4). Un jour sans donnée est
@@ -345,7 +349,36 @@ export interface SemaineSerie {
   };
 }
 
+/** Chiffres Search Console d'une page à un relevé donné, avec les clics
+ * belges du site sur la même fenêtre. `null` = mesure inconnue, jamais 0. */
+export interface MesureBilan {
+  semaine: string;
+  fin: string;
+  clics: number | null;
+  impressions: number | null;
+  position: number | null;
+  clicsSite: number | null;
+}
+
+/** Ce qu'est devenue la page visée par une action suggérée (bgm-ops,
+ * bilan.mjs, 19/11/2026) : à sa première apparition, puis quatre et huit
+ * semaines après. `null` = pas encore assez de recul. Le bilan ne sait pas
+ * si l'action a été faite. */
+export interface BilanAction {
+  regle: string;
+  chemin: string;
+  titre: string | null;
+  semainesAffichee: number | null;
+  depart: MesureBilan;
+  apres4: MesureBilan | null;
+  apres8: MesureBilan | null;
+}
+
 export interface RapportSeo {
+  // Bilans des actions passées (seo-serie.json, champ bilansActions).
+  // `null` quand le fichier est absent ou le champ manque (collecte pas
+  // encore installée) ; une liste vide = aucune action à suivre.
+  bilans?: BilanAction[] | null;
   // Série hebdomadaire (seo-serie.json). Optionnelle dans le type pour les
   // constructions de test ; `null` quand le fichier est absent ou illisible
   // (collecte du lot 2 pas encore installée), jamais une série vide inventée.
@@ -571,6 +604,7 @@ function asActions(value: unknown): ActionSuggeree[] {
       priorite: asNumber(record.priorite),
       fenetre: asFenetre(record.fenetre),
       geste: asString(record.geste),
+      raison: asString(record.raison),
     });
   }
   // Priorité croissante = plus urgent d'abord (convention regles.mjs) ; une
@@ -961,7 +995,11 @@ function parseBloc<T>(
 const SERIE_SCHEMA_VERSION = 1;
 
 function blocSerieValide(value: unknown): boolean {
-  return value !== null && typeof value === 'object' && (value as Record<string, unknown>).status === 'ok';
+  return (
+    value !== null &&
+    typeof value === 'object' &&
+    (value as Record<string, unknown>).status === 'ok'
+  );
 }
 
 /** Lecture défensive de seo-serie.json : une semaine illisible est écartée,
@@ -990,7 +1028,8 @@ export function parseSerie(raw: unknown): SemaineSerie[] | null {
       },
       umami: {
         fin: umamiOk
-          ? (normaliserFinExclusive({ debut: null, fin: asString(u.fin), fuseau: 'UTC' })?.fin ?? null)
+          ? (normaliserFinExclusive({ debut: null, fin: asString(u.fin), fuseau: 'UTC' })?.fin ??
+            null)
           : null,
         visites: umamiOk ? asCompte(u.visites) : null,
         visitesIa: umamiOk ? asCompte(u.visitesIa) : null,
@@ -1013,11 +1052,59 @@ export function parseSerie(raw: unknown): SemaineSerie[] | null {
   });
 }
 
-async function lireSerie(dir: string): Promise<SemaineSerie[] | null> {
-  try {
-    return parseSerie(JSON.parse(await readFile(join(dir, 'seo-serie.json'), 'utf8')));
-  } catch {
+function asMesureBilan(value: unknown): MesureBilan | null {
+  if (value === null || typeof value !== 'object') return null;
+  const r = value as Record<string, unknown>;
+  const semaine = asString(r.semaine);
+  const fin = asString(r.fin);
+  if (semaine === null || fin === null || !/^\d{4}-\d{2}-\d{2}/.test(fin)) return null;
+  return {
+    semaine,
+    fin: fin.slice(0, 10),
+    clics: asCompte(r.clics),
+    impressions: asCompte(r.impressions),
+    position: asNumber(r.position),
+    clicsSite: asCompte(r.clicsSite),
+  };
+}
+
+/** Lecture défensive de `bilansActions` (seo-serie.json). Un bilan sans
+ * règle, chemin ou départ lisible est écarté ; un champ absent (série
+ * produite avant le 19/11/2026) donne `null`, jamais une liste vide. */
+export function parseBilans(raw: unknown): BilanAction[] | null {
+  if (raw === null || typeof raw !== 'object') return null;
+  const record = raw as Record<string, unknown>;
+  if (record.schemaVersion !== SERIE_SCHEMA_VERSION || !Array.isArray(record.bilansActions))
     return null;
+  const bilans: BilanAction[] = [];
+  for (const ligne of record.bilansActions) {
+    const r = asRecord(ligne);
+    const regle = asString(r.regle);
+    const cheminPage = asString(r.chemin);
+    const depart = asMesureBilan(r.depart);
+    if (regle === null || cheminPage === null || !cheminPage.startsWith('/') || depart === null)
+      continue;
+    bilans.push({
+      regle,
+      chemin: cheminPage,
+      titre: asString(r.titre),
+      semainesAffichee: asCompte(r.semainesAffichee),
+      depart,
+      apres4: asMesureBilan(r.apres4),
+      apres8: asMesureBilan(r.apres8),
+    });
+  }
+  return bilans;
+}
+
+async function lireSerie(
+  dir: string,
+): Promise<{ serie: SemaineSerie[] | null; bilans: BilanAction[] | null }> {
+  try {
+    const brut: unknown = JSON.parse(await readFile(join(dir, 'seo-serie.json'), 'utf8'));
+    return { serie: parseSerie(brut), bilans: parseBilans(brut) };
+  } catch {
+    return { serie: null, bilans: null };
   }
 }
 
@@ -1043,6 +1130,7 @@ export async function readSeoReport(): Promise<RapportSeo> {
     // Dev local ou Vercel : pas de volume de données.
     return {
       serie: null,
+      bilans: null,
       blocs: {
         gsc: blocIllisible('absent'),
         umami: blocIllisible('absent'),
@@ -1053,7 +1141,7 @@ export async function readSeoReport(): Promise<RapportSeo> {
   }
 
   const dir = join(dirname(dbPath), 'seo-report');
-  const [gsc, umami, crawl, serie] = await Promise.all([
+  const [gsc, umami, crawl, { serie, bilans }] = await Promise.all([
     lireBloc('gsc', dir, PARSEURS_DONNEES.gsc),
     lireBloc('umami', dir, PARSEURS_DONNEES.umami),
     lireBloc('crawl', dir, PARSEURS_DONNEES.crawl),
@@ -1062,6 +1150,7 @@ export async function readSeoReport(): Promise<RapportSeo> {
 
   return {
     serie,
+    bilans,
     blocs: { gsc, umami, crawl },
     fraicheur: {
       gsc: describeFreshness(gsc.generatedAt, { staleAfterHours: STALE_AFTER_HOURS }),

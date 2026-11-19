@@ -20,7 +20,7 @@ sourceDataset:
   name: "Eurostat — demo_r_d3dens"
   url: "https://ec.europa.eu/eurostat/databrowser/view/demo_r_d3dens/default/table"
   code: "demo_r_d3dens"
-methodology: "Comparison of population density at NUTS-2 level, calculated by Eurostat as the ratio of the resident population on 1 January to the territory's surface area in km². The data are derived from national population registers. Comparability is affected by the wide disparity in NUTS-2 region sizes: Brussels-Capital covers only 161 km² compared with 12,012 km² for Île-de-France."
+methodology: "Comparison of population density at NUTS-2 level, calculated by Eurostat as the ratio of the resident population on 1 January to the territory's surface area in km². The data are derived from national population registers. Comparability is affected by the wide disparity in NUTS-2 region sizes: Brussels-Capital covers only 162 km² compared with 11,952 km² for Île-de-France."
 dataPoints:
   - entity: "BE10"
     value: "7,770 pop/km²"
@@ -37,7 +37,7 @@ dataPoints:
   - entity: "NL32"
     value: "1,079 pop/km²"
     date: "2023-12-31"
-caveat: "Population density is heavily influenced by each region's NUTS-2 perimeter. Brussels-Capital (161 km²) is an exclusively urban region, whereas Île-de-France (12,012 km²) and Noord-Holland (2,670 km²) include rural and peri-urban areas that mechanically reduce their average density. The density of inner Paris (~20,000 pop/km²) is well above that of Brussels, but the NUTS-2 perimeter dilutes this concentration. Wien (415 km²) and Berlin (891 km²) are intermediate cases."
+caveat: "Population density is heavily influenced by each region's NUTS-2 perimeter. Brussels-Capital (162 km²) is an exclusively urban region, whereas Île-de-France (11,952 km²) and Noord-Holland (2,753 km²) include rural and peri-urban areas that mechanically reduce their average density. The density of inner Paris (~20,000 pop/km²) is well above that of Brussels, but the NUTS-2 perimeter dilutes this concentration. Wien (415 km²) and Berlin (891 km²) are intermediate cases."
 lastModified: "2026-09-19"
 changeType: corrected
 changeSummary: "Correction: approximately 400,000 commuters from Flanders and Wallonia worked in Brussels in 2024, not 360,000. The figure comes from the Statbel Labour Force Survey, published by IBSA. The density data are unchanged."
@@ -56,13 +56,13 @@ At **7,770 inhabitants per km²**, the Brussels-Capital Region is the densest NU
 - **80% denser** than Berlin (4,312 pop/km²)
 - **7 times denser** than Île-de-France (1,039 pop/km²) and Noord-Holland (1,079 pop/km²)
 
-This extreme density is explained by the small size of the Brussels territory (161 km² across 19 municipalities) and the absence of peri-urban zones within its statistical perimeter.
+This extreme density is explained by the small size of the Brussels territory (162 km² across 19 municipalities) and the absence of peri-urban zones within its statistical perimeter.
 
 ## Implications for regional policy
 
 Brussels' high density has direct consequences for public policy:
 
-- **Housing**: land pressure makes Brussels one of the tightest property markets in Europe. Overcrowding affects 31% of Brussels residents (compared with 5.7% as the Belgian average), a ratio directly linked to density and housing costs.
+- **Housing**: land pressure makes Brussels one of the tightest property markets in Europe. Overcrowding affects 31% of Brussels residents in 2023, compared with 2.6% in Flanders and 2.8% in Wallonia (Statbel EU-SILC survey, published by IBSA), a ratio directly linked to density and housing costs.
 - **Mobility**: the population concentration generates intense travel flows, compounded by the approximately 400,000 commuters from Flanders and Wallonia (Labour Force Survey 2024, Statbel, published by IBSA). Traffic congestion and air quality are directly affected.
 - **Green spaces**: despite greening efforts, the amount of green space per inhabitant remains low compared with less dense capitals such as Berlin or Wien.
 - **Social cohesion**: density concentrates socio-economic challenges — poverty, linguistic diversity, social mix — in a confined space, making integration policies both more urgent and more complex.
@@ -77,7 +77,8 @@ The NUTS-2 perimeter produces major disparities. Inner Paris (~20,000 pop/km²) 
 
 ## Sources
 
-- Eurostat, Population density by NUTS-2 region (demo_r_d3dens), 2023 data, extracted February 2026
-- Statbel, Population as of 1 January 2025
-- IBSA, Housing conditions and overcrowding 2024
-- IBSA, Mini-Bru 2026, employment by Region of residence and of work in 2024 (Labour Force Survey, Statbel)
+- [Eurostat, Population density by NUTS-2 region (demo_r_d3dens), 2023 data, extracted February 2026](https://ec.europa.eu/eurostat/databrowser/view/demo_r_d3dens/default/table)
+- [Eurostat, Area by NUTS 3 region (reg_area3), land area, accessed 19 November 2026](https://ec.europa.eu/eurostat/databrowser/view/reg_area3/default/table)
+- [Statbel, Belgium had 11,825,551 inhabitants on 1 January 2025 (French)](https://statbel.fgov.be/fr/nouvelles/la-belgique-comptait-11825551-habitants-au-1er-janvier-2025-0)
+- [IBSA, 31% of the Brussels population lives in overcrowded housing (Statbel, EU-SILC 2023, French)](https://ibsa.brussels/le-saviez-vous/31-de-la-population-bruxelloise-vit-dans-un-logement-surpeuple)
+- [IBSA, Mini-Bru 2026, employment by Region of residence and of work in 2024 (Labour Force Survey, Statbel) (PDF, French)](https://ibsa.brussels/sites/default/files/publication/documents/Perspective%20Brussels-Mini-Bru%202026%20FR.pdf)

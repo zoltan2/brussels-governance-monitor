@@ -31,8 +31,19 @@
  * le vrai parseur ne doit différer que dans les champs déclarés, et le texte
  * neuf doit s'y lire tel quel.
  *
+ * `humanImpact` (fiche secteur) s'y ajoute le 21/11/2026, et `coalition`
+ * (fiche commune) se remplace en entier : ces deux relectures revenaient « à la
+ * main » chaque jour.
+ *
+ * `changeType` (21/11/2026) : l'entrée du changelog écrite ici est `updated`,
+ * la fiche doit le dire aussi (src/lib/change-type-consistency.ts). Une fiche en
+ * `corrected`, `added` ou `new` passe donc à `updated` ; `status-change` et
+ * `data-refresh`, équivalents de `updated` sur une fiche domaine, restent. Du 19
+ * au 21/11, ce refus renvoyait chaque jour une fiche « à écrire à la main ».
+ * Un `digestHeadline` est retiré (voir retirerDigestHeadline).
+ *
  * Hors périmètre, refusé plutôt que deviné : création d'une fiche, `changeType`
- * autre que `updated`, `digestHeadline`, `title`, alertes, fiches comparaison
+ * `removed`, `title`, alertes, fiches comparaison
  * et solution, engagements, quiz. Les dates de relecture (`statusReviewed`, `faqReviewed`,
  * `impactReviewed`, `summaryReviewed`) ne sont posées que si le brouillon les
  * déclare dans `relectures` : une attestation se déclare, elle ne se déduit pas.
@@ -75,7 +86,7 @@ const operation = z
   });
 
 /** Champs de l'en-tête que le brouillon peut retoucher, et leur longueur maximale (velite.config.ts). */
-export const CHAMPS_ENTETE = { summary: 500, summaryFalc: 200, whyStatus: 600, concreteImpact: 700, metrics: null, faq: null } as const;
+export const CHAMPS_ENTETE = { summary: 500, summaryFalc: 200, whyStatus: 600, concreteImpact: 700, humanImpact: null, metrics: null, faq: null } as const;
 type ChampEntete = keyof typeof CHAMPS_ENTETE;
 
 const retouche = z
@@ -97,10 +108,16 @@ const fiche = z
       .array(z.object({ url: z.url(), type: z.string().regex(/^[a-z]+$/), label: parLangue }).strict())
       .default([]),
     entete: z.array(retouche).default([]),
+    /** Fiche commune : la liste entière, identique dans les quatre langues. */
+    coalition: z.array(texte).min(1).optional(),
     corps: z.array(operation).default([]),
   })
   .strict()
-  .refine((f) => f.corps.length + f.entete.length > 0, { message: 'ni corps ni entete : rien à écrire' });
+  .refine((f) => f.corps.length + f.entete.length > 0 || f.coalition !== undefined, { message: 'ni corps ni entete : rien à écrire' })
+  .refine((f) => f.coalition === undefined || f.fiche.startsWith('commune-cards/'), {
+    message: 'coalition : fiche commune seulement',
+    path: ['coalition'],
+  });
 
 const identifiant = z.string().regex(/^\d{4}-\d{2}-\d{2}-[a-z0-9-]+$/, 'attendu AAAA-MM-JJ-slug');
 
@@ -275,6 +292,51 @@ function jour(valeur: unknown): string | undefined {
   return typeof valeur === 'string' ? valeur.slice(0, 10) : undefined;
 }
 
+/** Valeurs de `changeType` qu'une mise à jour garde telles quelles. */
+const TYPES_GARDES = new Set(['updated', 'status-change', 'data-refresh']);
+/** Valeurs qu'une mise à jour remplace par `updated`. */
+const TYPES_REMPLACES = new Set(['corrected', 'added', 'new']);
+
+/** Met `changeType` d'accord avec l'entrée `updated` du changelog. Rend le problème, ou null. */
+function poserChangeType(lignes: string[]): string | null {
+  const indices = lignes.flatMap((l, i) => (l.startsWith('changeType:') ? [i] : []));
+  if (indices.length !== 1) return `changeType ${indices.length === 0 ? 'absent' : `présent ${indices.length} fois`} dans le frontmatter`;
+  const i = indices[0]!;
+  const valeur = lignes[i]!.slice('changeType:'.length).trim().replace(/^["']|["']$/g, '');
+  if (TYPES_GARDES.has(valeur)) return null;
+  if (!TYPES_REMPLACES.has(valeur)) return `changeType « ${valeur} » : hors périmètre, à traiter à la main`;
+  lignes[i] = 'changeType: updated';
+  return null;
+}
+
+/**
+ * Retire `digestHeadline` : il prime sur la première phrase de `changeSummary`
+ * dans le digest (src/lib/lead-split.ts), et celui d'une mise à jour passée
+ * titrerait le digest de la semaine (dossier taxis, titre du 22/09 toujours là
+ * le 21/11/2026). Rend le problème, ou null.
+ */
+function retirerDigestHeadline(lignes: string[]): string | null {
+  const i = lignes.findIndex((l) => l.startsWith('digestHeadline:'));
+  if (i < 0) return null;
+  const reste = lignes[i]!.slice('digestHeadline:'.length).trim();
+  if (!reste || /^[>|]/.test(reste) || /^\s/.test(lignes[i + 1] ?? '')) return 'digestHeadline écrit sur plusieurs lignes : à retirer à la main';
+  lignes.splice(i, 1);
+  return null;
+}
+
+/** Remplace la liste `coalition:` (éléments « - » indentés de deux espaces). Rend le problème, ou null. */
+function remplacerCoalition(lignes: string[], partis: string[]): string | null {
+  const indices = lignes.flatMap((l, i) => (l.startsWith('coalition:') ? [i] : []));
+  if (indices.length !== 1) return `coalition ${indices.length === 0 ? 'absent' : `présent ${indices.length} fois`} dans le frontmatter`;
+  const i = indices[0]!;
+  if (lignes[i]!.trim() !== 'coalition:') return 'coalition écrite en ligne : à remettre en liste avant d\'appliquer';
+  let fin = i + 1;
+  while (fin < lignes.length && /^ {2}- /.test(lignes[fin]!)) fin++;
+  if (fin < lignes.length && !CLE_RACINE.test(lignes[fin]!)) return 'liste coalition: dans une forme inattendue (attendu « - » indenté de deux espaces)';
+  lignes.splice(i + 1, fin - i - 1, ...partis.map((p) => `  - ${JSON.stringify(p)}`));
+  return null;
+}
+
 function planifierFiche(f: Fiche, date: string, depot: Depot, plan: Plan): void {
   const accroches: string[] = [];
   for (const l of LOCALES) {
@@ -308,8 +370,14 @@ function planifierFiche(f: Fiche, date: string, depot: Depot, plan: Plan): void 
       if ('probleme' in res) ici(`entete : ${res.probleme}`);
       else lignes = res.lignes;
     }
-    if (!lignes.some((x) => /^changeType: ["']?updated["']?\s*$/.test(x))) ici('changeType autre que « updated » : hors périmètre, à traiter à la main');
-    if (lignes.some((x) => x.startsWith('digestHeadline:'))) ici('digestHeadline présent : à retirer ou à réécrire à la main');
+    const type = poserChangeType(lignes);
+    if (type) ici(type);
+    if (f.coalition) {
+      const c = remplacerCoalition(lignes, f.coalition);
+      if (c) ici(c);
+    }
+    const sansTitre = retirerDigestHeadline(lignes);
+    if (sansTitre) ici(sansTitre);
 
     const cs = f.changeSummary[l].trim();
     const poses: [string, string][] = [
@@ -342,7 +410,7 @@ function planifierFiche(f: Fiche, date: string, depot: Depot, plan: Plan): void 
       if (lu.changeSummary !== cs) ici('changeSummary relu différent de celui du brouillon');
       if (jour(lu.lastModified) !== date || jour(lu.changeSummaryDate) !== date) ici('dates relues différentes de celle du brouillon');
       for (const d of findDuplicateSources(lu.sources)) ici(`source citée deux fois : ${d.url}`);
-      if (f.entete.length > 0) controlerEntete(f, l, readGuardFrontmatter(brut) ?? {}, lu, ici);
+      if (f.entete.length > 0 || f.coalition) controlerEntete(f, l, readGuardFrontmatter(brut) ?? {}, lu, ici);
     } catch (err) {
       if (!(err instanceof FrontmatterError)) throw err;
       ici(`frontmatter illisible après écriture : ${err.message}`);
@@ -357,7 +425,7 @@ function planifierFiche(f: Fiche, date: string, depot: Depot, plan: Plan): void 
     plan.mdx.push(chemin);
   }
   plan.lignes.push(
-    `${f.fiche} : ${f.corps.length} opération(s), ${f.entete.length} retouche(s) d'en-tête, ${f.sources.length} source(s), accroche (120 au plus) ${accroches.join(' · ')}`,
+    `${f.fiche} : ${f.corps.length} opération(s), ${f.entete.length} retouche(s) d'en-tête${f.coalition ? ', coalition remplacée' : ''}, ${f.sources.length} source(s), accroche (120 au plus) ${accroches.join(' · ')}`,
   );
 }
 
@@ -367,7 +435,11 @@ function planifierFiche(f: Fiche, date: string, depot: Depot, plan: Plan): void 
  * lui-même), le texte neuf se lit dans son champ, la longueur tient.
  */
 function controlerEntete(f: Fiche, l: Locale, avant: Record<string, unknown>, apres: Record<string, unknown>, ici: (m: string) => void): void {
-  const libres = new Set<string>(['lastModified', 'changeSummary', 'changeSummaryDate', 'sources', ...f.relectures, ...f.entete.map((r) => r.champ)]);
+  const libres = new Set<string>(['lastModified', 'changeSummary', 'changeSummaryDate', 'changeType', 'digestHeadline', 'sources', ...f.relectures, ...f.entete.map((r) => r.champ)]);
+  if (f.coalition) {
+    libres.add('coalition');
+    if (JSON.stringify(apres.coalition) !== JSON.stringify(f.coalition)) ici('coalition relue différente de celle du brouillon');
+  }
   for (const cle of new Set([...Object.keys(avant), ...Object.keys(apres)])) {
     if (!libres.has(cle) && JSON.stringify(avant[cle]) !== JSON.stringify(apres[cle])) ici(`entete : ${cle} a changé sans être déclaré`);
   }

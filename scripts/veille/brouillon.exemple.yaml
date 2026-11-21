@@ -30,9 +30,11 @@ fiches:
           de: "La DH, Anderlecht: ein Gemeindegebäude für 400 Euro pro Jahr genutzt (10.10.2026)"
     # Retouches de l'en-tête : remplace l'ancre par le texte dans UN champ parmi
     # summary (500 au plus), summaryFalc (200), whyStatus (600), concreteImpact (700),
-    # metrics et faq. L'ancre est le texte tel qu'on le lit, sur une ligne, présent
+    # humanImpact (fiche secteur), metrics et faq. L'ancre est le texte tel qu'on le lit, sur une ligne, présent
     # une fois dans ce champ et dans chaque langue. Rien d'autre de l'en-tête ne
     # doit changer. title, alertes et sources des FAQ restent à la main.
+    # changeType passe seul à updated (corrected, added, new) ; un digestHeadline
+    # est retiré : rien à écrire pour eux.
     # À omettre (ou []) si rien ne change dans l'en-tête ; corps peut alors être vide.
     entete:
       - champ: faq
@@ -46,6 +48,9 @@ fiches:
           nl: "tot mei 2028 volgens een federale brief van 6 november 2026"
           en: "until May 2028 according to a federal letter of 6 November 2026"
           de: "bis Mai 2028 laut einem föderalen Schreiben vom 6. November 2026"
+    # Fiche commune seulement : la liste entière des partis de la majorité, la même
+    # dans les quatre langues. À omettre si la coalition ne change pas.
+    # coalition: [PS, Vooruit, Les Engagés]
     corps:
       # avant     : insère le texte avant la ligne qui commence par l'ancre
       # apres     : insère le texte après le paragraphe qui contient l'ancre

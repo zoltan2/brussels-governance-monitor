@@ -147,15 +147,49 @@ describe('planifier, fiche', () => {
     expect(planifier(double, depot(fichiersDeBase())).problemes).toHaveLength(4);
   });
 
-  it('refuse changeType autre que updated, digestHeadline, et un scalaire sur plusieurs lignes', () => {
+  it('refuse changeType removed et un scalaire sur plusieurs lignes ; retire digestHeadline', () => {
     const f = fichiersDeBase();
-    f['content/commune-cards/anderlecht.fr.mdx'] = fiche('fr').replace('changeType: updated', 'changeType: corrected');
+    f['content/commune-cards/anderlecht.fr.mdx'] = fiche('fr').replace('changeType: updated', 'changeType: removed');
     f['content/commune-cards/anderlecht.nl.mdx'] = fiche('nl', '2026-10-08', 'digestHeadline: "Titre"');
     f['content/commune-cards/anderlecht.en.mdx'] = fiche('en').replace('changeSummary: "Ancien résumé."', 'changeSummary: >-\n  Ancien résumé.');
     const p = planifier(brouillon(), depot(f)).problemes.join('\n');
-    expect(p).toMatch(/anderlecht\.fr\.mdx : changeType autre que/);
-    expect(p).toMatch(/anderlecht\.nl\.mdx : digestHeadline présent/);
+    expect(p).toMatch(/anderlecht\.fr\.mdx : changeType « removed »/);
+    expect(p).not.toMatch(/anderlecht\.nl\.mdx/);
     expect(p).toMatch(/anderlecht\.en\.mdx : changeSummary est écrit sur plusieurs lignes/);
+    const g = fichiersDeBase();
+    for (const l of LANGUES) g[`content/commune-cards/anderlecht.${l}.mdx`] = fiche(l, '2026-10-08', 'digestHeadline: "Titre de septembre"');
+    const ok = planifier(brouillon(), depot(g));
+    expect(ok.problemes).toEqual([]);
+    expect(ok.ecritures.get('content/commune-cards/anderlecht.nl.mdx')).not.toMatch(/digestHeadline/);
+  });
+
+  // 19-21/11/2026 : chaque jour, une fiche en « corrected » ou « added » revenait
+  // « à écrire à la main ». L'entrée du changelog écrite ici est « updated » :
+  // la fiche doit le dire aussi (src/lib/change-type-consistency.ts).
+  it('remet changeType à updated sur une fiche en corrected, added ou new', () => {
+    for (const ancien of ['corrected', 'added', '"added"', 'new']) {
+      const f = fichiersDeBase();
+      for (const l of LANGUES) f[`content/commune-cards/anderlecht.${l}.mdx`] = fiche(l).replace('changeType: updated', `changeType: ${ancien}`);
+      const plan = planifier(brouillon(), depot(f));
+      expect(plan.problemes).toEqual([]);
+      for (const l of LANGUES) {
+        expect(readGuardFrontmatter(plan.ecritures.get(`content/commune-cards/anderlecht.${l}.mdx`)!)!.changeType).toBe('updated');
+      }
+    }
+  });
+
+  it('garde status-change et data-refresh, équivalents de updated sur une fiche domaine', () => {
+    const f = fichiersDeBase();
+    for (const l of LANGUES) f[`content/commune-cards/anderlecht.${l}.mdx`] = fiche(l).replace('changeType: updated', 'changeType: status-change');
+    const plan = planifier(brouillon(), depot(f));
+    expect(plan.problemes).toEqual([]);
+    expect(readGuardFrontmatter(plan.ecritures.get('content/commune-cards/anderlecht.fr.mdx')!)!.changeType).toBe('status-change');
+  });
+
+  it('changeType absent : refus plutôt qu’une ligne devinée', () => {
+    const f = fichiersDeBase();
+    for (const l of LANGUES) f[`content/commune-cards/anderlecht.${l}.mdx`] = fiche(l).replace('changeType: updated\n', '');
+    expect(planifier(brouillon(), depot(f)).problemes.join('\n')).toMatch(/changeType absent/);
   });
 
   it('ne pose une date de relecture que si le brouillon la déclare', () => {
@@ -215,6 +249,49 @@ describe('planifier, en-tête (18/11/2026)', () => {
     // « Sans date de fin » vit aussi dans whyStatus : seule la FAQ, déclarée, change.
     expect(lu.whyStatus).toBe('Sans date de fin.');
     expect(plan.lignes[0]).toMatch(/0 opération\(s\), 3 retouche\(s\) d'en-tête/);
+  });
+
+  it('retouche humanImpact (fiche secteur, 20/11/2026)', () => {
+    const f = fichiersDeBase();
+    for (const l of LANGUES) f[`content/commune-cards/anderlecht.${l}.mdx`] = fiche(l, '2026-10-08', 'humanImpact: "Ouverture fixée au 28 novembre 2026."');
+    const plan = planifier(brouillon({ corps: [], entete: [{ champ: 'humanImpact', ancre: tous('fixée au 28 novembre'), texte: tous('reportée') }] }), depot(f));
+    expect(plan.problemes).toEqual([]);
+    expect(readGuardFrontmatter(plan.ecritures.get('content/commune-cards/anderlecht.de.mdx')!)!.humanImpact).toBe('Ouverture reportée 2026.');
+  });
+
+  // 20-21/11/2026 : la coalition d'Anderlecht contredite par BRUZZ et L'Avenir
+  // restait « à vérifier à la main ».
+  describe('coalition', () => {
+    const avecCoalition = () => {
+      const f = fichiersDeBase();
+      for (const l of LANGUES) f[`content/commune-cards/anderlecht.${l}.mdx`] = fiche(l, '2026-10-08', 'coalition:\n  - PS\n  - Vooruit\n  - Les Engagés\ncouncilSeats: 47');
+      return f;
+    };
+
+    it('remplace la liste dans les quatre langues, sans toucher au reste', () => {
+      const plan = planifier(brouillon({ corps: [], coalition: ['PS', 'Vooruit', 'MR', 'Anders', 'Les Engagés', 'CD&V'] }), depot(avecCoalition()));
+      expect(plan.problemes).toEqual([]);
+      for (const l of LANGUES) {
+        const lu = readGuardFrontmatter(plan.ecritures.get(`content/commune-cards/anderlecht.${l}.mdx`)!)!;
+        expect(lu.coalition).toEqual(['PS', 'Vooruit', 'MR', 'Anders', 'Les Engagés', 'CD&V']);
+        expect(lu.councilSeats).toBe(47);
+      }
+      expect(plan.lignes[0]).toMatch(/coalition remplacée/);
+    });
+
+    it('refusée hors fiche commune, et sur une fiche sans liste coalition', () => {
+      expect(() => lireCoalitionHorsCommune()).toThrow(/coalition/);
+      const plan = planifier(brouillon({ corps: [], coalition: ['PS'] }), depot(fichiersDeBase()));
+      expect(plan.problemes.join('\n')).toMatch(/coalition absent/);
+    });
+
+    const lireCoalitionHorsCommune = () => {
+      const lu = lireBrouillon(
+        JSON.stringify({ date: JOUR, fiches: [{ fiche: 'domain-cards/budget', changeSummary: parLangue('Un fait. Suite'), coalition: ['PS'] }] }),
+      );
+      if ('problemes' in lu) throw new Error(lu.problemes.join('\n'));
+      return lu;
+    };
   });
 
   it('ancre absente du champ, même présente ailleurs dans l’en-tête : refus', () => {

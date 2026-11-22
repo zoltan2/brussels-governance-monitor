@@ -1,28 +1,28 @@
 {
-  "week": "2026-w46",
-  "weekStart": "2026-11-09",
-  "created_at": "2026-11-15T20:00:24.081Z",
-  "approved": true,
-  "sent": true,
+  "week": "2026-w47",
+  "weekStart": "2026-11-16",
+  "created_at": "2026-11-22T20:00:05.967Z",
+  "approved": false,
+  "sent": false,
   "summary": {
-    "fr": "7 domaines, 6 dossiers, 3 communes mis à jour",
-    "nl": "7 domeinen, 6 dossiers, 3 gemeenten bijgewerkt",
-    "en": "7 domains, 6 dossiers, 3 communes updated",
-    "de": "7 Bereiche, 6 Dossiers, 3 Gemeinden aktualisiert"
+    "fr": "12 domaines, 9 dossiers, 1 secteur, 12 communes mis à jour",
+    "nl": "12 domeinen, 9 dossiers, 1 sector, 12 gemeenten bijgewerkt",
+    "en": "12 domains, 9 dossiers, 1 sector, 12 communes updated",
+    "de": "12 Bereiche, 9 Dossiers, 1 Sektor, 12 Gemeinden aktualisiert"
   },
   "weeklyNumber": {
-    "value": "48,7 %",
+    "value": "21 891 €",
     "label": {
-      "fr": "La part du territoire bruxellois couverte par la végétation en 2023 ; 12,7 % dans le Pentagone, 42,6 % sans la forêt de Soignes et le bois de la Cambre",
-      "nl": "Het aandeel van het Brusselse grondgebied dat in 2023 met vegetatie bedekt is; 12,7 % in de Vijfhoek, 42,6 % zonder het Zoniënwoud en het Ter Kamerenbos",
-      "en": "The share of the Brussels Region covered by vegetation in 2023; 12.7% in the Pentagon, 42.6% excluding the Sonian Forest and the Bois de la Cambre",
-      "de": "Der Anteil des Brüsseler Gebiets, der 2023 von Vegetation bedeckt ist; 12,7 % im Pentagon, 42,6 % ohne den Sonienwald und den Bois de la Cambre"
+      "fr": "Le revenu disponible médian annuel à Saint-Josse-ten-Noode en 2024, ajusté à la composition du ménage, le plus bas des communes belges",
+      "nl": "Het jaarlijkse mediane beschikbare inkomen in Sint-Joost-ten-Node in 2024, aangepast aan de gezinssamenstelling, het laagste van de Belgische gemeenten",
+      "en": "The median annual disposable income in Saint-Josse-ten-Noode in 2024, adjusted for household composition, the lowest of any Belgian municipality",
+      "de": "Das jährliche verfügbare Medianeinkommen in Saint-Josse-ten-Noode im Jahr 2024, an die Haushaltszusammensetzung angepasst, das niedrigste aller belgischen Gemeinden"
     },
     "source": {
-      "fr": "Bruxelles Environnement, état des lieux de l'environnement : couverture végétale (photographies aériennes de 2023)",
-      "nl": "Leefmilieu Brussel, staat van het leefmilieu: vegetatiebedekking (luchtfoto's van 2023)",
-      "en": "Brussels Environment, state of the environment: vegetation cover (2023 aerial photographs)",
-      "de": "Brüssel Umwelt, Zustand der Umwelt: Vegetationsbedeckung (Luftbilder von 2023)"
+      "fr": "Statbel, revenu disponible équivalent administratif (19 novembre 2026)",
+      "nl": "Statbel, administratief equivalent beschikbaar inkomen (19 november 2026)",
+      "en": "Statbel, administrative equivalised disposable income (19 November 2026)",
+      "de": "Statbel, administratives verfügbares Äquivalenzeinkommen (19.11.2026)"
     }
   },
   "closingNote": {
@@ -34,21 +34,38 @@
   "commitmentCount": 16,
   "updatedTopics": [
     "budget",
+    "cleanliness",
+    "climate",
+    "digital",
     "economy",
-    "institutional",
+    "education",
+    "employment",
+    "housing",
     "mobility",
     "security",
     "social",
     "urban-planning",
     "dossier-cpas-bruxellois",
+    "dossier-enseignement",
+    "dossier-lez",
     "dossier-mobilite-partagee",
-    "dossier-rechauffement-bruxelles",
-    "dossier-slrb",
+    "dossier-seniors",
     "dossier-survol-bruxelles",
+    "dossier-titres-services-economie-sociale",
+    "dossier-vivaqua",
     "dossier-petite-enfance",
+    "culture",
     "commune-anderlecht",
+    "commune-berchem-sainte-agathe",
+    "commune-bruxelles-ville",
     "commune-etterbeek",
-    "commune-saint-josse-ten-noode"
-  ],
-  "sent_at": "2026-11-15T20:09:31.450Z"
+    "commune-forest",
+    "commune-ixelles",
+    "commune-jette",
+    "commune-saint-josse-ten-noode",
+    "commune-schaerbeek",
+    "commune-uccle",
+    "commune-woluwe-saint-lambert",
+    "commune-woluwe-saint-pierre"
+  ]
 }

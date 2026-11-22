@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BGM, Brussels, behind the figures · Week 47</title>
+<meta name="description" content="Income by municipality, 2027 budget, families without shelter, rental bans, LEZ, taxis: six topics of the week." />
+<link rel="canonical" href="https://magazine.governance.brussels/en/s47/" />
+<link rel="alternate" hreflang="fr" href="https://magazine.governance.brussels/s47/" />
+<link rel="alternate" hreflang="nl" href="https://magazine.governance.brussels/nl/s47/" />
+<link rel="alternate" hreflang="en" href="https://magazine.governance.brussels/en/s47/" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Brussels Governance Monitor" />
+<meta property="og:title" content="BGM, Brussels, behind the figures · Week 47" />
+<meta property="og:description" content="Income by municipality, 2027 budget, families without shelter, rental bans, LEZ, taxis: six topics of the week." />
+<meta property="og:url" content="https://magazine.governance.brussels/en/s47/" />
+<meta property="og:locale" content="en_GB" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --paper:#ffffff;--paper-2:#f8fafc;--ink:#0f172a;--ink-2:#334155;--muted:#64748b;--line:#e2e8f0;
+  --accent:#b45309;--accent-soft:#fef3c7;--dark:#172554;--dark-2:#1e3a8a;--on-dark:#f8fafc;--on-dark-muted:#cbd5e1;
+  --serif:'Source Serif 4',Georgia,'Times New Roman',serif;--display:'Playfair Display',Georgia,serif;--sans:'Inter',Arial,Helvetica,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
+  --measure:38rem;--gutter:clamp(1rem,4vw,3rem);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper-2);color:var(--ink);font-family:var(--serif);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.skip{position:absolute;left:-999px;top:0;background:var(--accent);color:#fff;padding:.5rem 1rem;font-family:var(--sans)}
+.skip:focus{left:1rem;top:1rem;z-index:10}
+.site-nav{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem var(--gutter);background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);font-family:var(--sans);font-size:.875rem}
+.brand{display:flex;align-items:baseline;gap:.75rem;text-decoration:none}
+.brand strong{font-family:var(--display);font-size:1.25rem;letter-spacing:.02em}
+.brand span{color:var(--muted)}
+.site-nav ul{list-style:none;display:flex;gap:1.25rem;margin:0;padding:0}
+.site-nav a{text-decoration:none;color:var(--ink-2)}
+.site-nav .editions{display:flex;gap:.4rem;padding-left:.75rem;border-left:1px solid var(--line)}
+.site-nav .editions span{font-weight:700;color:var(--ink)}
+.site-nav a:hover,.site-nav a:focus-visible{color:var(--accent);text-decoration:underline}
+.sheet{padding:clamp(2.5rem,7vh,5rem) var(--gutter);border-bottom:1px solid var(--line)}
+.sheet .inner{max-width:72rem;margin:0 auto}
+.sheet.dark{background:var(--dark);color:var(--on-dark);border-color:var(--dark-2)}
+.sheet.dark .muted,.sheet.dark .eyebrow{color:var(--on-dark-muted)}
+.eyebrow{font-family:var(--sans);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 .75rem}
+.muted{color:var(--muted)}
+.cover h1{font-family:var(--display);font-weight:700;font-size:clamp(2.25rem,6vw,4.5rem);line-height:1.05;margin:0 0 1rem;max-width:18ch}
+.cover .intro{font-size:clamp(1.125rem,2vw,1.5rem);max-width:var(--measure);margin:0 0 2rem;color:var(--on-dark-muted)}
+.cover-meta{display:flex;flex-wrap:wrap;gap:1rem 2rem;font-family:var(--sans);font-size:.875rem;color:var(--on-dark-muted);margin-bottom:2.5rem}
+.cover-numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1.5rem;margin:2.5rem 0 0;padding:0;list-style:none}
+.cover-number{border-top:2px solid var(--accent);padding-top:.75rem}
+.cover-number .n{font-family:var(--display);font-size:clamp(2rem,4vw,3rem);line-height:1;display:block;margin:.25rem 0}
+.cover-number small{font-family:var(--sans);font-size:.875rem;color:var(--on-dark-muted)}
+.button{display:inline-block;font-family:var(--sans);font-weight:600;text-decoration:none;padding:.7rem 1.1rem;border-radius:.375rem;background:var(--accent);color:#fff;border:1px solid var(--accent)}
+.button.secondary{background:transparent;color:inherit;border-color:currentColor}
+.button:hover,.button:focus-visible{filter:brightness(1.08);text-decoration:underline}
+.toc h2{font-family:var(--display);font-size:clamp(1.5rem,3vw,2.25rem);margin:0 0 .25rem}
+.toc-list{list-style:none;margin:1.5rem 0 0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.toc-list li{border-bottom:1px solid var(--line)}
+.toc-link{display:grid;grid-template-columns:3rem 1fr auto;gap:1rem;align-items:baseline;padding:1rem 0;text-decoration:none}
+.toc-link:hover .toc-title,.toc-link:focus-visible .toc-title{text-decoration:underline;color:var(--accent)}
+.toc-rank{font-family:var(--mono);color:var(--muted)}
+.toc-short{font-family:var(--sans);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block}
+.toc-stat{font-family:var(--display);font-size:1.5rem;white-space:nowrap}
+.toc-stat small{display:none}
+.site-nav li,.brand{white-space:nowrap}
+.story .inner{display:grid;grid-template-columns:minmax(0,1fr);gap:2rem}
+@media(min-width:900px){.story .inner{grid-template-columns:minmax(0,1.4fr) minmax(16rem,.8fr);gap:3rem}}
+.story h2{font-family:var(--display);font-size:clamp(1.75rem,3.6vw,2.75rem);line-height:1.12;margin:0 0 .75rem;max-width:22ch}
+.lead{font-size:1.25rem;line-height:1.5;color:var(--ink-2);margin:0 0 1.25rem;max-width:var(--measure)}
+.sheet.dark .lead{color:var(--on-dark-muted)}
+.body-text{max-width:var(--measure);margin:0 0 1.25rem}
+.story .actions{margin:1.25rem 0 2rem}
+.sources{font-family:var(--sans);font-size:.875rem;border-top:1px solid var(--line);padding-top:1rem;max-width:var(--measure)}
+.sheet.dark .sources{border-color:var(--dark-2)}
+.sources h3{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;margin:0 0 .75rem;color:var(--muted)}
+.sources ul{list-style:none;margin:0;padding:0}
+.sources li{margin:0 0 .75rem}
+.sources a{word-break:break-all}
+.kind{display:inline-block;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;padding:.1rem .4rem;border:1px solid currentColor;border-radius:.25rem;margin-right:.5rem;vertical-align:middle}
+.consulted{color:var(--muted);margin:.5rem 0 0}
+.stat-panel{align-self:start;background:var(--paper);border:1px solid var(--line);border-radius:.5rem;padding:1.5rem;color:var(--ink)}
+/* Rythme : sur une feuille sombre, le panneau est clair ; sur une feuille claire, il est sombre. */
+.sheet.dark .stat-panel{background:var(--paper);border-color:var(--paper);color:var(--ink)}
+.sheet.dark .stat-panel .stat-label,.sheet.dark .stat-panel .nuance p{color:var(--ink-2)}
+.sheet.dark .stat-panel .facts,.sheet.dark .stat-panel .facts li{border-color:var(--line)}
+.sheet.dark .stat-panel .status .badge{background:var(--accent-soft);color:var(--accent)}
+.stat-panel.inverse{background:var(--dark);border-color:var(--dark);color:var(--on-dark)}
+.stat-panel.inverse .stat-label,.stat-panel.inverse .nuance p{color:var(--on-dark-muted)}
+.stat-panel.inverse .facts,.stat-panel.inverse .facts li{border-color:rgba(255,255,255,.18)}
+.stat-panel.inverse .status .badge{background:rgba(254,243,199,.16);color:#fde68a}
+.stat-panel.inverse .nuance .eyebrow{color:#fde68a}
+.stat-panel.inverse .nuance{border-top-color:#fde68a}
+.status{font-family:var(--sans);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;margin:0 0 .5rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.status .badge{background:var(--accent-soft);color:var(--accent);padding:.15rem .5rem;border-radius:.25rem;letter-spacing:.06em}
+.sheet.dark .status .badge{background:rgba(254,243,199,.15);color:#fde68a}
+.status .detail{color:var(--muted);text-transform:none;letter-spacing:0;font-size:.8125rem}
+.stat{font-family:var(--display);font-size:clamp(2.5rem,5vw,3.75rem);line-height:1;margin:.25rem 0 .5rem}
+.stat-label{font-family:var(--sans);font-size:.9375rem;margin:0 0 1rem;color:var(--ink-2)}
+.sheet.dark .stat-label{color:var(--on-dark-muted)}
+.facts{list-style:none;margin:0;padding:0;font-family:var(--sans);font-size:.875rem;border-top:1px solid var(--line)}
+.sheet.dark .facts{border-color:rgba(255,255,255,.15)}
+.facts li{padding:.5rem 0;border-bottom:1px solid var(--line)}
+.sheet.dark .facts li{border-color:rgba(255,255,255,.15)}
+.nuance{margin-top:1.5rem;padding-top:1.25rem;border-top:2px solid var(--accent)}
+.nuance .eyebrow{color:var(--accent)}
+.nuance-title{font-family:var(--display);font-size:1.25rem;margin:0 0 .5rem}
+.nuance p{margin:0;font-size:.9375rem}
+.story-foot{grid-column:1 / -1;display:flex;justify-content:space-between;gap:1rem;font-family:var(--sans);font-size:.8125rem;color:var(--muted);margin-top:1rem}
+.story-foot a{text-decoration:none}
+.story-foot a:hover,.story-foot a:focus-visible{text-decoration:underline}
+.howto h2,.closing h2{font-family:var(--display);font-size:clamp(1.5rem,3vw,2.25rem);margin:0 0 1rem}
+.howto ol{max-width:var(--measure);padding-left:1.25rem}
+.howto li{margin-bottom:.5rem}
+.closing-grid{display:grid;gap:2rem}
+@media(min-width:800px){.closing-grid{grid-template-columns:1fr 1fr}}
+.closing p{max-width:var(--measure)}
+.footerline{font-family:var(--sans);font-size:.8125rem;color:var(--on-dark-muted);border-top:1px solid var(--dark-2);padding-top:1rem;margin-top:2rem}
+.footerline a{color:inherit}
+.cover-tagline{font-family:var(--serif);font-style:italic;font-size:1.0625rem;color:var(--on-dark-muted);max-width:var(--measure);margin:0 0 1.25rem}
+/* Couverture : deux colonnes, dégradé, filigrane du numéro de semaine, trois chiffres en tuiles. */
+.sheet.cover{background:linear-gradient(160deg,var(--dark) 0%,var(--dark-2) 70%,#1d4ed8 140%);position:relative;overflow:hidden;min-height:min(88vh,52rem);display:flex;align-items:center}
+.cover-grid{position:relative;display:grid;gap:2.5rem;width:100%}
+@media(min-width:900px){.cover-grid{grid-template-columns:minmax(0,1.3fr) minmax(16rem,.9fr);align-items:center;gap:4rem}}
+.cover-issue{font-family:var(--sans);font-size:.8125rem;letter-spacing:.14em;text-transform:uppercase;color:#fde68a;margin:0 0 1.25rem;display:flex;align-items:center;gap:.6rem}
+.cover-issue .dot{width:.55rem;height:.55rem;border-radius:50%;background:var(--accent);display:inline-block;box-shadow:0 0 0 .35rem rgba(180,83,9,.25)}
+.cover .cover-meta{margin:0 0 1.5rem}
+.cover-side .cover-numbers{grid-template-columns:1fr;gap:1rem;margin:0}
+.cover-side .cover-number{border-top:0;border-left:3px solid var(--accent);padding:.9rem 1.1rem .9rem 1.1rem;background:rgba(255,255,255,.05);border-radius:0 .5rem .5rem 0}
+.cover-side .cover-number .n{font-size:clamp(2rem,3.4vw,2.75rem)}
+.cover-watermark{position:absolute;right:-1rem;bottom:-3rem;font-family:var(--display);font-weight:700;font-size:clamp(14rem,34vw,30rem);line-height:1;color:rgba(255,255,255,.04);pointer-events:none;user-select:none}
+/* Feuilles : blanc, teinte ardoise, bleu foncé, en alternance ; numéro en filigrane. */
+.sheet.story{position:relative;overflow:hidden}
+.sheet.story.light{background:var(--paper)}
+.sheet.toc,.sheet.howto{background:var(--paper-2)}
+.sheet.closing{background:var(--paper)}
+.rank-mark{position:absolute;top:-1.5rem;left:var(--gutter);font-family:var(--display);font-weight:700;font-size:clamp(7rem,16vw,12rem);line-height:1;color:rgba(15,23,42,.045);pointer-events:none;user-select:none}
+.sheet.dark .rank-mark{color:rgba(255,255,255,.05)}
+.story .inner{position:relative}
+.story h2::before{content:"";display:block;width:3rem;height:3px;background:var(--accent);margin:0 0 1rem}
+.toc-link:hover .toc-rank,.toc-link:focus-visible .toc-rank{color:var(--accent)}
+.site-note{font-family:var(--sans);font-size:.8125rem;margin:0}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.card-inner{max-width:46rem}
+.card-manifesto{font-family:var(--display);font-style:italic;font-size:clamp(1.25rem,2.4vw,1.75rem);line-height:1.4;margin:0 0 1.25rem}
+.card-signature{font-family:var(--sans);font-weight:600;letter-spacing:.04em;margin:0 0 1.5rem;padding-top:1rem;border-top:2px solid var(--accent);display:inline-block}
+.card-publication{margin:0 0 .75rem;line-height:1.5}
+.card-offer{font-family:var(--sans);font-size:.9375rem;color:var(--on-dark-muted);margin:0 0 1rem}
+.card-contact{font-family:var(--sans);font-size:.9375rem;margin:0}
+.card-contact a{color:#fde68a;text-decoration:none}
+.card-contact a:hover,.card-contact a:focus-visible{text-decoration:underline}
+.a-lundi{font-family:var(--display);font-style:italic;font-size:1.5rem;margin:.5rem 0 1.25rem}
+.closing .footerline{color:var(--muted);border-color:var(--line)}
+@media(max-width:760px){.toc-link{grid-template-columns:2.25rem 1fr}.toc-stat{grid-column:2;font-size:1.25rem;white-space:normal}.toc-stat small{display:block;font-family:var(--sans);font-size:.8125rem;line-height:1.4;color:var(--muted)}.site-nav ul{gap:.75rem}}
+@media(max-width:520px){.brand-long{display:none}.site-nav{font-size:.8125rem;gap:.5rem}.site-nav ul{gap:.5rem}.site-nav .editions{padding-left:.5rem;gap:.3rem}}
+@media(max-width:400px){.site-nav .nav-site{display:none}}
+@media print{.site-nav,.skip,.story-foot,.actions{display:none}.sheet{break-inside:avoid;border:0;padding:1.5rem 0}.sheet.dark{background:#fff;color:#000}.print-url::after{content:" (" attr(href) ")";font-size:.8em}}
+</style>
+<link rel="preconnect" href="https://analytics.governance.brussels" />
+<script defer src="https://analytics.governance.brussels/script.js" data-website-id="61980d1d-2227-4438-abd2-57d29bf8bdae"></script>
+</head>
+<body>
+<a class="skip" href="#sommaire">Skip to contents</a>
+<header class="site-nav">
+<a class="brand" href="https://governance.brussels/en"><strong>BGM</strong><span><span class="brand-long">The magazine · </span>S47</span></a>
+<nav aria-label="Magazine navigation"><ul>
+<li><a href="#sommaire">Contents</a></li>
+<li><a href="#comment-lire">How to read</a></li>
+<li class="nav-site"><a href="https://governance.brussels/en">The site ↗</a></li>
+<li class="editions" aria-label="Editions"><a href="https://magazine.governance.brussels/s47/" hreflang="fr" lang="fr" title="Français">FR</a> <a href="https://magazine.governance.brussels/nl/s47/" hreflang="nl" lang="nl" title="Nederlands">NL</a> <span aria-current="true">EN</span></li>
+</ul></nav>
+</header>
+<main class="magazine">
+<section class="sheet cover dark" aria-labelledby="titre">
+<div class="inner cover-grid">
+<div class="cover-copy">
+<p class="cover-issue"><span class="dot" aria-hidden="true"></span>The BGM magazine · Week 47</p>
+<h1 id="titre">Brussels, behind the figures.</h1>
+<p class="intro">What changes. What we know. And what the figures do not say.</p>
+<p class="cover-tagline">Income by municipality, 2027 budget, families without shelter, rental bans, LEZ, taxis: six topics of the week.</p>
+<p class="cover-meta"><span>16 to 22 November 2026</span><span>Six topics · Brussels</span></p>
+<p class="actions"><a class="button" href="#sommaire">Explore the topics ↓</a></p>
+</div>
+<div class="cover-side">
+<ul class="cover-numbers">
+<li class="cover-number"><span class="eyebrow">01 / Incomes</span><span class="n">21,891 €</span><small>median annual disposable income in Saint-Josse-ten-Noode in 2024</small></li>
+<li class="cover-number"><span class="eyebrow">02 / 2027 budget</span><span class="n">735</span><small>million euros of deficit in 2027 according to the Court of Audit, as reported by the press</small></li>
+<li class="cover-number"><span class="eyebrow">03 / Families without shelter</span><span class="n">3,396</span><small>people in families refused for lack of space in September and October 2026</small></li>
+</ul>
+</div>
+<span class="cover-watermark" aria-hidden="true">47</span>
+</div>
+</section>
+<section class="sheet toc" id="sommaire" aria-labelledby="sommaire-titre">
+<div class="inner">
+<p class="eyebrow">This week</p>
+<h2 id="sommaire-titre">Choose where to start</h2>
+<p class="muted">Each topic fits on one page and takes you to its card on governance.brussels.</p>
+<ol class="toc-list">
+<li><a class="toc-link" href="#sujet-01-incomes"><span class="toc-rank">01</span><span><span class="toc-short">Incomes</span><span class="toc-title">Saint-Josse has the lowest median income in Belgium.</span></span><span class="toc-stat">21,891 €<small> median annual disposable income in Saint-Josse-ten-Noode in 2024</small></span></a></li>
+<li><a class="toc-link" href="#sujet-02-2027-budget"><span class="toc-rank">02</span><span><span class="toc-short">2027 budget</span><span class="toc-title">2027 budget: the Court of Audit sees a deficit of 735 million.</span></span><span class="toc-stat">735<small> million euros of deficit in 2027 according to the Court of Audit, as reported by the press</small></span></a></li>
+<li><a class="toc-link" href="#sujet-03-families-without-shelter"><span class="toc-rank">03</span><span><span class="toc-short">Families without shelter</span><span class="toc-title">Emergency shelter: 3,396 refusals for people in families.</span></span><span class="toc-stat">3,396<small> people in families refused for lack of space in September and October 2026</small></span></a></li>
+<li><a class="toc-link" href="#sujet-04-rental-bans"><span class="toc-rank">04</span><span><span class="toc-short">Rental bans</span><span class="toc-title">Homes banned from letting: 598 reminders unanswered.</span></span><span class="toc-stat">598<small> reminders from the regional housing inspectorate went unanswered</small></span></a></li>
+<li><a class="toc-link" href="#sujet-05-lez"><span class="toc-rank">05</span><span><span class="toc-short">LEZ</span><span class="toc-title">Low emission zone: not a single fine for foreign number plates.</span></span><span class="toc-stat">0<small> LEZ fines for foreign-registered vehicles in 2025 and 2026</small></span></a></li>
+<li><a class="toc-link" href="#sujet-06-taxis"><span class="toc-rank">06</span><span><span class="toc-short">Taxis</span><span class="toc-title">Taxis: zero emission is voted for 1 January 2027.</span></span><span class="toc-stat">9 years<small> maximum service life for combustion taxis already registered, instead of 7</small></span></a></li>
+</ol>
+</div>
+</section>
+<section class="sheet story light" id="sujet-01-incomes" aria-labelledby="sujet-01-incomes-titre">
+<div class="inner">
+<span class="rank-mark" aria-hidden="true">01</span>
+<div class="copy">
+<p class="eyebrow">Social · Municipalities · 01 / 06</p>
+<h2 id="sujet-01-incomes-titre">Saint-Josse has the lowest median income in Belgium.</h2>
+<p class="lead">21,891 euros a year in 2024, adjusted for household composition. The five municipalities with the country&#39;s highest poverty risk are in Brussels.</p>
+<p class="body-text">On Thursday 19 November 2026 Statbel published residents&#39; disposable income by municipality for 2024. Saint-Josse-ten-Noode has the lowest median in the country, followed by Molenbeek-Saint-Jean (22,220 euros) and Anderlecht (22,931 euros). The highest is in Attert, in the province of Luxembourg: 45,790 euros.</p>
+<p class="actions"><a class="button secondary" href="https://governance.brussels/en/domains/social">Explore the theme on governance.brussels</a></p>
+<p class="site-note muted">Sources and details are on the card on the site.</p>
+</div>
+<aside class="stat-panel inverse" aria-label="The figure and its nuance">
+<p class="status"><span class="badge">Official figure</span></p>
+<p class="stat">21,891 €</p>
+<p class="stat-label">median annual disposable income in Saint-Josse-ten-Noode in 2024</p>
+<ul class="facts"><li>32.8% of Saint-Josse residents below the national poverty line</li><li>Then Molenbeek 30.6%, Anderlecht 28%, Koekelberg 25.6%, Schaerbeek 25.3%</li></ul>
+<div class="nuance">
+<p class="eyebrow">The nuance that matters</p>
+<h3 class="nuance-title">An adjusted income, not a salary</h3>
+<p>The calculation adds up the income of the whole household, benefits included, then adjusts it for household composition. The amount is therefore neither a salary nor a household&#39;s total budget. Statbel specifies that these municipal figures do not replace the regional and national poverty rates from its European income survey.</p>
+</div>
+</aside>
+<div class="story-foot"><span>BGM · Week 47</span><a href="#sommaire">Back to contents ↑</a></div>
+</div>
+</section>
+<section class="sheet story dark" id="sujet-02-2027-budget" aria-labelledby="sujet-02-2027-budget-titre">
+<div class="inner">
+<span class="rank-mark" aria-hidden="true">02</span>
+<div class="copy">
+<p class="eyebrow">Budget · Region · 02 / 06</p>
+<h2 id="sujet-02-2027-budget-titre">2027 budget: the Court of Audit sees a deficit of 735 million.</h2>
+<p class="lead">The government is aiming for 719 million euros. The Court presented its report to Parliament on 19 November 2026, according to the press.</p>
+<p class="body-text">According to the press, the Court of Audit finds the Region&#39;s budget path improving, but puts the 2027 deficit at 735 million euros. It urges caution over about one billion euros of investment kept outside the balance over the legislature, and notes underestimated appropriations, notably at Actiris and STIB.</p>
+<p class="actions"><a class="button secondary" href="https://governance.brussels/en/domains/budget">Explore the theme on governance.brussels</a></p>
+<p class="site-note muted">Sources and details are on the card on the site.</p>
+</div>
+<aside class="stat-panel" aria-label="The figure and its nuance">
+<p class="status"><span class="badge">To be confirmed</span></p>
+<p class="stat">735</p>
+<p class="stat-label">million euros of deficit in 2027 according to the Court of Audit, as reported by the press</p>
+<ul class="facts"><li>Consolidated debt expected in 2027: 18.4 billion euros</li><li>Interest on direct debt: 528.6 million euros in 2027</li></ul>
+<div class="nuance">
+<p class="eyebrow">The nuance that matters</p>
+<h3 class="nuance-title">The minister stands by 719 million</h3>
+<p>The Budget minister confirms the target before MPs. According to the press, the Court also criticises Article 23 of the budget, which lets the government reallocate spending appropriations after the vote within an unchanged overall envelope. The Court&#39;s report was not read for this issue.</p>
+</div>
+</aside>
+<div class="story-foot"><span>BGM · Week 47</span><a href="#sommaire">Back to contents ↑</a></div>
+</div>
+</section>
+<section class="sheet story light" id="sujet-03-families-without-shelter" aria-labelledby="sujet-03-families-without-shelter-titre">
+<div class="inner">
+<span class="rank-mark" aria-hidden="true">03</span>
+<div class="copy">
+<p class="eyebrow">Social · COCOM · 03 / 06</p>
+<h2 id="sujet-03-families-without-shelter-titre">Emergency shelter: 3,396 refusals for people in families.</h2>
+<p class="lead">In September and October 2026 Samusocial received 3,778 requests from people in families and refused 3,396 of them for lack of space.</p>
+<p class="body-text">Samusocial says it has never had so many places for families, yet refuses the great majority of requests. According to the operator, stays are getting longer: files are hard to open at the CPAS, follow-on facilities are full and the private rental market is almost out of reach for low incomes.</p>
+<p class="actions"><a class="button secondary" href="https://governance.brussels/en/domains/social">Explore the theme on governance.brussels</a></p>
+<p class="site-note muted">Sources and details are on the card on the site.</p>
+</div>
+<aside class="stat-panel inverse" aria-label="The figure and its nuance">
+<p class="status"><span class="badge">Estimate</span></p>
+<p class="stat">3,396</p>
+<p class="stat-label">people in families refused for lack of space in September and October 2026</p>
+<ul class="facts"><li>Requests up 61% in a year</li><li>577 places for families, a record for the operator</li></ul>
+<div class="nuance">
+<p class="eyebrow">The nuance that matters</p>
+<h3 class="nuance-title">The figures come from the operator</h3>
+<p>They were reported by two newsrooms, and the Samusocial statement could not be found on 19 November 2026. Emergency shelter for homeless people falls under the COCOM, the Common Community Commission. The reception of asylum seekers is a federal competence.</p>
+</div>
+</aside>
+<div class="story-foot"><span>BGM · Week 47</span><a href="#sommaire">Back to contents ↑</a></div>
+</div>
+</section>
+<section class="sheet story dark" id="sujet-04-rental-bans" aria-labelledby="sujet-04-rental-bans-titre">
+<div class="inner">
+<span class="rank-mark" aria-hidden="true">04</span>
+<div class="copy">
+<p class="eyebrow">Housing · Region · 04 / 06</p>
+<h2 id="sujet-04-rental-bans-titre">Homes banned from letting: 598 reminders unanswered.</h2>
+<p class="lead">The regional inspectorate sent 1,115 reminders to landlords of homes placed under a rental ban between 2020 and 2024.</p>
+<p class="body-text">In a written answer to Parliament, published on 10 November 2026 and reported on the 15th, the Secretary of State for Housing states that 598 of the 1,115 reminders went unanswered. They concerned rental bans still in force, issued because the home does not meet safety and health requirements.</p>
+<p class="actions"><a class="button secondary" href="https://governance.brussels/en/domains/housing">Explore the theme on governance.brussels</a></p>
+<p class="site-note muted">Sources and details are on the card on the site.</p>
+</div>
+<aside class="stat-panel" aria-label="The figure and its nuance">
+<p class="status"><span class="badge">Official figure</span></p>
+<p class="stat">598</p>
+<p class="stat-label">reminders from the regional housing inspectorate went unanswered</p>
+<ul class="facts"><li>170 registrations of residents in banned homes reported by municipalities</li><li>17 landlords fined in 2025, including three repeat offenders</li></ul>
+<div class="nuance">
+<p class="eyebrow">The nuance that matters</p>
+<h3 class="nuance-title">Unanswered does not mean let again</h3>
+<p>The answer says it “cannot be ruled out” that these homes were still let, without establishing that they were. Of the owners who replied, most say they live in the home themselves and several say they were never told about the ban. The period covered by the 170 registrations is not specified.</p>
+</div>
+</aside>
+<div class="story-foot"><span>BGM · Week 47</span><a href="#sommaire">Back to contents ↑</a></div>
+</div>
+</section>
+<section class="sheet story light" id="sujet-05-lez" aria-labelledby="sujet-05-lez-titre">
+<div class="inner">
+<span class="rank-mark" aria-hidden="true">05</span>
+<div class="copy">
+<p class="eyebrow">Mobility · Region · 05 / 06</p>
+<h2 id="sujet-05-lez-titre">Low emission zone: not a single fine for foreign number plates.</h2>
+<p class="lead">In 2025 and in 2026, up to 23 October, 17,717 fines targeted vehicles registered in Belgium.</p>
+<p class="body-text">The Brussels finance minister states this in answer to a written question. The cameras read foreign plates, but Brussels Fiscality has no access to other countries&#39; registration data: without the owner and the vehicle&#39;s Euro standard, no fine can follow.</p>
+<p class="actions"><a class="button secondary" href="https://governance.brussels/en/dossiers/lez">Read the dossier on governance.brussels</a></p>
+<p class="site-note muted">Sources and details are on the card on the site.</p>
+</div>
+<aside class="stat-panel inverse" aria-label="The figure and its nuance">
+<p class="status"><span class="badge">Estimate</span></p>
+<p class="stat">0</p>
+<p class="stat-label">LEZ fines for foreign-registered vehicles in 2025 and 2026</p>
+<ul class="facts"><li>9,561 fines for Belgian plates in 2025</li><li>8,156 in 2026, up to 23 October</li></ul>
+<div class="nuance">
+<p class="eyebrow">The nuance that matters</p>
+<h3 class="nuance-title">Agreements exist in Antwerp and Ghent</h3>
+<p>Both cities fine foreign drivers thanks to agreements with France and the Netherlands; the minister considers that these bring in little. The 17,717 fines should not be confused with the 2,907 fines also published this week, a different count covering vehicles banned since 1 January 2026.</p>
+</div>
+</aside>
+<div class="story-foot"><span>BGM · Week 47</span><a href="#sommaire">Back to contents ↑</a></div>
+</div>
+</section>
+<section class="sheet story dark" id="sujet-06-taxis" aria-labelledby="sujet-06-taxis-titre">
+<div class="inner">
+<span class="rank-mark" aria-hidden="true">06</span>
+<div class="copy">
+<p class="eyebrow">Mobility · Region · 06 / 06</p>
+<h2 id="sujet-06-taxis-titre">Taxis: zero emission is voted for 1 January 2027.</h2>
+<p class="lead">The Brussels Parliament adopted the ordinance on 20 November 2026. On the same day it adopted the framework for shared bikes.</p>
+<p class="body-text">From 1 January 2027, every taxi newly registered in Brussels must be zero-emission. The text takes up the support measures announced by the government in October. On the same date shared e-scooters disappear, under the other ordinance adopted on 20 November.</p>
+<p class="actions"><a class="button secondary" href="https://governance.brussels/en/domains/mobility">Explore the theme on governance.brussels</a></p>
+<p class="site-note muted">Sources and details are on the card on the site.</p>
+</div>
+<aside class="stat-panel" aria-label="The figure and its nuance">
+<p class="status"><span class="badge">To be confirmed</span></p>
+<p class="stat">9 years</p>
+<p class="stat-label">maximum service life for combustion taxis already registered, instead of 7</p>
+<ul class="facts"><li>No more combustion taxis by the end of 2035 at the latest</li><li>Taxis adapted for people with reduced mobility exempt</li></ul>
+<div class="nuance">
+<p class="eyebrow">The nuance that matters</p>
+<h3 class="nuance-title">The obligation applies to new registrations</h3>
+<p>Combustion taxis registered before 2027 may keep running for up to nine years, and the low emission zone continues to apply to them. Each vote is known through a single news agency dispatch: neither the adopted texts nor the record of the sitting were consulted for this issue.</p>
+</div>
+</aside>
+<div class="story-foot"><span>BGM · Week 47</span><a href="#sommaire">Back to contents ↑</a></div>
+</div>
+</section>
+<section class="sheet howto" id="comment-lire" aria-labelledby="comment-lire-titre">
+<div class="inner">
+<p class="eyebrow">Instructions</p>
+<h2 id="comment-lire-titre">How to read this magazine</h2>
+<ol>
+<li>Each topic starts with what changes, then what we know. The nuance, at the bottom of the panel, says what the figure does not measure.</li>
+<li>The status of the figure comes from the confidence level of the card on the site: official figure, estimate, or fact still to be confirmed.</li>
+<li>Sources, dates and details are not here: they are on the card, one click away, updated when the fact evolves.</li>
+<li>This magazine is a way in. The site follows each dossier over time, in four languages.</li>
+</ol>
+</div>
+</section>
+<section class="sheet card dark" aria-labelledby="carte-titre">
+<div class="inner card-inner">
+<p class="eyebrow">Who writes</p>
+<h2 id="carte-titre" class="sr-only">Business card</h2>
+<p class="card-manifesto">“My job is to make Brussels’ institutional complexity readable for organisations that depend on its decisions. The BGM is the public extension of that work: every week, turning the institutional lasagne into a readable grid for any Brussels resident who wants to understand, with no filter and no bias.”</p>
+<p class="card-signature">Zoltán Jánosi</p>
+<p class="card-publication"><strong>Brussels Governance Monitor</strong><br>Published by Advice That SRL · Brussels</p>
+<p class="card-offer">Strategy consulting · Institutional analysis · Tailored monitoring · Personal guidance</p>
+<p class="card-contact"><a href="mailto:contact@brusselsgovernance.be">contact@brusselsgovernance.be</a> · <a href="https://linkedin.com/in/zoltan" rel="noopener">linkedin.com/in/zoltan</a></p>
+</div>
+</section>
+<section class="sheet closing" aria-labelledby="cloture-titre">
+<div class="inner closing-grid">
+<div>
+<p class="eyebrow">Next</p>
+<h2 id="cloture-titre">Back next Monday.</h2>
+<p class="actions"><a class="button" href="https://governance.brussels/en">Go to governance.brussels</a> <a class="button secondary" href="https://governance.brussels/en/subscribe">Get the digest</a></p>
+</div>
+<div>
+<p class="eyebrow">This issue</p>
+<p class="muted">Week 47, 16 to 22 November 2026. Six topics.</p>
+<p class="muted">Address of this issue: <a href="https://magazine.governance.brussels/en/s47/">https://magazine.governance.brussels/en/s47/</a></p>
+<p class="footerline">Le Signal, the digest and this magazine are the weekly publications of Brussels Governance Monitor, an independent citizen monitor of Brussels regional governance. Non-partisan, factual, sourced.</p>
+</div>
+</div>
+</section>
+</main>
+</body>
+</html>

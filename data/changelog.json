@@ -1,5 +1,65 @@
 [
     {
+        "date": "2026-11-23",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "cleanliness",
+        "descriptions": {
+            "fr": "Propreté : collectes de déchets perturbées le 23 novembre 2026 à Bruxelles, jour de manifestation nationale. Selon BRUZZ, Bruxelles-Propreté ramasse les sacs restés sur les trottoirs à partir du mardi 24 novembre, en commençant par les sacs blancs et orange.",
+            "nl": "Netheid: afvalophaling verstoord op 23 november 2026 in Brussel, dag van een nationale betoging. Volgens BRUZZ haalt Net Brussel de achtergebleven zakken vanaf dinsdag 24 november op, eerst de witte en de oranje zakken.",
+            "en": "Cleanliness: waste collections disrupted on 23 November 2026 in Brussels, a day of national demonstration. According to BRUZZ, Bruxelles-Propreté collects the bags left on pavements from Tuesday 24 November, starting with white and orange bags.",
+            "de": "Sauberkeit: Müllabfuhr am 23.11.2026 in Brüssel gestört, Tag einer nationalen Demonstration. Laut BRUZZ holt Bruxelles-Propreté die liegen gebliebenen Säcke ab Dienstag, dem 24.11.2026, ab, zuerst die weißen und orangefarbenen."
+        }
+    },
+    {
+        "date": "2026-11-23",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "mobility",
+        "descriptions": {
+            "fr": "STIB : seules les lignes de métro 1 et 5 roulaient le 23 novembre 2026, jour de manifestation nationale à Bruxelles. Un tiers des lignes de tram et une partie des lignes de bus circulaient, selon le premier bilan de la STIB à 5 h 30.",
+            "nl": "MIVB: alleen de metrolijnen 1 en 5 reden op 23 november 2026, dag van een nationale betoging in Brussel. Een derde van de tramlijnen en een deel van de buslijnen reed, volgens de eerste balans van de MIVB om 5.30 uur.",
+            "en": "STIB: only metro lines 1 and 5 were running on 23 November 2026, a day of national demonstration in Brussels. A third of tram lines and some bus lines were running, according to STIB's first update at 5.30 a.m.",
+            "de": "STIB: Am 23.11.2026, Tag einer nationalen Demonstration in Brüssel, fuhren nur die Metrolinien 1 und 5. Ein Drittel der Straßenbahnlinien und ein Teil der Buslinien verkehrten, laut der ersten Bilanz der STIB um 5.30 Uhr."
+        }
+    },
+    {
+        "date": "2026-11-23",
+        "type": "updated",
+        "section": "communes",
+        "targetSlug": "schaerbeek",
+        "descriptions": {
+            "fr": "Avenue Huart Hamoir à Schaerbeek : 26 places de parking sur 281 supprimées, chantier vers 2028 ou 2029, selon La DH. La commune dit compenser les places par le parking de la SNCB à la gare de Schaerbeek, ouvert aux habitants.",
+            "nl": "Huart Hamoirlaan in Schaarbeek: 26 van de 281 parkeerplaatsen verdwijnen, werken rond 2028 of 2029, volgens La DH. De gemeente zegt de plaatsen te compenseren met de NMBS-parking aan het station van Schaarbeek, open voor bewoners.",
+            "en": "Avenue Huart Hamoir in Schaerbeek: 26 of 281 parking spaces removed, works around 2028 or 2029, La DH reports. The municipality says the spaces are offset by the SNCB car park at Schaerbeek station, open to residents.",
+            "de": "Avenue Huart Hamoir in Schaerbeek: 26 von 281 Parkplätzen fallen weg, Arbeiten um 2028 oder 2029, laut La DH. Die Gemeinde gleicht die Plätze nach eigenen Angaben mit dem SNCB-Parkplatz am Bahnhof Schaerbeek für Anwohner aus."
+        }
+    },
+    {
+        "date": "2026-11-23",
+        "type": "updated",
+        "section": "communes",
+        "targetSlug": "woluwe-saint-pierre",
+        "descriptions": {
+            "fr": "Woluwe-Saint-Pierre : la baisse du précompte pour les propriétaires occupants passe par une prime, selon La DH. Le taux reste à 2 700 centimes pour tous ; une prime automatique ramène les occupants dès l'exercice 2027 à l'équivalent de 2 200, Bruxelles Fiscalité n'autorisant pas de taux différencié.",
+            "nl": "Sint-Pieters-Woluwe: de lagere voorheffing voor eigenaars-bewoners loopt via een premie, volgens La DH. Het tarief blijft 2.700 opcentiemen voor iedereen; een automatische premie brengt bewoners vanaf aanslagjaar 2027 op het equivalent van 2.200, omdat Brussel Fiscaliteit geen verschillend tarief toelaat.",
+            "en": "Woluwe-Saint-Pierre: the property tax cut for owner-occupiers works through an allowance, La DH reports. The rate stays at 2,700 centimes for all; an automatic allowance brings occupiers to the equivalent of 2,200 from tax year 2027, as Brussels Fiscality does not allow differentiated rates.",
+            "de": "Woluwe-Saint-Pierre: Die Grundsteuersenkung für selbst nutzende Eigentümer erfolgt über eine Prämie, laut La DH. Der Satz bleibt für alle bei 2.700; eine automatische Prämie bringt Bewohner ab dem Steuerjahr 2027 auf das Äquivalent von 2.200, da Brüssel Fiskalität keine unterschiedlichen Sätze erlaubt."
+        }
+    },
+    {
+        "date": "2026-11-23",
+        "type": "updated",
+        "section": "communes",
+        "targetSlug": "bruxelles-ville",
+        "descriptions": {
+            "fr": "Ville de Bruxelles : la prime aux propriétaires occupants coûte 7,5 millions d'euros, selon La DH. La Ville a payé 500 000 euros à Bruxelles Fiscalité pour automatiser la prime ; Woluwe-Saint-Pierre adopte le même dispositif pour 2027.",
+            "nl": "Stad Brussel: de premie voor eigenaars-bewoners kost 7,5 miljoen euro, volgens La DH. De Stad betaalde 500.000 euro aan Brussel Fiscaliteit om de premie te automatiseren; Sint-Pieters-Woluwe neemt dezelfde regeling over voor 2027.",
+            "en": "City of Brussels: the allowance for owner-occupiers costs 7.5 million euros, La DH reports. The City paid 500,000 euros to Brussels Fiscality to automate the allowance; Woluwe-Saint-Pierre adopts the same scheme for 2027.",
+            "de": "Stadt Brüssel: Die Prämie für selbst nutzende Eigentümer kostet laut La DH 7,5 Millionen Euro. Die Stadt zahlte Brüssel Fiskalität 500.000 Euro für die Automatisierung der Prämie; Woluwe-Saint-Pierre übernimmt das System für 2027."
+        }
+    },
+    {
         "date": "2026-11-22",
         "type": "updated",
         "section": "communes",

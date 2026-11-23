@@ -360,8 +360,15 @@ function planifierFiche(f: Fiche, date: string, depot: Depot, plan: Plan): void 
     } catch (err) {
       if (!(err instanceof FrontmatterError)) throw err;
     }
+    // Seconde mise à jour du jour (23/11/2026) : la fiche fusionnée le matin
+    // se retouche si son changeSummary est réécrit (check_lastmodified l'admet) ;
+    // l'entrée du changelog du matin est remplacée (planifierChangelog).
     if (jour(baseLue?.lastModified) === date) {
-      ici(`déjà datée du ${date} sur la branche de base : une fiche fusionnée aujourd'hui ne se retouche pas dans une autre PR (contrôle lastModified de la CI)`);
+      if (typeof baseLue?.changeSummary === 'string' && baseLue.changeSummary.trim() === f.changeSummary[l].trim()) {
+        ici(`déjà datée du ${date} sur la branche de base avec ce même changeSummary : une seconde mise à jour du jour réécrit l'accroche`);
+      } else if (l === 'fr') {
+        plan.lignes.push(`${f.fiche} : déjà publiée ce ${date}, seconde mise à jour du jour (accroche et entrée du changelog remplacées)`);
+      }
     }
 
     let lignes = tete[1]!.split('\n');
@@ -482,13 +489,52 @@ function planifierChangelog(b: Brouillon, depot: Depot, plan: Plan): void {
   for (const f of b.fiches) {
     const [dossier, slug] = f.fiche.split('/') as [string, string];
     const section = SECTION_OF_DIR[`content/${dossier}`]!;
-    if (journal.some((e) => e.date === b.date && e.section === section && e.targetSlug === slug)) {
-      plan.problemes.push(`${CHANGELOG} : une entrée ${section}/${slug} existe déjà au ${b.date}`);
-    }
     ajouts.push({ date: b.date, type: 'updated', section, targetSlug: slug, descriptions: trim(f.changeSummary) });
   }
-  plan.ecritures.set(CHANGELOG, `${JSON.stringify([...ajouts, ...journal], null, INDENTATION[CHANGELOG])}\n`);
+  // Signaux actifs du jour : ceux du brouillon et ceux déjà au radar (second passage).
+  // Lecture silencieuse : planifierRadar signale lui-même un radar illisible.
+  let radar: { entries?: SignalRadar[] } | null = null;
+  try {
+    radar = JSON.parse(depot.lire(RADAR) ?? 'null');
+  } catch {
+    radar = null;
+  }
+  const signaux = [
+    ...b.radar.filter((r): r is Signal => !('archiver' in r)).map((r) => r.cards),
+    ...(radar?.entries ?? [])
+      .filter((e) => e.date === b.date && e.status === 'active' && Array.isArray(e.cards))
+      .map((e) => e.cards as string[]),
+  ];
+  const ordonnes = ordonnerPourAccueil(ajouts, signaux);
+  // Une fiche déjà au changelog ce jour-là (passage du matin fusionné) : son
+  // entrée est remplacée par la nouvelle, en tête, et non doublée.
+  const remplacees = journal.filter((e) => e.date === b.date && ajouts.some((a) => a.section === e.section && a.targetSlug === e.targetSlug));
+  const reste = journal.filter((e) => !remplacees.includes(e));
+  if (remplacees.length > 0) plan.lignes.push(`changelog : ${remplacees.length} entrée(s) du ${b.date} remplacée(s)`);
+  if (ordonnes[0] !== ajouts[0]) {
+    plan.lignes.push(`changelog : ${ordonnes[0]!.targetSlug} placée en tête de la barre, pour que le signal du jour reste visible sur l'accueil`);
+  }
+  plan.ecritures.set(CHANGELOG, `${JSON.stringify([...ordonnes, ...reste], null, INDENTATION[CHANGELOG])}\n`);
   plan.lignes.push(`changelog : ${ajouts.length} entrée(s) en tête`);
+}
+
+/**
+ * La première entrée du jour est la barre « Dernière mise à jour » de l'accueil,
+ * et l'accueil écarte les signaux qui visent cette fiche (selectHomepageSignals).
+ * Si tous les signaux du jour la visent, aucun ne s'affiche : incidents du
+ * 30/09/2026 et du 23/11/2026 (signal STIB sur mobility, CI rouge sur
+ * radar-accueil-invariants). On place alors en tête la première fiche du
+ * brouillon qui laisse voir un signal ; l'ordre du brouillon reste sinon intact.
+ */
+export function ordonnerPourAccueil<T extends { targetSlug: string | null }>(ajouts: T[], signaux: string[][]): T[] {
+  const tete = ajouts[0];
+  if (!tete || signaux.length === 0) return ajouts;
+  // Un signal s'affiche si la fiche de la barre n'est pas dans ses cartes.
+  const laisseVoir = (slug: string | null) => slug === null || signaux.some((cards) => !cards.includes(slug));
+  if (laisseVoir(tete.targetSlug)) return ajouts;
+  const remplacant = ajouts.find((a) => laisseVoir(a.targetSlug));
+  if (!remplacant) return ajouts;
+  return [remplacant, ...ajouts.filter((a) => a !== remplacant)];
 }
 
 function trim(t: ParLangue): ParLangue {

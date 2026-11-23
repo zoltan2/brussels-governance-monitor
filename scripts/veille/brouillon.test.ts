@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { CHANGELOG, RADAR, appliquerOperation, lireBrouillon, planifier, retoucherEntete, type Brouillon, type Depot } from './brouillon';
+import { CHANGELOG, RADAR, appliquerOperation, lireBrouillon, ordonnerPourAccueil, planifier, retoucherEntete, type Brouillon, type Depot } from './brouillon';
 import { readGuardFrontmatter } from '../../src/lib/frontmatter';
 
 const JOUR = '2026-10-13';
@@ -109,11 +109,21 @@ describe('planifier, fiche', () => {
     expect(readGuardFrontmatter(plan.ecritures.get('content/commune-cards/anderlecht.en.mdx')!)!.changeSummary).toBe(cs.en);
   });
 
-  it('refuse une fiche déjà datée du jour sur la branche de base', () => {
+  // 23/11/2026 : seconde mise à jour du jour, après la fusion du passage du matin.
+  it('retouche une fiche déjà datée du jour si son changeSummary est réécrit', () => {
     const base = fichiersDeBase();
     const dejaFusionnee = { ...base, 'content/commune-cards/anderlecht.fr.mdx': fiche('fr', JOUR) };
     const plan = planifier(brouillon(), depot(base, dejaFusionnee));
-    expect(plan.problemes).toEqual([expect.stringMatching(/anderlecht\.fr\.mdx : déjà datée du 2026-10-13/)]);
+    expect(plan.problemes).toEqual([]);
+    expect(plan.lignes.join('\n')).toMatch(/commune-cards\/anderlecht : déjà publiée ce 2026-10-13, seconde mise à jour du jour/);
+  });
+
+  it('refuse une fiche déjà datée du jour dont le changeSummary ne change pas', () => {
+    const base = fichiersDeBase();
+    const cs = 'Un bâtiment communal est occupé pour 400 euros par an. Suite du résumé fr';
+    const fusionnee = fiche('fr', JOUR).replace('changeSummary: "Ancien résumé."', `changeSummary: "${cs}"`);
+    const plan = planifier(brouillon(), depot(base, { ...base, 'content/commune-cards/anderlecht.fr.mdx': fusionnee }));
+    expect(plan.problemes).toEqual([expect.stringMatching(/anderlecht\.fr\.mdx : déjà datée du 2026-10-13 sur la branche de base avec ce même changeSummary/)]);
   });
 
   it('signale toutes les ancres fautives, pas seulement la première', () => {
@@ -207,7 +217,6 @@ describe('planifier, fiche', () => {
     const apres = { ...fichiersDeBase(), ...Object.fromEntries(premier.ecritures) };
     const p = planifier(brouillon(), depot(apres, fichiersDeBase())).problemes.join('\n');
     expect(p).toMatch(/texte déjà présent dans la fiche/);
-    expect(p).toMatch(/une entrée communes\/anderlecht existe déjà au 2026-10-13/);
   });
 });
 
@@ -406,11 +415,45 @@ describe('planifier, changelog et radar', () => {
     expect(fautes).toMatch(/signal à archiver introuvable, 2026-01-01-inconnu/);
   });
 
+  it('remplace l\'entrée du changelog que la fiche a déjà ce jour-là (23/11/2026)', () => {
+    const f = fichiersDeBase();
+    const matin = { date: JOUR, type: 'updated', section: 'communes', targetSlug: 'anderlecht', descriptions: parLangue('Accroche du matin') };
+    const autre = { date: JOUR, type: 'updated', section: 'domains', targetSlug: 'mobility', descriptions: parLangue('Autre fiche du matin') };
+    f[CHANGELOG] = `${JSON.stringify([autre, matin, ...JSON.parse(f[CHANGELOG]!)], null, 4)}\n`;
+    const plan = planifier(brouillon(), depot(f));
+    expect(plan.problemes).toEqual([]);
+    const journal = JSON.parse(plan.ecritures.get(CHANGELOG)!) as { date: string; targetSlug: string; descriptions: { fr: string } }[];
+    expect(journal.map((e) => e.targetSlug)).toEqual(['anderlecht', 'mobility', 'budget']);
+    expect(journal[0]!.descriptions.fr).toMatch(/^Un bâtiment communal/);
+    expect(plan.lignes.join('\n')).toMatch(/1 entrée\(s\) du 2026-10-13 remplacée\(s\)/);
+  });
+
   it('refuse un fichier de données qui ne se réécrit pas à l\'identique', () => {
     const f = fichiersDeBase();
     f[CHANGELOG] = JSON.stringify(JSON.parse(f[CHANGELOG]!), null, 2);
     const plan = planifier(brouillon(), depot(f));
     expect(plan.problemes).toEqual([expect.stringMatching(/changelog\.json : le fichier ne se réécrit pas à l'identique/)]);
     expect(plan.ecritures.has(CHANGELOG)).toBe(false);
+  });
+});
+
+describe('ordonnerPourAccueil (23/11/2026)', () => {
+  const e = (slug: string) => ({ targetSlug: slug });
+  const slugs = (l: { targetSlug: string | null }[]) => l.map((x) => x.targetSlug);
+
+  it('garde l\'ordre du brouillon quand un signal reste visible', () => {
+    expect(slugs(ordonnerPourAccueil([e('mobility'), e('cleanliness')], [['cleanliness']]))).toEqual(['mobility', 'cleanliness']);
+    expect(slugs(ordonnerPourAccueil([e('mobility'), e('cleanliness')], [['mobility'], ['schaerbeek']]))).toEqual(['mobility', 'cleanliness']);
+    expect(slugs(ordonnerPourAccueil([e('mobility'), e('cleanliness')], []))).toEqual(['mobility', 'cleanliness']);
+  });
+
+  it('met en tête une autre fiche quand tous les signaux du jour visent la barre', () => {
+    // Le 23/11 : un seul signal, sur mobility, première fiche du brouillon : CI rouge.
+    expect(slugs(ordonnerPourAccueil([e('mobility'), e('cleanliness'), e('schaerbeek')], [['mobility']]))).toEqual(['cleanliness', 'mobility', 'schaerbeek']);
+    expect(slugs(ordonnerPourAccueil([e('mobility'), e('cleanliness'), e('schaerbeek')], [['mobility', 'cleanliness']]))).toEqual(['schaerbeek', 'mobility', 'cleanliness']);
+  });
+
+  it('ne change rien si aucune fiche ne laisse voir un signal', () => {
+    expect(slugs(ordonnerPourAccueil([e('mobility')], [['mobility']]))).toEqual(['mobility']);
   });
 });

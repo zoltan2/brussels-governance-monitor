@@ -81,14 +81,30 @@ check_empty_sources() {
 
 check_lastmodified() {
   # $1 = base ref (ex: origin/main) ; stdin = liste de fichiers
-  local base="$1" violations="" f lm_head lm_base
+  #
+  # Seconde mise à jour du même jour (23/11/2026) : une fiche fusionnée le matin
+  # porte déjà la date du jour, qui ne peut pas bouger. Elle passe si elle est
+  # datée d'aujourd'hui (heure de Bruxelles) ET que son changeSummary a été
+  # réécrit : c'est une vraie mise à jour, pas une retouche oubliée.
+  # CONTENT_LINT_TODAY fixe « aujourd'hui » pour les tests.
+  local base="$1" violations="" f lm_head lm_base cs_head cs_base fm_base
+  local today="${CONTENT_LINT_TODAY:-$(TZ=Europe/Brussels date +%F)}"
   while IFS= read -r f; do
     [ -n "$f" ] && [ -f "$f" ] || continue
     _in_scope "$f" || continue
     lm_head="$(_frontmatter "$f" | grep '^lastModified:' | head -1 | sed 's/lastModified:[[:space:]]*//' | tr -d "\"'")"
     [ -n "$lm_head" ] || continue
-    lm_base="$(git show "$base:$f" 2>/dev/null | awk 'NR==1{if(/^---$/) f=1; next} f && /^---$/{exit} f{print}' | grep '^lastModified:' | head -1 | sed 's/lastModified:[[:space:]]*//' | tr -d "\"'")"
+    fm_base="$(git show "$base:$f" 2>/dev/null | awk 'NR==1{if(/^---$/) f=1; next} f && /^---$/{exit} f{print}')"
+    lm_base="$(printf '%s\n' "$fm_base" | grep '^lastModified:' | head -1 | sed 's/lastModified:[[:space:]]*//' | tr -d "\"'")"
     if [ "$lm_head" = "$lm_base" ]; then
+      if [ "${lm_head:0:10}" = "$today" ]; then
+        cs_head="$(_frontmatter "$f" | grep '^changeSummary:' | head -1)"
+        cs_base="$(printf '%s\n' "$fm_base" | grep '^changeSummary:' | head -1)"
+        if [ -n "$cs_head" ] && [ "$cs_head" != "$cs_base" ]; then
+          echo "OK: $f déjà datée du $today sur la base, changeSummary réécrit (seconde mise à jour du jour)"
+          continue
+        fi
+      fi
       violations="$violations\n$f (lastModified: $lm_head — inchangé)"
     fi
   done

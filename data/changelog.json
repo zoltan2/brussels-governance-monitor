@@ -3,6 +3,42 @@
         "date": "2026-11-23",
         "type": "updated",
         "section": "domains",
+        "targetSlug": "security",
+        "descriptions": {
+            "fr": "Sécurité : safe.brussels développe avec l'Agence spatiale européenne un outil d'IA pour les évacuations, selon la RTBF. L'outil est en développement, sans date de test donnée ; le projet a été présenté aux équipes d'intervention lors d'un forum.",
+            "nl": "Veiligheid: safe.brussels ontwikkelt met de ESA een AI-tool voor evacuaties, volgens de RTBF. De tool is in ontwikkeling, zonder testdatum; het project werd op een forum aan de interventieteams voorgesteld.",
+            "en": "Security: safe.brussels is developing an AI tool for evacuations with the European Space Agency, RTBF reports. The tool is under development, with no test date given; the project was presented to emergency teams at a forum.",
+            "de": "Sicherheit: safe.brussels entwickelt mit der ESA ein KI-Werkzeug für Evakuierungen, laut RTBF. Das Werkzeug ist in Entwicklung, ein Testtermin wird nicht genannt; das Projekt wurde Einsatzteams auf einem Forum vorgestellt."
+        }
+    },
+    {
+        "date": "2026-11-23",
+        "type": "updated",
+        "section": "communes",
+        "targetSlug": "bruxelles-ville",
+        "descriptions": {
+            "fr": "Ville de Bruxelles : le CPAS ouvre quatre salles d'études pour le blocus, selon Belga. La prime aux propriétaires occupants coûte 7,5 millions d'euros à la Ville, selon La DH.",
+            "nl": "Stad Brussel: het OCMW opent vier studiezalen voor de blok, volgens Belga. De premie voor eigenaars-bewoners kost de Stad 7,5 miljoen euro, volgens La DH.",
+            "en": "City of Brussels: the CPAS opens four study rooms for the exam revision period, Belga reports. The allowance for owner-occupiers costs the City 7.5 million euros, La DH reports.",
+            "de": "Stadt Brüssel: Das ÖSHZ öffnet vier Lernräume für die Prüfungsvorbereitung, laut Belga. Die Prämie für selbst nutzende Eigentümer kostet die Stadt laut La DH 7,5 Millionen Euro."
+        }
+    },
+    {
+        "date": "2026-11-23",
+        "type": "updated",
+        "section": "domains",
+        "targetSlug": "social",
+        "descriptions": {
+            "fr": "Social : le CPAS de la Ville de Bruxelles ouvre quatre salles d'études pour le blocus, selon Belga. Elles restent ouvertes jusqu'au 29 janvier 2027 et comptent près de 200 places au total, selon son président.",
+            "nl": "Sociaal: het OCMW van de Stad Brussel opent vier studiezalen voor de blok, volgens Belga. De zalen blijven open tot 29 januari 2027 en tellen volgens de voorzitter samen bijna 200 plaatsen.",
+            "en": "Social: the City of Brussels CPAS opens four study rooms for the exam revision period, Belga reports. They stay open until 29 January 2027 and total nearly 200 places, according to its president.",
+            "de": "Soziales: Das ÖSHZ der Stadt Brüssel öffnet vier Lernräume für die Prüfungsvorbereitung, laut Belga. Sie bleiben bis zum 29.01.2027 geöffnet und umfassen laut dem Vorsitzenden insgesamt fast 200 Plätze."
+        }
+    },
+    {
+        "date": "2026-11-23",
+        "type": "updated",
+        "section": "domains",
         "targetSlug": "cleanliness",
         "descriptions": {
             "fr": "Propreté : collectes de déchets perturbées le 23 novembre 2026 à Bruxelles, jour de manifestation nationale. Selon BRUZZ, Bruxelles-Propreté ramasse les sacs restés sur les trottoirs à partir du mardi 24 novembre, en commençant par les sacs blancs et orange.",
@@ -45,18 +81,6 @@
             "nl": "Sint-Pieters-Woluwe: de lagere voorheffing voor eigenaars-bewoners loopt via een premie, volgens La DH. Het tarief blijft 2.700 opcentiemen voor iedereen; een automatische premie brengt bewoners vanaf aanslagjaar 2027 op het equivalent van 2.200, omdat Brussel Fiscaliteit geen verschillend tarief toelaat.",
             "en": "Woluwe-Saint-Pierre: the property tax cut for owner-occupiers works through an allowance, La DH reports. The rate stays at 2,700 centimes for all; an automatic allowance brings occupiers to the equivalent of 2,200 from tax year 2027, as Brussels Fiscality does not allow differentiated rates.",
             "de": "Woluwe-Saint-Pierre: Die Grundsteuersenkung für selbst nutzende Eigentümer erfolgt über eine Prämie, laut La DH. Der Satz bleibt für alle bei 2.700; eine automatische Prämie bringt Bewohner ab dem Steuerjahr 2027 auf das Äquivalent von 2.200, da Brüssel Fiskalität keine unterschiedlichen Sätze erlaubt."
-        }
-    },
-    {
-        "date": "2026-11-23",
-        "type": "updated",
-        "section": "communes",
-        "targetSlug": "bruxelles-ville",
-        "descriptions": {
-            "fr": "Ville de Bruxelles : la prime aux propriétaires occupants coûte 7,5 millions d'euros, selon La DH. La Ville a payé 500 000 euros à Bruxelles Fiscalité pour automatiser la prime ; Woluwe-Saint-Pierre adopte le même dispositif pour 2027.",
-            "nl": "Stad Brussel: de premie voor eigenaars-bewoners kost 7,5 miljoen euro, volgens La DH. De Stad betaalde 500.000 euro aan Brussel Fiscaliteit om de premie te automatiseren; Sint-Pieters-Woluwe neemt dezelfde regeling over voor 2027.",
-            "en": "City of Brussels: the allowance for owner-occupiers costs 7.5 million euros, La DH reports. The City paid 500,000 euros to Brussels Fiscality to automate the allowance; Woluwe-Saint-Pierre adopts the same scheme for 2027.",
-            "de": "Stadt Brüssel: Die Prämie für selbst nutzende Eigentümer kostet laut La DH 7,5 Millionen Euro. Die Stadt zahlte Brüssel Fiskalität 500.000 Euro für die Automatisierung der Prämie; Woluwe-Saint-Pierre übernimmt das System für 2027."
         }
     },
     {

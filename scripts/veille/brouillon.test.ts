@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { CHANGELOG, RADAR, appliquerOperation, lireBrouillon, planifier, retoucherEntete, type Brouillon, type Depot } from './brouillon';
+import { CHANGELOG, RADAR, appliquerOperation, lireBrouillon, ordonnerPourAccueil, planifier, retoucherEntete, type Brouillon, type Depot } from './brouillon';
 import { readGuardFrontmatter } from '../../src/lib/frontmatter';
 
 const JOUR = '2026-10-13';
@@ -412,5 +412,26 @@ describe('planifier, changelog et radar', () => {
     const plan = planifier(brouillon(), depot(f));
     expect(plan.problemes).toEqual([expect.stringMatching(/changelog\.json : le fichier ne se réécrit pas à l'identique/)]);
     expect(plan.ecritures.has(CHANGELOG)).toBe(false);
+  });
+});
+
+describe('ordonnerPourAccueil (23/11/2026)', () => {
+  const e = (slug: string) => ({ targetSlug: slug });
+  const slugs = (l: { targetSlug: string | null }[]) => l.map((x) => x.targetSlug);
+
+  it('garde l\'ordre du brouillon quand un signal reste visible', () => {
+    expect(slugs(ordonnerPourAccueil([e('mobility'), e('cleanliness')], [['cleanliness']]))).toEqual(['mobility', 'cleanliness']);
+    expect(slugs(ordonnerPourAccueil([e('mobility'), e('cleanliness')], [['mobility'], ['schaerbeek']]))).toEqual(['mobility', 'cleanliness']);
+    expect(slugs(ordonnerPourAccueil([e('mobility'), e('cleanliness')], []))).toEqual(['mobility', 'cleanliness']);
+  });
+
+  it('met en tête une autre fiche quand tous les signaux du jour visent la barre', () => {
+    // Le 23/11 : un seul signal, sur mobility, première fiche du brouillon : CI rouge.
+    expect(slugs(ordonnerPourAccueil([e('mobility'), e('cleanliness'), e('schaerbeek')], [['mobility']]))).toEqual(['cleanliness', 'mobility', 'schaerbeek']);
+    expect(slugs(ordonnerPourAccueil([e('mobility'), e('cleanliness'), e('schaerbeek')], [['mobility', 'cleanliness']]))).toEqual(['schaerbeek', 'mobility', 'cleanliness']);
+  });
+
+  it('ne change rien si aucune fiche ne laisse voir un signal', () => {
+    expect(slugs(ordonnerPourAccueil([e('mobility')], [['mobility']]))).toEqual(['mobility']);
   });
 });

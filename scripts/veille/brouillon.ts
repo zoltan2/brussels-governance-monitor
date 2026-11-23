@@ -487,8 +487,45 @@ function planifierChangelog(b: Brouillon, depot: Depot, plan: Plan): void {
     }
     ajouts.push({ date: b.date, type: 'updated', section, targetSlug: slug, descriptions: trim(f.changeSummary) });
   }
-  plan.ecritures.set(CHANGELOG, `${JSON.stringify([...ajouts, ...journal], null, INDENTATION[CHANGELOG])}\n`);
+  // Signaux actifs du jour : ceux du brouillon et ceux déjà au radar (second passage).
+  // Lecture silencieuse : planifierRadar signale lui-même un radar illisible.
+  let radar: { entries?: SignalRadar[] } | null = null;
+  try {
+    radar = JSON.parse(depot.lire(RADAR) ?? 'null');
+  } catch {
+    radar = null;
+  }
+  const signaux = [
+    ...b.radar.filter((r): r is Signal => !('archiver' in r)).map((r) => r.cards),
+    ...(radar?.entries ?? [])
+      .filter((e) => e.date === b.date && e.status === 'active' && Array.isArray(e.cards))
+      .map((e) => e.cards as string[]),
+  ];
+  const ordonnes = ordonnerPourAccueil(ajouts, signaux);
+  if (ordonnes[0] !== ajouts[0]) {
+    plan.lignes.push(`changelog : ${ordonnes[0]!.targetSlug} placée en tête de la barre, pour que le signal du jour reste visible sur l'accueil`);
+  }
+  plan.ecritures.set(CHANGELOG, `${JSON.stringify([...ordonnes, ...journal], null, INDENTATION[CHANGELOG])}\n`);
   plan.lignes.push(`changelog : ${ajouts.length} entrée(s) en tête`);
+}
+
+/**
+ * La première entrée du jour est la barre « Dernière mise à jour » de l'accueil,
+ * et l'accueil écarte les signaux qui visent cette fiche (selectHomepageSignals).
+ * Si tous les signaux du jour la visent, aucun ne s'affiche : incidents du
+ * 30/09/2026 et du 23/11/2026 (signal STIB sur mobility, CI rouge sur
+ * radar-accueil-invariants). On place alors en tête la première fiche du
+ * brouillon qui laisse voir un signal ; l'ordre du brouillon reste sinon intact.
+ */
+export function ordonnerPourAccueil<T extends { targetSlug: string | null }>(ajouts: T[], signaux: string[][]): T[] {
+  const tete = ajouts[0];
+  if (!tete || signaux.length === 0) return ajouts;
+  // Un signal s'affiche si la fiche de la barre n'est pas dans ses cartes.
+  const laisseVoir = (slug: string | null) => slug === null || signaux.some((cards) => !cards.includes(slug));
+  if (laisseVoir(tete.targetSlug)) return ajouts;
+  const remplacant = ajouts.find((a) => laisseVoir(a.targetSlug));
+  if (!remplacant) return ajouts;
+  return [remplacant, ...ajouts.filter((a) => a !== remplacant)];
 }
 
 function trim(t: ParLangue): ParLangue {

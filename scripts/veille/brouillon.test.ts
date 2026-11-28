@@ -85,6 +85,47 @@ describe('lireBrouillon', () => {
   });
 });
 
+describe('brouillon en français seul (veille en chaîne, lot 2)', () => {
+  const frSeul = () =>
+    JSON.stringify({
+      date: JOUR,
+      fiches: [
+        {
+          fiche: 'commune-cards/anderlecht',
+          changeSummary: { fr: 'Un bâtiment communal est occupé pour 400 euros par an. Suite du résumé.' },
+          sources: [{ url: 'https://www.dhnet.be/article', type: 'media', label: { fr: 'La DH, bâtiment communal' } }],
+          corps: [{ op: 'avant', ancre: { fr: ANCRE.fr }, texte: { fr: '## Jeunesse\n\nParagraphe neuf' } }],
+        },
+      ],
+    });
+
+  it('est refusé sans l\'option : les quatre langues restent obligatoires', () => {
+    expect('problemes' in lireBrouillon(frSeul())).toBe(true);
+  });
+
+  it('avec l\'option, ne planifie que la fiche française', () => {
+    const lu = lireBrouillon(frSeul(), { frSeul: true });
+    if ('problemes' in lu) throw new Error(lu.problemes.join('\n'));
+    const plan = planifier(lu.brouillon, depot(fichiersDeBase()), ['fr']);
+    expect(plan.problemes).toEqual([]);
+    expect(plan.mdx).toEqual(['content/commune-cards/anderlecht.fr.mdx']);
+    expect(plan.ecritures.get('content/commune-cards/anderlecht.fr.mdx')).toContain('## Jeunesse\n\nParagraphe neuf');
+    expect(plan.ecritures.has('content/commune-cards/anderlecht.nl.mdx')).toBe(false);
+  });
+
+  it('une ancre française absente reste un problème', () => {
+    const lu = lireBrouillon(frSeul().replace(JSON.stringify(ANCRE.fr).slice(1, -1), '## Titre qui n\'existe pas'), { frSeul: true });
+    if ('problemes' in lu) throw new Error(lu.problemes.join('\n'));
+    expect(planifier(lu.brouillon, depot(fichiersDeBase()), ['fr']).problemes.join(' ')).toMatch(/anderlecht\.fr\.mdx/);
+  });
+
+  it('un bloc traduit à moitié n\'est pas complété', () => {
+    const moitie = frSeul().replace('"changeSummary":{"fr":', '"changeSummary":{"nl":"Half.","fr":');
+    const lu = lireBrouillon(moitie, { frSeul: true });
+    expect('problemes' in lu && lu.problemes.join(' ')).toMatch(/changeSummary/);
+  });
+});
+
 describe('planifier, fiche', () => {
   it('écrit les quatre langues, le frontmatter, la source en tête et la section avant l\'ancre', () => {
     const plan = planifier(brouillon(), depot(fichiersDeBase()));

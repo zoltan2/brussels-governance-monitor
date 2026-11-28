@@ -153,14 +153,33 @@ export type Brouillon = z.infer<typeof brouillon>;
 type Fiche = Brouillon['fiches'][number];
 type Signal = z.infer<typeof signal>;
 
+/**
+ * Brouillon écrit en français seul (veille en chaîne, lot 2 : la traduction
+ * vient après, par une autre exécution). Chaque bloc qui porte `fr` sans aucune
+ * autre langue reçoit le français dans les trois autres, le temps du contrôle :
+ * le schéma reste le même, et `planifier` ne regarde alors que la fiche française.
+ * Un bloc traduit à moitié n'est pas complété : le schéma le refuse.
+ */
+function completerDepuisFr(noeud: unknown): void {
+  if (Array.isArray(noeud)) {
+    for (const n of noeud) completerDepuisFr(n);
+  } else if (noeud && typeof noeud === 'object') {
+    const o = noeud as Record<string, unknown>;
+    if (typeof o.fr === 'string' && AUTRES.every((l) => !(l in o))) for (const l of AUTRES) o[l] = o.fr;
+    for (const v of Object.values(o)) completerDepuisFr(v);
+  }
+}
+const AUTRES = ['nl', 'en', 'de'] as const;
+
 /** Lit un brouillon YAML. Les dates restent des chaînes (schéma JSON de js-yaml). */
-export function lireBrouillon(source: string): { brouillon: Brouillon } | { problemes: string[] } {
+export function lireBrouillon(source: string, options: { frSeul?: boolean } = {}): { brouillon: Brouillon } | { problemes: string[] } {
   let brut: unknown;
   try {
     brut = yaml.load(source, { schema: yaml.JSON_SCHEMA });
   } catch (err) {
     return { problemes: [`YAML illisible : ${err instanceof Error ? err.message.split('\n')[0] : String(err)}`] };
   }
+  if (options.frSeul) completerDepuisFr(brut);
   const lu = brouillon.safeParse(brut);
   if (lu.success) return { brouillon: lu.data };
   return { problemes: lu.error.issues.map((i) => `${i.path.join('.') || 'brouillon'} : ${i.message}`) };
@@ -337,9 +356,9 @@ function remplacerCoalition(lignes: string[], partis: string[]): string | null {
   return null;
 }
 
-function planifierFiche(f: Fiche, date: string, depot: Depot, plan: Plan): void {
+function planifierFiche(f: Fiche, date: string, depot: Depot, plan: Plan, langues: readonly Locale[]): void {
   const accroches: string[] = [];
-  for (const l of LOCALES) {
+  for (const l of langues) {
     const chemin = `content/${f.fiche}.${l}.mdx`;
     const ici = (m: string) => plan.problemes.push(`${chemin} : ${m}`);
     const brut = depot.lire(chemin);
@@ -631,14 +650,17 @@ function planifierRadar(b: Brouillon, depot: Depot, plan: Plan): void {
   plan.lignes.push(`radar : ${nouveaux.length - remplaces} ajouté(s), ${remplaces} remplacé(s), ${archives} archivé(s)`);
 }
 
-/** Calcule tout ce que le brouillon écrirait, sans rien écrire. */
-export function planifier(b: Brouillon, depot: Depot): Plan {
+/**
+ * Calcule tout ce que le brouillon écrirait, sans rien écrire. `langues` restreint
+ * les fiches touchées (contrôle à blanc d'un brouillon en français seul).
+ */
+export function planifier(b: Brouillon, depot: Depot, langues: readonly Locale[] = LOCALES): Plan {
   const plan: Plan = { problemes: [], avertissements: [], ecritures: new Map(), mdx: [], lignes: [] };
   const vues = new Set<string>();
   for (const f of b.fiches) {
     if (vues.has(f.fiche)) plan.problemes.push(`${f.fiche} : fiche présente deux fois dans le brouillon`);
     vues.add(f.fiche);
-    planifierFiche(f, b.date, depot, plan);
+    planifierFiche(f, b.date, depot, plan, langues);
   }
   planifierChangelog(b, depot, plan);
   planifierRadar(b, depot, plan);

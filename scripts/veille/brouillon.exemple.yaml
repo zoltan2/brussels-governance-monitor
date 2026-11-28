@@ -4,7 +4,10 @@
 #   npm run veille:appliquer -- .local/veille/brouillon.yaml --dry-run   (avant de le montrer)
 #   npm run veille:appliquer -- .local/veille/brouillon.yaml             (après validation)
 #
-# Les quatre langues sont obligatoires partout. Les blocs « | » gardent les
+# Passage autonome (veille en chaîne) : le brouillon s'écrit d'abord en français seul (clé fr),
+# se contrôle par --dry-run --fr-seul, puis une autre exécution ajoute nl, en et de.
+#
+# Pour appliquer, les quatre langues sont obligatoires partout. Les blocs « | » gardent les
 # guillemets et les apostrophes tels quels.
 date: 2026-10-13
 

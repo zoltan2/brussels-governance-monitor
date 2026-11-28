@@ -6,6 +6,7 @@
  * un exemple : scripts/veille/brouillon.exemple.yaml.
  *
  *   npm run veille:appliquer -- <brouillon.yaml> --dry-run
+ *   npm run veille:appliquer -- <brouillon.yaml> --dry-run --fr-seul   (brouillon en français seul, avant traduction)
  *     À lancer AVANT de montrer le brouillon : vérifie tout, ne laisse rien.
  *     Les contrôles du dépôt lisent l'arbre de travail : les fichiers sont donc
  *     écrits, contrôlés, puis remis dans leur état d'origine, quoi qu'il arrive.
@@ -108,8 +109,13 @@ async function main(): Promise<number> {
   const fichier = args.find((a) => !a.startsWith('--'));
   const drapeau = (d: string) => args.includes(d);
   const aBlanc = drapeau('--dry-run');
+  const frSeul = drapeau('--fr-seul');
   if (!fichier) {
-    console.error('usage : npm run veille:appliquer -- <brouillon.yaml> [--dry-run] [--sans-velite] [--avec-velite] [--sans-fetch]');
+    console.error('usage : npm run veille:appliquer -- <brouillon.yaml> [--dry-run] [--fr-seul] [--sans-velite] [--avec-velite] [--sans-fetch]');
+    return 2;
+  }
+  if (frSeul && !aBlanc) {
+    console.error('FAIL : --fr-seul ne contrôle que le français, il ne s\'emploie qu\'avec --dry-run. Rien n\'a été écrit.');
     return 2;
   }
   const echec = (titre: string, details: string[]): number => {
@@ -119,7 +125,7 @@ async function main(): Promise<number> {
     return 1;
   };
 
-  const lu = lireBrouillon(fs.readFileSync(fichier, 'utf8'));
+  const lu = lireBrouillon(fs.readFileSync(fichier, 'utf8'), { frSeul });
   if ('problemes' in lu) return echec(`brouillon invalide (${fichier})`, lu.problemes);
 
   const racine = git(process.cwd(), ['rev-parse', '--show-toplevel']).trim();
@@ -131,7 +137,7 @@ async function main(): Promise<number> {
     }
   }
 
-  const plan = planifier(lu.brouillon, depotSur(racine));
+  const plan = planifier(lu.brouillon, depotSur(racine), frSeul ? ['fr'] : undefined);
   if (plan.problemes.length > 0) return echec(`${plan.problemes.length} problème(s) dans le brouillon`, plan.problemes);
 
   const chemins = [...plan.ecritures.keys()];
@@ -183,7 +189,7 @@ async function main(): Promise<number> {
   for (const l of plan.lignes) console.log(l);
   for (const a of plan.avertissements) console.log(`attention : ${a}`);
   if (aBlanc) {
-    console.log(`OK à blanc : ${chemins.length} fichier(s) contrôlés, rien n'est resté écrit.`);
+    console.log(`OK à blanc${frSeul ? ' (français seul, traduction à faire)' : ''} : ${chemins.length} fichier(s) contrôlés, rien n'est resté écrit.`);
   } else {
     console.log(`OK : ${chemins.length} fichier(s) écrits. À commiter :\ngit add ${chemins.join(' ')}`);
   }
